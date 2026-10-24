@@ -476,7 +476,8 @@ function sinIA(q, r){
   if (r){ const sec = [['Ingredientes', r.ingredientes], ['Paso', r.pasos], ['Tiempos', r.tiempos], ['Evitar', r.evitar], ['Variación', r.variaciones], ['Nota', r.notas||[]]];
     for (const [k, arr] of sec) for (const x of arr) fuente.push(k + ': ' + String(x).replace(/^➕\s*/,'')); }
   else for (const t of D.tecnica) for (const x of t.items) fuente.push(t.titulo + ': ' + x);
-  const top = fuente.map(x => [puntua(x), x]).filter(a => a[0] > 0).sort((a,b) => b[0]-a[0]).slice(0, 4).map(a => '• ' + a[1]);
+  const qn = N(q), bono = x => (/tiempo|segundo|tarda|vapor/.test(qn) && /^Tiempos/.test(x) ? 3 : 0) + (/evitar|quema|mal|error/.test(qn) && /^Evitar/.test(x) ? 2 : 0) + (/lleva|ingrediente|cuant[oa]s? (ml|g|oz)/.test(qn) && /^Ingredientes/.test(x) ? 2 : 0);
+  const top = fuente.map(x => [puntua(x) + (puntua(x) ? bono(x) : 0), x]).filter(a => a[0] > 0).sort((a,b) => b[0]-a[0]).slice(0, 4).map(a => '• ' + a[1]);
   const aviso = 'La IA no está corriendo en este aparato, así que te contesto con lo que dice el recetario:';
   if (r && top.length) return { respuesta: `${aviso}\n\n${r.titulo}\n${top.join('\n')}`, faltan: [], cambios: [], abrir: r.slug };
   if (r) return { respuesta: `${aviso} te abro la hoja del ${r.titulo}.`, faltan: [], cambios: [], abrir: r.slug };
