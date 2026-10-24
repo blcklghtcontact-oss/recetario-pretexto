@@ -381,15 +381,20 @@ async function chatIA(hist, recetaActual){
   // 2) notas: "anota que…", "quedó mejor con…", "hay que…"
   if (/^(anota|apunta|nota|agrega una nota|guarda que|registra)/.test(t) || /(quedo mejor|quedo peor|salio mejor|salio mal|funciono mejor|hay que cambiar|mejor con)/.test(t)){
     if (!r) return { respuesta: '¿En qué receta lo anoto? Ábrela o dime su nombre.', faltan: [], cambios: [] };
-    const texto = q.replace(/^\s*(anota|apunta|nota|registra|guarda)\s*(en el|en la|en)?\s*/i,'').replace(/^que\s+/i,'').trim();
+    let texto = q.replace(/^\s*(anota|apunta|nota|registra|guarda)\s*(en el|en la|en)?\s*/i,'');
+    const tit = r.titulo.split(/\s*\/\s*/)[0]; if (N(texto).startsWith(N(tit))) texto = texto.slice(tit.length);
+    texto = texto.replace(/^\s*(que|:|,)\s*/i,'').trim(); texto = texto.charAt(0).toUpperCase() + texto.slice(1);
     return { respuesta: `Lo anoto en ${r.titulo}. Si después lo confirman, Alberto puede pasarlo a la receta.`, faltan: [], cambios: [{ tipo:'agregar_nota', receta:r.slug, texto }] };
   }
 
   if (!LOCAL){ const ok = await activarIA(false); if (!ok) return r ? { respuesta: `No tengo la IA activa en este aparato, pero aquí está la hoja del ${r.titulo}.`, faltan: [], cambios: [], abrir: r.slug } : { error: 'La IA no está activa en este aparato. Puedes buscar la bebida arriba.' }; }
 
   // 3) bebida que no está en el recetario
-  const pidenNueva = /(nos pidieron|piden|pidio|como (lo )?hago|como se hace|como preparo|receta de|tienen|se puede hacer)/.test(t);
-  if (pidenNueva && (!r || !t.includes(N(r.titulo)))){
+  const pide = t.match(/(?:nos pidieron|pidieron|piden|pidio|quieren|receta de|como (?:lo )?(?:hago|preparo)|como se (?:hace|prepara))\s+(?:un |una |el |la |los |las )?([a-z0-9 ]+?)\s*(?:[,?.!¿]|$|\scon\s|\sque\s|\spara\s)/);
+  let pedido = pide ? pide[1].trim() : ''; if (/^(para|que|si|cuando|se|lo|le|mas|mejor|bien|eso|esto)\b/.test(pedido)) pedido = '';
+  const existente = pedido && D.recetas.find(x => { const a = N(x.titulo).replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim(); return a === pedido || x.slug.replace(/-/g,' ') === pedido || a.split(' / ').includes(pedido); });
+  if (existente){ return { respuesta: `Sí está en el recetario: te abro la hoja del ${existente.titulo}.`, faltan: [], cambios: [], abrir: existente.slug }; }
+  if (pedido && !existente){
     const inv = itemsInventario().filter(i => !/\(no hay\)/i.test(i)).join(', ');
     const txt = await generar(
       `Eres barista en Café Pretexto (México). Escribe en español una receta corta para la bebida que pidan, usando las medidas de la casa: 1 espresso = 70 ml, leche chico 150 ml, grande 240 ml, 1 oz = 30 ml.
@@ -407,7 +412,7 @@ FALTAN:
       const it = l.match(/^\s*(?:[-*•]|\d+[.)])\s*(.+)$/); if (it && cur && cur !== 'NOMBRE') sec[cur].push(it[1].trim()); }
     const faltan = sec.FALTAN.filter(x => !/^nada|ninguno|ninguna$/i.test(x));
     if (!sec.INGREDIENTES.length || !sec.PASOS.length) return { respuesta: txt || 'No pude armar la receta. Intenta preguntarlo de otra forma.', faltan: [], cambios: [] };
-    const titulo = sec.NOMBRE || q.replace(/^.*?(pidieron|hago|hace|preparo|receta de)\s*(un|una)?\s*/i,'').replace(/[,?].*$/,'').trim() || 'Bebida nueva';
+    const titulo = sec.NOMBRE || pedido || 'Bebida nueva';
     return { respuesta: `Así lo puedes preparar con lo que hay:\n\nIngredientes:\n${sec.INGREDIENTES.map(x=>'- '+x).join('\n')}\n\nPasos:\n${sec.PASOS.map((x,i)=>`${i+1}. ${x}`).join('\n')}`,
       faltan, cambios: [{ tipo:'nueva_receta', titulo: titulo.replace(/^\w/, c => c.toUpperCase()), categoria:'Nuevas', ingredientes: sec.INGREDIENTES, pasos: sec.PASOS, tiempos: [], evitar: [], variaciones: [] }] };
   }
