@@ -331,12 +331,13 @@ function abrirPendientes(){
 }
 
 // ---------- IA local en el navegador (WebLLM)
-let LOCAL = null, webllm = null, cargandoIA = false;
+let LOCAL = null, webllm = null, cargandoIA = false, promesaIA = null, IA_FALLA = false;
 const MOBILE = /Android|iPhone|iPod/i.test(navigator.userAgent);
+const IPAD = /iPad/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
 async function elegirModelo(){
   const ad = await navigator.gpu.requestAdapter(); if (!ad) return null;
-  const f16 = ad.features.has('shader-f16');
-  if (MOBILE) return f16 ? 'Qwen2.5-0.5B-Instruct-q4f16_1-MLC' : 'Qwen2.5-0.5B-Instruct-q4f32_1-MLC';
+  const f16 = ad.features.has('shader-f16') && !MOBILE;   // en celulares f16 da errores de GPU
+  if (MOBILE) return 'Qwen2.5-0.5B-Instruct-q4f32_1-MLC';
   return f16 ? 'Qwen2.5-1.5B-Instruct-q4f16_1-MLC' : 'Qwen2.5-1.5B-Instruct-q4f32_1-MLC';
 }
 function estadoIA(txt, ok){
@@ -346,18 +347,26 @@ function estadoIA(txt, ok){
   else { el.className='estado-ia'; el.lastChild.textContent='IA sin activar'; $('#chatModelo').textContent='Toca "Activar IA" (la primera vez descarga ~1 GB)'; }
 }
 async function activarIA(auto){
-  if (LOCAL || cargandoIA) return true;
-  if (!navigator.gpu){ if (!auto) agregarMsg('err', 'Este navegador no puede correr la IA (le falta WebGPU). En iPad usa Safari con iPadOS 26 o más nuevo, o Chrome en una computadora. Las recetas sí funcionan.'); return false; }
-  cargandoIA = true;
-  try {
-    webllm = webllm || await import('https://esm.run/@mlc-ai/web-llm@0.2.85');
-    const modelo = await elegirModelo(); if (!modelo) throw new Error('gpu');
-    if (auto && !(await webllm.hasModelInCache(modelo))) { cargandoIA = false; estadoIA(); return false; }
-    estadoIA('Cargando IA… 0 %', false);
-    LOCAL = await webllm.CreateMLCEngine(modelo, { initProgressCallback: p => estadoIA(`Cargando IA… ${Math.round((p.progress||0)*100)} %`, false) });
-    estadoIA(); return true;
-  } catch(e){ console.error(e); if (!auto) agregarMsg('err', 'No se pudo activar la IA en este aparato (memoria o WebGPU insuficiente). Las recetas sí funcionan.'); estadoIA(); return false; }
-  finally { cargandoIA = false; }
+  if (LOCAL) return true;
+  if (promesaIA) return promesaIA;
+  if (!navigator.gpu){ if (!auto) agregarMsg('err', 'Este navegador no puede correr la IA (le falta WebGPU). En iPad usa Safari con iPadOS 26 o más nuevo; en Android, Chrome actualizado. Las recetas y el chat básico sí funcionan.'); return false; }
+  promesaIA = (async () => {
+    cargandoIA = true;
+    try {
+      webllm = webllm || await import('https://esm.run/@mlc-ai/web-llm@0.2.85');
+      const modelo = await elegirModelo(); if (!modelo) throw new Error('gpu');
+      if (auto && !(await webllm.hasModelInCache(modelo))) { estadoIA(); return false; }
+      const t0 = Date.now();
+      estadoIA('Cargando IA… 0 %', false);
+      LOCAL = await webllm.CreateMLCEngine(modelo, { initProgressCallback: p => {
+        const pct = Math.round((p.progress||0)*100), seg = (Date.now()-t0)/1000;
+        const resta = pct > 2 && pct < 100 ? ` (faltan ~${Math.max(1, Math.round(seg*(100-pct)/pct/60))} min)` : '';
+        estadoIA(`Cargando IA… ${pct} %${resta}`, false); } });
+      IA_FALLA = false; estadoIA(); return true;
+    } catch(e){ console.error(e); LOCAL = null; if (!auto) agregarMsg('err', 'No se pudo activar la IA en este aparato (' + String(e.message||e).slice(0,120) + '). El chat sigue contestando con lo que dice el recetario.'); estadoIA(); return false; }
+    finally { cargandoIA = false; promesaIA = null; }
+  })();
+  return promesaIA;
 }
 
 // ---------- chat v2: la IA solo redacta texto; las acciones las detecta la libreta
@@ -388,7 +397,7 @@ function contexto(r){
   return `RECETA: ${r.titulo}\nIngredientes: ${r.ingredientes.join('; ')}\nPreparación: ${r.pasos.map((p,i)=>`${i+1}) ${p.replace(/^➕\s*/,'')}`).join(' ')}\nTaza: ${(r.capas||[]).map(c=>`${c.nombre} ${c.pct}%`).join(', ')}\nTiempos: ${r.tiempos.join(' | ')}\nEvitar: ${r.evitar.join(' | ')}\nVariaciones: ${r.variaciones.join(' | ')}\nNotas del equipo: ${(r.notas||[]).join(' | ') || 'ninguna'}`;
 }
 
-async function chatIA(hist, recetaActual){
+async function chatIA0(hist, recetaActual){
   const ultimo = [...hist].reverse().find(m => m.role==='user'); const q = ultimo ? ultimo.content : ''; const t = N(q);
   const r = recetaDe(q, recetaActual);
 
@@ -410,7 +419,8 @@ async function chatIA(hist, recetaActual){
     return { respuesta: `Lo anoto en ${r.titulo}. Si después lo confirman, Alberto puede pasarlo a la receta.`, faltan: [], cambios: [{ tipo:'agregar_nota', receta:r.slug, texto }] };
   }
 
-  if (!LOCAL){ const ok = await activarIA(false); if (!ok) return r ? { respuesta: `No tengo la IA activa en este aparato, pero aquí está la hoja del ${r.titulo}.`, faltan: [], cambios: [], abrir: r.slug } : { error: 'La IA no está activa en este aparato. Puedes buscar la bebida arriba.' }; }
+  if (IA_FALLA) return sinIA(q, r);
+  if (!LOCAL){ const ok = await activarIA(false); if (!ok) return sinIA(q, r); }
 
   // 3) bebida que no está en el recetario
   const pide = t.match(/(?:nos pidieron|pidieron|piden|pidio|quieren|receta de|como (?:lo )?(?:hago|preparo)|como se (?:hace|prepara))\s+(?:un |una |el |la |los |las )?([a-z0-9 ]+?)\s*(?:[,?.!¿]|$|\scon\s|\sque\s|\spara\s)/);
@@ -453,6 +463,43 @@ ${r ? contexto(r) : 'RECETAS DISPONIBLES: ' + D.recetas.map(x => x.titulo).join(
 ${r ? '' : '\nTÉCNICA DE LA BARRA: ' + D.tecnica.map(s => s.titulo + ': ' + s.items.join(' ')).join(' ').slice(0, 2500)}`;
   const txt = await generar(sistema, (previos ? previos + '\n' : '') + 'Barista: ' + q, 350);
   return { respuesta: txt || '(sin respuesta)', faltan: [], cambios: [] };
+}
+
+
+// ---------- respaldo: contestar con el texto del recetario cuando la IA no puede correr
+const VACIAS = new Set('como cuanto cuantos cuantas cuando donde para porque pero esta este esto tiene tienen hace hago hacer lleva llevar receta bebida quiero puedo debo cual cuales tiempo mucho poco favor'.split(' '));
+function sinIA(q, r){
+  const pal = N(q).replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w => w.length > 3 && !VACIAS.has(w));
+  const raiz = w => w.replace(/(es|s)$/,'');
+  const puntua = txt => { const n = N(txt); return pal.reduce((a,w) => a + (n.includes(raiz(w)) ? 1 : 0), 0); };
+  let fuente = [];
+  if (r){ const sec = [['Ingredientes', r.ingredientes], ['Paso', r.pasos], ['Tiempos', r.tiempos], ['Evitar', r.evitar], ['Variación', r.variaciones], ['Nota', r.notas||[]]];
+    for (const [k, arr] of sec) for (const x of arr) fuente.push(k + ': ' + String(x).replace(/^➕\s*/,'')); }
+  else for (const t of D.tecnica) for (const x of t.items) fuente.push(t.titulo + ': ' + x);
+  const top = fuente.map(x => [puntua(x), x]).filter(a => a[0] > 0).sort((a,b) => b[0]-a[0]).slice(0, 4).map(a => '• ' + a[1]);
+  const aviso = 'La IA no está corriendo en este aparato, así que te contesto con lo que dice el recetario:';
+  if (r && top.length) return { respuesta: `${aviso}\n\n${r.titulo}\n${top.join('\n')}`, faltan: [], cambios: [], abrir: r.slug };
+  if (r) return { respuesta: `${aviso} te abro la hoja del ${r.titulo}.`, faltan: [], cambios: [], abrir: r.slug };
+  if (top.length) return { respuesta: `${aviso}\n\n${top.join('\n')}`, faltan: [], cambios: [] };
+  return { respuesta: 'No encontré eso en el recetario. Dime el nombre de la bebida (ej. "¿cuánto vapor lleva el latte?") o búscala arriba.', faltan: [], cambios: [] };
+}
+function esErrorGPU(e){ return /GPU|mapAsync|device|WebGPU|lost|OutOfMemory|memory|buffer|shader|pipeline/i.test(String(e && (e.message || e))); }
+async function chatIA(hist, recetaActual){
+  const ultimo = [...hist].reverse().find(m => m.role==='user'); const q = ultimo ? ultimo.content : ''; const t = N(q).trim();
+  if (/^(hola|ola|buenas|buenos dias|buenas tardes|buenas noches|que tal|hey|holi)\b/.test(t) && t.length < 30)
+    return { respuesta: '¡Hola! Pregúntame por una bebida ("¿cuánto vapor lleva el capuchino grande?"), dime algo para anotar, o avísame si se acabó o llegó algo.', faltan: [], cambios: [] };
+  try { return await chatIA0(hist, recetaActual); }
+  catch(e){
+    console.error(e);
+    if (!esErrorGPU(e)) throw e;
+    // la GPU del aparato se trabó: reinicio la IA una vez y reintento
+    try { await LOCAL?.unload(); } catch(_){}
+    LOCAL = null; estadoIA('Reiniciando IA…', false);
+    if (await activarIA(true)) { try { return await chatIA0(hist, recetaActual); } catch(e2){ console.error(e2); } }
+    try { await LOCAL?.unload(); } catch(_){}
+    LOCAL = null; IA_FALLA = true; estadoIA('IA con fallas en este aparato', false);
+    return sinIA(q, recetaDe(q, recetaActual));
+  }
 }
 
 function pintarPestanas(){
