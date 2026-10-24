@@ -337,35 +337,88 @@ async function activarIA(auto){
   finally { cargandoIA = false; }
 }
 
-function instrucciones(textoUsuario, recetaActual){
-  const t = slugify(textoUsuario||''); const rel = new Set(recetaActual ? [recetaActual] : []);
-  for (const r of D.recetas){ const w = slugify(r.titulo).split('-').filter(x => x.length>3); if (t.includes(r.slug) || w.some(x => t.includes(x))) rel.add(r.slug); }
-  const det = D.recetas.filter(r => rel.has(r.slug)).slice(0,2).map(r => `### ${r.titulo} [${r.slug}]\nIngredientes: ${r.ingredientes.join('; ')}\nPreparación: ${r.pasos.map((p,i)=>`${i+1}) ${p.replace(/^➕\s*/,'')}`).join(' ')}\nTiempos: ${r.tiempos.join(' | ')}\nEvitar: ${r.evitar.join(' | ')}\nNotas: ${(r.notas||[]).join(' | ')||'—'}`).join('\n\n');
-  return `Eres el asistente de barra de Café Pretexto (México). Respondes en español, breve y práctico.
-- Dudas: usa SOLO el recetario. Si no está, dilo.
-- Si el equipo cuenta cómo le fue al probar algo, propón el cambio.
-- Si piden una bebida que no está, da la receta con el INVENTARIO (1 demitasse = 70 ml de espresso) y pon en "faltan" lo que no haya.
-- Si algo se acabó o llegó, propón el cambio de inventario.
-Responde SOLO con JSON: {"respuesta":"texto","faltan":[],"cambios":[]}
-Tipos de cambio: {"tipo":"agregar_nota","receta":"slug","texto":"..."} | {"tipo":"editar_seccion","receta":"slug","seccion":"Ingredientes|Preparación|Tiempos|Evitar|Variaciones","items":["lista completa nueva"]} | {"tipo":"nueva_receta","titulo":"...","categoria":"Nuevas","ingredientes":["..."],"pasos":["..."],"tiempos":[],"evitar":[],"variaciones":[]} | {"tipo":"inventario","agregar":[],"marcar_agotado":[],"ya_hay":[]}
-
-RECETAS: ${D.recetas.map(r => `${r.titulo} [${r.slug}]`).join(', ')}
-${det ? '\nDETALLE:\n' + det : ''}
-INVENTARIO: ${D.inventario.map(g => g.items.join(', ')).join(', ')}`;
+// ---------- chat v2: la IA solo redacta texto; las acciones las detecta la libreta
+const N = s => String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+function recetaDe(texto, actual){
+  const t = N(texto); let mejor = null, pts = 0;
+  for (const r of D.recetas){
+    const tit = N(r.titulo).replace(/[^a-z0-9 ]/g,' ');
+    let p = 0;
+    if (t.includes(tit)) p = 10 + tit.length;
+    else { const w = tit.split(/\s+/).filter(x => x.length > 3); const hits = w.filter(x => t.includes(x)).length; if (hits) p = hits * 3 + (hits === w.length ? 3 : 0); }
+    if (p > pts){ pts = p; mejor = r; }
+  }
+  return mejor || (actual ? D.recetas.find(r => r.slug === actual) : null);
+}
+function itemsInventario(){ return D.inventario.flatMap(g => g.items.map(i => i.replace(/\s*\(no hay\)\s*$/i,''))); }
+function buscarItem(frase){
+  const f = N(frase).replace(/^(el|la|los|las|de|del)\s+/,'').trim(); if (!f) return null;
+  const items = itemsInventario();
+  return items.find(i => N(i) === f) || items.find(i => N(i).includes(f)) || items.find(i => f.split(/\s+/).filter(w => w.length > 3).every(w => N(i).includes(w))) || null;
+}
+async function generar(sistema, usuario, max = 450){
+  const r = await LOCAL.chat.completions.create({ messages: [{ role:'system', content: sistema }, { role:'user', content: usuario }], temperature: 0.3, max_tokens: max });
+  return (r.choices?.[0]?.message?.content || '').trim();
+}
+function contexto(r){
+  if (!r) return '';
+  return `RECETA: ${r.titulo}\nIngredientes: ${r.ingredientes.join('; ')}\nPreparación: ${r.pasos.map((p,i)=>`${i+1}) ${p.replace(/^➕\s*/,'')}`).join(' ')}\nTaza: ${(r.capas||[]).map(c=>`${c.nombre} ${c.pct}%`).join(', ')}\nTiempos: ${r.tiempos.join(' | ')}\nEvitar: ${r.evitar.join(' | ')}\nVariaciones: ${r.variaciones.join(' | ')}\nNotas del equipo: ${(r.notas||[]).join(' | ') || 'ninguna'}`;
 }
 
 async function chatIA(hist, recetaActual){
-  if (!LOCAL){ const ok = await activarIA(false); if (!ok) return { error: 'La IA no está activa en este aparato.' }; }
-  const ultimo = [...hist].reverse().find(m => m.role==='user');
-  const previos = hist.slice(-5, -1).map(m => ({ role: m.role==='user' ? 'user' : 'assistant', content: String(m.content).slice(0, 800) }));
-  try {
-    const r = await LOCAL.chat.completions.create({
-      messages: [{ role:'system', content: instrucciones(ultimo ? ultimo.content : '', recetaActual) }, ...previos, { role:'user', content: ultimo ? ultimo.content : '' }],
-      temperature: 0.3, max_tokens: 600, response_format: { type: 'json_object' } });
-    const txt = r.choices?.[0]?.message?.content || '';
-    let out; try { out = JSON.parse(txt); } catch { const m = txt.match(/\{[\s\S]*\}/); try { out = m ? JSON.parse(m[0]) : { respuesta: txt }; } catch { out = { respuesta: txt }; } }
-    return { respuesta: String(out.respuesta||'').trim() || '(sin respuesta)', faltan: Array.isArray(out.faltan) ? out.faltan : [], cambios: Array.isArray(out.cambios) ? out.cambios : [] };
-  } catch(e){ return { error: e.message || String(e) }; }
+  const ultimo = [...hist].reverse().find(m => m.role==='user'); const q = ultimo ? ultimo.content : ''; const t = N(q);
+  const r = recetaDe(q, recetaActual);
+
+  // 1) inventario: "se acabó X", "ya no hay X", "llegó X"
+  let m = t.match(/(?:se acabo|se acabaron|ya no hay|no hay|se termino|se terminaron)\s+(?:el |la |los |las |de )?(.+?)[.!]*$/);
+  if (m){ const it = buscarItem(m[1]); return it ? { respuesta: `Va, marco "${it}" como agotado en el inventario.`, faltan: [], cambios: [{ tipo:'inventario', marcar_agotado:[it] }] }
+                                              : { respuesta: `No encontré "${m[1]}" en el inventario. ¿Lo agrego como algo que ya no hay?`, faltan: [], cambios: [] }; }
+  m = t.match(/(?:ya llego|llego|llegaron|ya hay|compramos|ya tenemos)\s+(?:el |la |los |las |nuevo |nueva )?(.+?)[.!]*$/);
+  if (m){ const it = buscarItem(m[1]); const nombre = q.slice(q.toLowerCase().lastIndexOf(m[1].split(' ')[0]) ).trim() || m[1];
+    return it ? { respuesta: `Va, "${it}" vuelve a estar disponible.`, faltan: [], cambios: [{ tipo:'inventario', ya_hay:[it] }] }
+              : { respuesta: `"${nombre}" no estaba en el inventario. ¿Lo agrego?`, faltan: [], cambios: [{ tipo:'inventario', agregar:[nombre.replace(/^\w/, c => c.toUpperCase())] }] }; }
+
+  // 2) notas: "anota que…", "quedó mejor con…", "hay que…"
+  if (/^(anota|apunta|nota|agrega una nota|guarda que|registra)/.test(t) || /(quedo mejor|quedo peor|salio mejor|salio mal|funciono mejor|hay que cambiar|mejor con)/.test(t)){
+    if (!r) return { respuesta: '¿En qué receta lo anoto? Ábrela o dime su nombre.', faltan: [], cambios: [] };
+    const texto = q.replace(/^\s*(anota|apunta|nota|registra|guarda)\s*(en el|en la|en)?\s*/i,'').replace(/^que\s+/i,'').trim();
+    return { respuesta: `Lo anoto en ${r.titulo}. Si después lo confirman, Alberto puede pasarlo a la receta.`, faltan: [], cambios: [{ tipo:'agregar_nota', receta:r.slug, texto }] };
+  }
+
+  if (!LOCAL){ const ok = await activarIA(false); if (!ok) return r ? { respuesta: `No tengo la IA activa en este aparato, pero aquí está la hoja del ${r.titulo}.`, faltan: [], cambios: [], abrir: r.slug } : { error: 'La IA no está activa en este aparato. Puedes buscar la bebida arriba.' }; }
+
+  // 3) bebida que no está en el recetario
+  const pidenNueva = /(nos pidieron|piden|pidio|como (lo )?hago|como se hace|como preparo|receta de|tienen|se puede hacer)/.test(t);
+  if (pidenNueva && (!r || !t.includes(N(r.titulo)))){
+    const inv = itemsInventario().filter(i => !/\(no hay\)/i.test(i)).join(', ');
+    const txt = await generar(
+      `Eres barista en Café Pretexto (México). Escribe en español una receta corta para la bebida que pidan, usando las medidas de la casa: 1 espresso = 70 ml, leche chico 150 ml, grande 240 ml, 1 oz = 30 ml.
+INVENTARIO DE LA BARRA: ${inv}.
+Responde EXACTAMENTE con este formato y nada más:
+NOMBRE: <nombre de la bebida>
+INGREDIENTES:
+- <ingrediente con cantidad>
+PASOS:
+- <paso>
+FALTAN:
+- <ingrediente que normalmente lleva y NO está en el inventario, o "nada">`, q, 500);
+    const sec = { NOMBRE:'', INGREDIENTES:[], PASOS:[], FALTAN:[] }; let cur = null;
+    for (const l of txt.split('\n')){ const h = l.match(/^\s*\**(NOMBRE|INGREDIENTES|PASOS|FALTAN)\**\s*:\s*(.*)$/i); if (h){ cur = h[1].toUpperCase(); if (cur==='NOMBRE') sec.NOMBRE = h[2].trim(); else if (h[2].trim()) sec[cur].push(h[2].trim()); continue; }
+      const it = l.match(/^\s*(?:[-*•]|\d+[.)])\s*(.+)$/); if (it && cur && cur !== 'NOMBRE') sec[cur].push(it[1].trim()); }
+    const faltan = sec.FALTAN.filter(x => !/^nada|ninguno|ninguna$/i.test(x));
+    if (!sec.INGREDIENTES.length || !sec.PASOS.length) return { respuesta: txt || 'No pude armar la receta. Intenta preguntarlo de otra forma.', faltan: [], cambios: [] };
+    const titulo = sec.NOMBRE || q.replace(/^.*?(pidieron|hago|hace|preparo|receta de)\s*(un|una)?\s*/i,'').replace(/[,?].*$/,'').trim() || 'Bebida nueva';
+    return { respuesta: `Así lo puedes preparar con lo que hay:\n\nIngredientes:\n${sec.INGREDIENTES.map(x=>'- '+x).join('\n')}\n\nPasos:\n${sec.PASOS.map((x,i)=>`${i+1}. ${x}`).join('\n')}`,
+      faltan, cambios: [{ tipo:'nueva_receta', titulo: titulo.replace(/^\w/, c => c.toUpperCase()), categoria:'Nuevas', ingredientes: sec.INGREDIENTES, pasos: sec.PASOS, tiempos: [], evitar: [], variaciones: [] }] };
+  }
+
+  // 4) duda sobre una receta (o general)
+  const previos = hist.slice(-5, -1).map(x => (x.role==='user' ? 'Barista: ' : 'Tú: ') + String(x.content).slice(0, 400)).join('\n');
+  const sistema = `Eres el asistente de barra de Café Pretexto (México). Contesta en español, en 2 a 5 líneas, práctico y directo, usando SOLO esta información del recetario. Si no viene en la información, di que no está en el recetario.
+${r ? contexto(r) : 'RECETAS DISPONIBLES: ' + D.recetas.map(x => x.titulo).join(', ')}
+${r ? '' : '\nTÉCNICA DE LA BARRA: ' + D.tecnica.map(s => s.titulo + ': ' + s.items.join(' ')).join(' ').slice(0, 2500)}`;
+  const txt = await generar(sistema, (previos ? previos + '\n' : '') + 'Barista: ' + q, 350);
+  return { respuesta: txt || '(sin respuesta)', faltan: [], cambios: [] };
 }
 
 function pintarPestanas(){
@@ -596,6 +649,7 @@ async function enviar(){
     if (r.error){ agregarMsg('err', 'No pude hablar con la IA: ' + r.error + '\n'); return; }
     let texto = r.respuesta; if (r.faltan?.length) texto += `\n\nFalta: ${r.faltan.join(', ')}`;
     agregarMsg('ia', texto);
+    if (r.abrir) abrir(r.abrir);
     chatHist.push({ role:'assistant', content: JSON.stringify({respuesta:r.respuesta, cambios:r.cambios}) });
     for (const c of r.cambios||[]){
       const d = document.createElement('div'); d.className='cambio';
