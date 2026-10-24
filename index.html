@@ -29,6 +29,8 @@ a{color:var(--oliva)}
 .top img{height:34px;filter:drop-shadow(0 1px 0 rgba(0,0,0,.3))}
 .top .lema{font-family:var(--serif);font-style:italic;font-size:15px;opacity:.75}
 .top .buscar{margin-left:auto;display:flex;align-items:center;background:#f6f2e6;border-radius:999px;padding:4px 14px;min-width:240px}
+.top .buscar .limpiar{flex:none;border:0;background:#d9d2bf;color:#3d3d36;border-radius:50%;width:34px;height:34px;margin:-2px -8px -2px 6px;font-size:17px;line-height:34px;padding:0;-webkit-tap-highlight-color:transparent}
+.top .buscar .limpiar:active{background:#c4bba3}
 .top .buscar input{border:0;background:transparent;font-family:var(--mano);font-size:18px;width:100%;outline:none;color:var(--lapiz);padding:4px 0}
 .estado-ia{font-size:15px;display:flex;align-items:center;gap:6px;opacity:.85}
 .estado-ia i{width:9px;height:9px;border-radius:50%;background:#888;display:inline-block}
@@ -213,7 +215,7 @@ ul.ing input:checked+span{text-decoration:line-through;text-decoration-color:var
   <span class="lema">Recetario de barra</span>
   <span class="estado-ia" id="estadoIA"><i></i><span>revisando IA…</span></span>
   <button class="btn oro" id="pendBtn" hidden></button>
-  <label class="buscar">🔍&nbsp;<input id="buscar" placeholder="Buscar bebida o ingrediente…" autocomplete="off"></label>
+  <label class="buscar">🔍&nbsp;<input id="buscar" type="text" placeholder="Buscar bebida o ingrediente…" autocomplete="off"><button type="button" id="limpiarBusqueda" class="limpiar" aria-label="Borrar búsqueda" hidden>✕</button></label>
 </div>
 
 <div class="libreta">
@@ -524,7 +526,7 @@ function pintar(){
 
 function filaIndice(r){ return `<div class="fila" data-slug="${r.slug}"><span>${esc(r.titulo)}</span><span class="pts"></span>${r.estado!=='activo'?`<span class="est">${esc(r.estado)}</span>`:''}</div>`; }
 function enlazarFilas(){ document.querySelectorAll('.fila[data-slug]').forEach(f => f.onclick = () => abrir(f.dataset.slug)); }
-function abrir(slug){ const r = D.recetas.find(x=>x.slug===slug); if(!r) return; vista = { cat: CATS.some(c=>c.id===r.categoria)? r.categoria : 'Nuevas', slug, grande:false }; $('#buscar').value=''; pintarPestanas(); pintar(); window.scrollTo({top:0,behavior:'smooth'}); }
+function abrir(slug){ const r = D.recetas.find(x=>x.slug===slug); if(!r) return; vista = { cat: CATS.some(c=>c.id===r.categoria)? r.categoria : 'Nuevas', slug, grande:false }; $('#buscar').value=''; $('#limpiarBusqueda').hidden=true; pintarPestanas(); pintar(); window.scrollTo({top:0,behavior:'smooth'}); }
 
 function pintarIndice(cat){
   const grupos = {};
@@ -751,7 +753,9 @@ async function enviar(){
 }
 $('#enviar').onclick = enviar;
 $('#txt').addEventListener('keydown', e => { if (e.key==='Enter' && !e.shiftKey){ e.preventDefault(); enviar(); } });
-$('#buscar').addEventListener('input', pintar);
+const verX = () => { $('#limpiarBusqueda').hidden = !$('#buscar').value; };
+$('#buscar').addEventListener('input', () => { verX(); pintar(); });
+$('#limpiarBusqueda').addEventListener('click', e => { e.preventDefault(); $('#buscar').value = ''; verX(); $('#buscar').blur(); pintar(); });
 
 iniciar(); activarIA(true);
 $('#pendBtn').onclick = () => { vista.slug = null; abrirPendientes(); };
