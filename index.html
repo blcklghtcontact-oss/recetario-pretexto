@@ -414,10 +414,12 @@ FALTAN:
     const sec = { NOMBRE:'', INGREDIENTES:[], PASOS:[], FALTAN:[] }; let cur = null;
     for (const l of txt.split('\n')){ const h = l.match(/^\s*\**(NOMBRE|INGREDIENTES|PASOS|FALTAN)\**\s*:\s*(.*)$/i); if (h){ cur = h[1].toUpperCase(); if (cur==='NOMBRE') sec.NOMBRE = h[2].trim(); else if (h[2].trim()) sec[cur].push(h[2].trim()); continue; }
       const it = l.match(/^\s*(?:[-*•]|\d+[.)])\s*(.+)$/); if (it && cur && cur !== 'NOMBRE') sec[cur].push(it[1].trim()); }
-    const faltan = sec.FALTAN.filter(x => !/^nada|ninguno|ninguna$/i.test(x));
+    const todoInv = N(itemsInventario().join(' ') + ' ' + D.recetas.map(x => x.titulo + ' ' + x.ingredientes.join(' ')).join(' '));
+    const desconocidas = pal.filter(w => !todoInv.includes(w) && !/^(con|sin|de|del|grande|chico|frio|caliente|helado)$/.test(w));
+    const faltan = [...desconocidas.map(w => `${w.replace(/^\w/, c => c.toUpperCase())} (no está en el inventario)`), ...sec.FALTAN.filter(x => !/^(nada|ninguno|ninguna)\.?$/i.test(x))];
     if (!sec.INGREDIENTES.length || !sec.PASOS.length) return { respuesta: txt || 'No pude armar la receta. Intenta preguntarlo de otra forma.', faltan: [], cambios: [] };
     const titulo = sec.NOMBRE || pedido || 'Bebida nueva';
-    return { respuesta: `Así lo puedes preparar con lo que hay:\n\nIngredientes:\n${sec.INGREDIENTES.map(x=>'- '+x).join('\n')}\n\nPasos:\n${sec.PASOS.map((x,i)=>`${i+1}. ${x}`).join('\n')}`,
+    return { respuesta: `Borrador sin probar (hecho por la IA, ajústenlo cuando lo preparen):\n\nIngredientes:\n${sec.INGREDIENTES.map(x=>'- '+x).join('\n')}\n\nPasos:\n${sec.PASOS.map((x,i)=>`${i+1}. ${x}`).join('\n')}`,
       faltan, cambios: [{ tipo:'nueva_receta', titulo: titulo.replace(/^\w/, c => c.toUpperCase()), categoria:'Nuevas', ingredientes: sec.INGREDIENTES, pasos: sec.PASOS, tiempos: [], evitar: [], variaciones: [] }] };
   }
 
