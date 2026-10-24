@@ -181,6 +181,21 @@ ul.ing input:checked+span{text-decoration:line-through;text-decoration-color:var
   .top .buscar{min-width:0;flex:1 1 100%}
   .abrir-chat{font-size:16px;padding:9px 14px;right:12px;bottom:12px}
 }
+/* táctil: índice fácil de tocar y un solo tamaño de letra en todas las recetas */
+.indice .fila{font-size:22px;padding:11px 6px;min-height:50px;align-items:center;border-radius:8px;-webkit-tap-highlight-color:rgba(59,82,54,.15)}
+.indice .fila:active{background:rgba(59,82,54,.12)}
+.indice .fila .pts{transform:none}
+.hoja{font-size:17px}
+.hoja li,.hoja p:not(.sub),.hoja .postit,.hoja .crono,.hoja .tip,.hoja td{font-size:17px}
+.hoja h1.t{font-size:30px}
+.hoja h2{font-size:20px}
+.pestana{min-width:44px}
+@media (orientation: landscape) and (max-height: 620px){
+  .indice .fila{font-size:19px;padding:9px 6px;min-height:44px}
+  .hoja,.hoja li,.hoja p:not(.sub),.hoja .postit,.hoja .crono,.hoja .tip,.hoja td{font-size:16px}
+  .hoja h1.t{font-size:26px}
+  .hoja h2{font-size:18px}
+}
 @media print{.abrir-chat,.chat,.top .buscar,.nota-nueva{display:none!important}body{background:#fff}.pliego{box-shadow:none}}
 </style>
 </head>
@@ -434,6 +449,7 @@ ${r ? '' : '\nTÉCNICA DE LA BARRA: ' + D.tecnica.map(s => s.titulo + ': ' + s.i
 
 function pintarPestanas(){
   const cats = CATS.filter(c => !['Nuevas'].includes(c.id) || D.recetas.some(r => r.categoria === 'Nuevas'));
+  cats.sort((a,b) => (b.id===vista.cat) - (a.id===vista.cat)); // la pestaña elegida sube hasta arriba
   $('#pestanas').innerHTML = cats.map(c => `<button class="pestana ${vista.cat===c.id?'activa':''}" style="background:${c.color}" data-cat="${esc(c.id)}">${esc(c.nombre)}</button>`).join('');
   document.querySelectorAll('.pestana').forEach(b => b.onclick = () => { vista = { cat:b.dataset.cat, slug:null, grande:false }; pintarPestanas(); pintar(); window.scrollTo({top:0,behavior:'smooth'}); });
 }
