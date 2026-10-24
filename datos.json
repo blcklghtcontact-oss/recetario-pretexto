@@ -1,0 +1,1245 @@
+{
+ "recetas": [
+  {
+   "slug": "espresso",
+   "titulo": "Espresso",
+   "categoria": "Café",
+   "estado": "activo",
+   "orden": 1,
+   "taza": "Demitasse (taza de espresso, 70 ml)",
+   "tamanos": "",
+   "ingredientes": [
+    "15 g de café en grano, molienda fina",
+    "70 ml de agua (de la cafetera)"
+   ],
+   "pasos": [
+    "➕ Prende la cafetera con tiempo (unos 15–20 min antes) y deja el maneral puesto para que se caliente.",
+    "➕ Calienta la demitasse con un chorrito de agua caliente de la perilla y tírala.",
+    "➕ Purga el grupo 2–3 s (deja salir agua sin maneral) para limpiar y estabilizar la temperatura.",
+    "Muele el café sobre el molino (15 g, molienda fina).",
+    "Pon el café en el maneral.",
+    "Pásale el distribuidor de agujas para deshacer grumos, después el nivelador y por último el tamper (presión firme y pareja, que quede plano).",
+    "➕ Limpia con la mano o un trapo el café que quedó en la orilla del filtro, para que el maneral selle bien.",
+    "Coloca el maneral en la cafetera (bien girado hasta el tope).",
+    "➕ Pon la demitasse debajo antes de arrancar.",
+    "Prende el agua de 20 a 30 s o hasta llenar la taza (70 ml).",
+    "➕ Saca el maneral, tira la pastilla de café en el knock box y purga el grupo 1–2 s."
+   ],
+   "capas": [
+    {
+     "nombre": "Crema",
+     "pct": 15
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Extracción del espresso: 20–30 s (si sale en menos de 20 s, molienda más fina; si pasa de 35 s, más gruesa)",
+    "Servir en menos de 1 min: la crema se baja y el sabor cambia rápido."
+   ],
+   "evitar": [
+    "Moler y dejar el café esperando: muélelo justo antes de cada espresso.",
+    "Tamper chueco o flojo: el agua se va por un lado y sale aguado (canalización).",
+    "Dejar correr el agua \"hasta que se vea claro\" pasado de los 30 s: sale amargo y quemado.",
+    "Taza fría: enfría el espresso y mata la crema.",
+    "Dejar el maneral fuera de la máquina entre pedidos (se enfría)."
+   ],
+   "variaciones": [
+    "Ristretto (corto): corta a ~35–40 ml, más dulce e intenso.",
+    "Lungo (largo): deja correr hasta ~100 ml, más ligero.",
+    "Doble en taza grande para llevar.",
+    "Con un chorrito de leche espumada encima = macchiato."
+   ],
+   "notas": [
+    "[2026-10-24] (libreta) La libreta dice \"de 20 a 30 seg o hasta llenar la taza\"."
+   ]
+  },
+  {
+   "slug": "cortado",
+   "titulo": "Cortado",
+   "categoria": "Café",
+   "estado": "activo",
+   "orden": 2,
+   "taza": "Taza chica (~150 ml) o vaso de vidrio de cortado",
+   "tamanos": "",
+   "ingredientes": [
+    "70 ml de espresso (1 demitasse llena)",
+    "70 ml de leche (1 demitasse)"
+   ],
+   "pasos": [
+    "Haz el espresso y déjalo en la demitasse.",
+    "Mide la leche llenando otra demitasse y viértela en la jarra.",
+    "➕ Purga la lanceta 1–2 s antes de meterla a la leche (saca el agua condensada) y otra vez al terminar, limpiándola con el trapo húmedo.",
+    "Calienta la leche con la lanceta SIN espumar: punta a media altura dentro de la leche, sin que haga espuma (no debe sonar \"chss\").",
+    "➕ Apaga al llegar a 55–60 °C (con 70 ml son pocos segundos: unos 8–12 s).",
+    "Vierte las 2 tazas juntas (espresso y leche) en la taza de servicio."
+   ],
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 50
+    },
+    {
+     "nombre": "Leche caliente",
+     "pct": 50
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Extracción del espresso: 20–30 s (si sale en menos de 20 s, molienda más fina; si pasa de 35 s, más gruesa)",
+    "Vaporizado de 70 ml: 8–12 s, sin aire.",
+    "Temperatura de la leche: 55–65 °C. La jarra se siente caliente pero todavía la aguantas en la mano 2–3 s."
+   ],
+   "evitar": [
+    "Hacerle espuma: el cortado lleva leche caliente lisa, no espumada.",
+    "Calentar tan poquita leche demasiado tiempo: con 70 ml se quema en segundos.",
+    "Dejar el espresso esperando mientras calientas la leche: haz la leche justo al terminar.",
+    "Leche quemada: más de 70 °C. Huele a leche hervida, pierde el dulzor natural, la espuma se hace burbujas grandes y se baja rápido. No se puede recalentar: se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Cortado con leche deslactosada o vegetal (mismo método).",
+    "Cortado dulce: ¼ oz de jarabe al espresso antes de la leche."
+   ],
+   "notas": []
+  },
+  {
+   "slug": "flat-white",
+   "titulo": "Flat White",
+   "categoria": "Café",
+   "estado": "activo",
+   "orden": 3,
+   "taza": "Taza de ~240 ml (8 oz)",
+   "tamanos": "",
+   "ingredientes": [
+    "70 ml de espresso (1 demitasse llena)",
+    "140 ml de leche (2 demitasses)"
+   ],
+   "pasos": [
+    "Haz un cortado (espresso + 1 demitasse de leche caliente sin espuma).",
+    "Agrega una demitasse más de leche (total 140 ml).",
+    "➕ Si lo quieres de cafetería: vaporiza los 140 ml juntos con muy poquita aireación (1–2 s) para una microespuma muy fina, casi líquida.",
+    "Vierte todo junto en la taza."
+   ],
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 33
+    },
+    {
+     "nombre": "Leche caliente",
+     "pct": 62
+    },
+    {
+     "nombre": "Microespuma fina",
+     "pct": 5
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Extracción del espresso: 20–30 s (si sale en menos de 20 s, molienda más fina; si pasa de 35 s, más gruesa)",
+    "Vaporizado de 140 ml: 15–20 s, aireación solo 1–2 s.",
+    "Temperatura de la leche: 55–65 °C. La jarra se siente caliente pero todavía la aguantas en la mano 2–3 s."
+   ],
+   "evitar": [
+    "Hacerle espuma alta tipo capuchino: el flat white es plano, casi sin espuma.",
+    "Leche quemada: más de 70 °C. Huele a leche hervida, pierde el dulzor natural, la espuma se hace burbujas grandes y se baja rápido. No se puede recalentar: se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Flat white con doble espresso (más fuerte).",
+    "Con leche de avena (espuma un poco más delicada, cuidar la temperatura)."
+   ],
+   "notas": []
+  },
+  {
+   "slug": "americano",
+   "titulo": "Americano",
+   "categoria": "Café",
+   "estado": "activo",
+   "orden": 4,
+   "taza": "Taza de ~240 ml (8 oz)",
+   "tamanos": "",
+   "ingredientes": [
+    "70 ml de espresso (1 demitasse llena)",
+    "140 ml de agua caliente (de la perilla de agua caliente)"
+   ],
+   "pasos": [
+    "➕ Calienta la taza con agua de la perilla y tírala.",
+    "Haz un espresso.",
+    "Agrega el agua caliente de la perilla de agua caliente.",
+    "Vierte todo en la taza.",
+    "➕ Truco: si primero pones el agua y luego el espresso encima, se conserva más la crema (estilo \"long black\")."
+   ],
+   "capas": [
+    {
+     "nombre": "Crema",
+     "pct": 5
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 28
+    },
+    {
+     "nombre": "Agua caliente",
+     "pct": 67
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Extracción del espresso: 20–30 s (si sale en menos de 20 s, molienda más fina; si pasa de 35 s, más gruesa)"
+   ],
+   "evitar": [
+    "Usar agua de la llave o hervida aparte: siempre de la perilla (temperatura estable).",
+    "Sacar el espresso largo para \"rellenar\" la taza: sale amargo; mejor agua."
+   ],
+   "variaciones": [
+    "Más cargado: 70 ml de agua (mitad y mitad).",
+    "Americano con leche al lado en jarrita.",
+    "Iced americano: vaso con hielo + agua fría + espresso encima."
+   ],
+   "notas": [
+    "[2026-10-24] (revisar) En ingredientes dice 140 ml de agua y en la preparación \"agregar 70 ml de agua\". ¿Cuál se usa? Por ahora quedó 140 ml."
+   ]
+  },
+  {
+   "slug": "capuchino",
+   "titulo": "Capuchino",
+   "categoria": "Café",
+   "estado": "activo",
+   "orden": 5,
+   "taza": "Taza de capuchino: chica ~220 ml / grande ~310 ml",
+   "tamanos": "Chico: 150 ml de leche · Grande: 240 ml de leche",
+   "ingredientes": [
+    "70 ml de espresso (1 demitasse llena)",
+    "150 ml de leche (chico) / 240 ml de leche (grande)",
+    "Canela en polvo para decorar"
+   ],
+   "pasos": [
+    "Haz un espresso.",
+    "Llena la jarra de leche hasta el pico (donde empieza la boquilla).",
+    "Agarra la jarra de leche con la mano completa (así sientes cuando se calienta).",
+    "➕ Purga la lanceta 1–2 s antes de meterla a la leche (saca el agua condensada) y otra vez al terminar, limpiándola con el trapo húmedo.",
+    "Mete la lanceta dentro de la jarra por el IV cuadrante y sácala lentamente hasta la superficie para meter aire (\"chss\" suave).",
+    "➕ Fase de aire: 5–8 s con la punta apenas en la superficie hasta que la leche crezca ~1/3. Luego hunde un poquito la punta y deja que gire (remolino) hasta la temperatura.",
+    "➕ Apaga la lanceta ANTES de sacarla de la leche. Golpea la jarra en la barra y gírala para quitar burbujas grandes.",
+    "Primero vierte la leche y luego el espresso (como dice la libreta), y decora con canela."
+   ],
+   "capas": [
+    {
+     "nombre": "Espuma",
+     "pct": 33
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 35
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    }
+   ],
+   "capasGrande": [
+    {
+     "nombre": "Espuma",
+     "pct": 32
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 45
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 23
+    }
+   ],
+   "tiempos": [
+    "Extracción del espresso: 20–30 s (si sale en menos de 20 s, molienda más fina; si pasa de 35 s, más gruesa)",
+    "Vaporizado chico (150 ml): 15–20 s (aire 5–8 s).",
+    "Vaporizado grande (240 ml): 25–35 s (aire 6–10 s).",
+    "Temperatura de la leche: 55–65 °C. La jarra se siente caliente pero todavía la aguantas en la mano 2–3 s."
+   ],
+   "evitar": [
+    "Meter aire todo el tiempo: salen burbujas grandes y espuma seca.",
+    "Sacar la lanceta prendida: salpica y rompe la espuma.",
+    "Dejar la leche reposar mucho: la espuma se separa.",
+    "Leche quemada: más de 70 °C. Huele a leche hervida, pierde el dulzor natural, la espuma se hace burbujas grandes y se baja rápido. No se puede recalentar: se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Capuchino seco (más espuma, menos leche).",
+    "Con cocoa en lugar de canela.",
+    "Capuchino con jarabe (vainilla, caramelo): ¼–1 oz al fondo."
+   ],
+   "notas": [
+    "[2026-10-24] (libreta) En la libreta el orden es \"primero viertes la leche y luego el espresso\"."
+   ]
+  },
+  {
+   "slug": "latte",
+   "titulo": "Latte",
+   "categoria": "Café",
+   "estado": "activo",
+   "orden": 6,
+   "taza": "Taza de latte: chica ~210 ml / grande ~310 ml",
+   "tamanos": "Chico: 130 ml de leche · Grande: 240 ml de leche",
+   "ingredientes": [
+    "70 ml de espresso (1 demitasse llena)",
+    "130 ml de leche (chico) / 240 ml de leche (grande)"
+   ],
+   "pasos": [
+    "Haz un espresso.",
+    "Llena la jarra de leche hasta el pico.",
+    "➕ Purga la lanceta 1–2 s antes de meterla a la leche (saca el agua condensada) y otra vez al terminar, limpiándola con el trapo húmedo.",
+    "Usa la lanceta con la jarra en un ángulo de 45° en el IV cuadrante; sube y baja la jarra para conseguir la microespuma (poca, brillante, tipo pintura).",
+    "➕ Aire solo 2–4 s (la leche crece poco), luego remolino hasta la temperatura.",
+    "Vierte el espresso en la taza.",
+    "Inclina la taza en un ángulo de 45° para verter después la leche: primero desde arriba (chorro delgado) y al final bajando la jarra cerca para que salga la espuma (latte art)."
+   ],
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 10
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 55
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 35
+    }
+   ],
+   "capasGrande": [
+    {
+     "nombre": "Microespuma",
+     "pct": 10
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 67
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 23
+    }
+   ],
+   "tiempos": [
+    "Extracción del espresso: 20–30 s (si sale en menos de 20 s, molienda más fina; si pasa de 35 s, más gruesa)",
+    "Vaporizado chico (130 ml): 15–20 s (aire 2–4 s).",
+    "Vaporizado grande (240 ml): 25–35 s (aire 3–5 s).",
+    "Temperatura de la leche: 55–65 °C. La jarra se siente caliente pero todavía la aguantas en la mano 2–3 s."
+   ],
+   "evitar": [
+    "Mucho aire: queda como capuchino.",
+    "Verter de muy arriba al final: la espuma se hunde y no sale el dibujo.",
+    "Leche quemada: más de 70 °C. Huele a leche hervida, pierde el dulzor natural, la espuma se hace burbujas grandes y se baja rápido. No se puede recalentar: se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Latte dulce: de ¼ a 1 oz de jarabe (ver notas).",
+    "Iced latte: vaso con hielo + leche fría + espresso encima.",
+    "Latte con leche vegetal."
+   ],
+   "notas": [
+    "[2026-10-24] (libreta) Latte dulce: solo se le agrega de ¼ a 1 oz de jarabe."
+   ]
+  },
+  {
+   "slug": "moka",
+   "titulo": "Moka",
+   "categoria": "Café",
+   "estado": "activo",
+   "orden": 7,
+   "taza": "Taza de capuchino chica / grande",
+   "tamanos": "Chico: 150 ml de leche · Grande: 240 ml de leche",
+   "ingredientes": [
+    "70 ml de espresso (1 demitasse llena)",
+    "1 oz (30 ml) de jarabe de chocolate",
+    "150 ml de leche (chico) / 240 ml (grande)",
+    "Chocolate en barra para rallar"
+   ],
+   "pasos": [
+    "➕ Pon la onza de chocolate en la taza y saca el espresso encima: así se mezcla bien.",
+    "Haz un capuchino (ver receta).",
+    "Agrega la onza de chocolate (si no la pusiste al inicio, mézclala bien con el espresso).",
+    "Ralla chocolate en barra para adornar."
+   ],
+   "capas": [
+    {
+     "nombre": "Espuma + chocolate rallado",
+     "pct": 25
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 35
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 28
+    },
+    {
+     "nombre": "Jarabe de chocolate",
+     "pct": 12
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Extracción del espresso: 20–30 s (si sale en menos de 20 s, molienda más fina; si pasa de 35 s, más gruesa)",
+    "Vaporizado igual que el capuchino.",
+    "Temperatura de la leche: 55–65 °C. La jarra se siente caliente pero todavía la aguantas en la mano 2–3 s."
+   ],
+   "evitar": [
+    "Echar el chocolate al final sin mezclar: se va al fondo y la última parte sabe solo a jarabe.",
+    "Leche quemada: más de 70 °C. Huele a leche hervida, pierde el dulzor natural, la espuma se hace burbujas grandes y se baja rápido. No se puede recalentar: se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Moka blanco (jarabe de chocolate blanco).",
+    "Moka con crema batida en lugar de espuma.",
+    "Moka frío: vaso con hielo, chocolate, espresso y leche fría."
+   ],
+   "notas": []
+  },
+  {
+   "slug": "cafe-del-dia",
+   "titulo": "Café del día",
+   "categoria": "Café",
+   "estado": "activo",
+   "orden": 8,
+   "taza": "Taza de ~240 ml",
+   "tamanos": "",
+   "ingredientes": [
+    "Café preparado (premolido, de la cafetera de goteo)",
+    "Agua"
+   ],
+   "pasos": [
+    "➕ Prepara el café del día en la cafetera de goteo con la medida de la casa y anota la hora en que se hizo.",
+    "Se juntan el café y el agua (si está muy cargado, se rebaja con agua caliente de la perilla).",
+    "➕ Calienta la taza antes de servir."
+   ],
+   "capas": [
+    {
+     "nombre": "Café",
+     "pct": 100
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "El café de jarra aguanta bueno 30–40 min en la placa; después se amarga. Mejor hacer menos y más seguido."
+   ],
+   "evitar": [
+    "Dejarlo horas en la placa caliente.",
+    "Recalentar café viejo."
+   ],
+   "variaciones": [
+    "Con leche caliente al lado.",
+    "Café de olla (canela y piloncillo) si se tiene."
+   ],
+   "notas": [
+    "[2026-10-24] (revisar) Falta anotar la medida de la casa (g de café por litro de agua)."
+   ]
+  },
+  {
+   "slug": "cold-brew",
+   "titulo": "Cold Brew",
+   "categoria": "Café Frío",
+   "estado": "activo",
+   "orden": 10,
+   "taza": "Vaso de ~350 ml con hielo",
+   "tamanos": "",
+   "ingredientes": [
+    "60 g de café, molienda semi gruesa",
+    "500 ml de agua",
+    "Hielo para servir"
+   ],
+   "pasos": [
+    "Muele el café (semi grueso, como sal de grano).",
+    "Integra el café con el agua (fría o a temperatura ambiente) en un recipiente con tapa y revuelve para que se moje todo.",
+    "Déjalo reposar de 12 a 24 h (➕ en el refri; anota la hora en la tapa).",
+    "Después del tiempo de reposo, cuélalo (filtro o tela) al momento de servir (en la jarra).",
+    "➕ Sirve en vaso con hielo."
+   ],
+   "capas": [
+    {
+     "nombre": "Cold brew",
+     "pct": 60
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 40
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Reposo: 12–24 h.",
+    "Ya colado dura 3–5 días en el refri, tapado."
+   ],
+   "evitar": [
+    "Molienda fina: queda turbio y amargo y no se cuela bien.",
+    "Pasarse de 24 h: sabe a madera.",
+    "Dejarlo destapado: agarra olores del refri."
+   ],
+   "variaciones": [
+    "Con leche (ver White Cold Brew).",
+    "Con jarabe de vainilla o caramelo.",
+    "Cold brew tónico: hielo + agua tónica + cold brew encima."
+   ],
+   "notas": []
+  },
+  {
+   "slug": "white-cold-brew",
+   "titulo": "White Cold Brew",
+   "categoria": "Café Frío",
+   "estado": "activo",
+   "orden": 11,
+   "taza": "Vaso de ~350 ml",
+   "tamanos": "",
+   "ingredientes": [
+    "60 g de café semi molido",
+    "250 ml de agua y hielo",
+    "70 ml de leche",
+    "70 ml de crema batida"
+   ],
+   "pasos": [
+    "Se hace un cold brew (ver receta).",
+    "Se vierte el hielo en el vaso.",
+    "Se vierte el cold brew colado.",
+    "Se agrega la leche y se decora con crema batida."
+   ],
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Leche",
+     "pct": 20
+    },
+    {
+     "nombre": "Cold brew",
+     "pct": 40
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 25
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Reposo del cold brew: 12–24 h."
+   ],
+   "evitar": [
+    "Poner la crema antes de la leche: se hunde.",
+    "Usar cold brew sin colar."
+   ],
+   "variaciones": [
+    "Con jarabe (vainilla, caramelo).",
+    "Con leche vegetal."
+   ],
+   "notas": []
+  },
+  {
+   "slug": "dirty",
+   "titulo": "Dirty",
+   "categoria": "Café Frío",
+   "estado": "activo",
+   "orden": 12,
+   "taza": "Vaso de ~350 ml",
+   "tamanos": "",
+   "ingredientes": [
+    "70 ml de espresso (1 demitasse llena)",
+    "210 ml de leche fría",
+    "Hielos",
+    "Crema batida"
+   ],
+   "pasos": [
+    "Vaso con hielo.",
+    "Haz el espresso.",
+    "Llena 3/4 partes del vaso con leche.",
+    "Vierte el espresso lentamente con la cuchara batidora (sobre el dorso de la cuchara, para que quede en capa arriba).",
+    "Decora (crema batida)."
+   ],
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 10
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 20
+    },
+    {
+     "nombre": "Leche fría + hielo",
+     "pct": 70
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Extracción del espresso: 20–30 s (si sale en menos de 20 s, molienda más fina; si pasa de 35 s, más gruesa)",
+    "Servir enseguida para que se vean las capas."
+   ],
+   "evitar": [
+    "Verter el espresso de golpe: se mezcla y no se ve el efecto \"dirty\".",
+    "Leche tibia: el hielo se derrite."
+   ],
+   "variaciones": [
+    "Dirty dulce: jarabe al fondo antes de la leche.",
+    "Dirty matcha (ver receta)."
+   ],
+   "notas": []
+  },
+  {
+   "slug": "dirty-matcha",
+   "titulo": "Dirty Matcha",
+   "categoria": "Matcha, Chai y Té",
+   "estado": "en espera",
+   "orden": 13,
+   "taza": "Vaso de ~350 ml",
+   "tamanos": "",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "70 ml de leche o agua (para disolver)",
+    "10 g de polvo para matcha",
+    "1½ oz de crema para batir dulce",
+    "1 jarra de leche"
+   ],
+   "pasos": [
+    "Disuelve el matcha en leche caliente (➕ con batidor o espumador hasta que no queden grumos).",
+    "Haz la leche del capuchino (ver Capuchino).",
+    "Incorpora la leche primero y luego el matcha.",
+    "Añade el espresso."
+   ],
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 20
+    },
+    {
+     "nombre": "Matcha",
+     "pct": 25
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 45
+    },
+    {
+     "nombre": "Crema dulce",
+     "pct": 10
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Extracción del espresso: 20–30 s (si sale en menos de 20 s, molienda más fina; si pasa de 35 s, más gruesa)",
+    "Vaporizado como capuchino.",
+    "Temperatura de la leche: 55–65 °C. La jarra se siente caliente pero todavía la aguantas en la mano 2–3 s."
+   ],
+   "evitar": [
+    "Disolver el matcha en agua hirviendo: se amarga (máx. ~80 °C).",
+    "Echar el polvo directo a la leche fría: hace grumos."
+   ],
+   "variaciones": [
+    "Versión fría: vaso con hielo, leche fría, matcha y espresso encima."
+   ],
+   "notas": [
+    "[2026-10-24] (libreta) Marcado \"En espera\"."
+   ]
+  },
+  {
+   "slug": "matcha-latte",
+   "titulo": "Matcha Latte",
+   "categoria": "Matcha, Chai y Té",
+   "estado": "en espera",
+   "orden": 14,
+   "taza": "Vaso o taza de ~300 ml",
+   "tamanos": "",
+   "ingredientes": [
+    "70 ml de leche o agua",
+    "10 g de polvo para matcha",
+    "1½ oz de crema para batir dulce (opcional)",
+    "1 jarra de leche"
+   ],
+   "pasos": [
+    "Calienta la leche (los 70 ml).",
+    "Disuelve los 10 g de matcha en la leche (➕ bate hasta que no haya grumos).",
+    "Vierte el matcha en un vaso e incorpora la crema batida (solo si lo quieren dulce).",
+    "Crea la leche del latte (ver Latte) e incorpórala al vaso."
+   ],
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 10
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 50
+    },
+    {
+     "nombre": "Crema dulce",
+     "pct": 10
+    },
+    {
+     "nombre": "Matcha",
+     "pct": 30
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Vaporizado como latte.",
+    "Temperatura de la leche: 55–65 °C. La jarra se siente caliente pero todavía la aguantas en la mano 2–3 s."
+   ],
+   "evitar": [
+    "Agua o leche muy caliente para el matcha: amarga.",
+    "Grumos de matcha: tamiza o bate bien."
+   ],
+   "variaciones": [
+    "Iced matcha latte: vaso con hielo y leche fría.",
+    "Con jarabe de vainilla."
+   ],
+   "notas": [
+    "[2026-10-24] (libreta) Marcado \"Espera\"."
+   ]
+  },
+  {
+   "slug": "te",
+   "titulo": "Té",
+   "categoria": "Matcha, Chai y Té",
+   "estado": "en espera",
+   "orden": 15,
+   "taza": "Taza de ~240 ml",
+   "tamanos": "",
+   "ingredientes": [
+    "15 g de té",
+    "1 taza de agua caliente"
+   ],
+   "pasos": [
+    "Vierte el agua caliente en la taza.",
+    "Incorpora el té al agua (➕ en infusor o bolsita).",
+    "➕ Deja reposar: té negro 3–5 min, té verde 2–3 min.",
+    "Cuela si el cliente lo quiere."
+   ],
+   "capas": [
+    {
+     "nombre": "Té",
+     "pct": 100
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Reposo: té negro 3–5 min · verde 2–3 min.",
+    "Agua: negro ~95 °C · verde ~80 °C."
+   ],
+   "evitar": [
+    "Dejar el té dentro mucho tiempo: se amarga."
+   ],
+   "variaciones": [
+    "Con leche (té negro).",
+    "Frío: doble de té, reposar y verter sobre hielo."
+   ],
+   "notas": [
+    "[2026-10-24] (revisar) 15 g de té por taza es mucho; normalmente son 2–3 g. Confirmar si es 1.5 g.",
+    "[2026-10-24] (libreta) Marcado \"En espera\"."
+   ]
+  },
+  {
+   "slug": "tisana",
+   "titulo": "Tisana",
+   "categoria": "Matcha, Chai y Té",
+   "estado": "activo",
+   "orden": 16,
+   "taza": "Taza o tetera de ~240 ml",
+   "tamanos": "",
+   "ingredientes": [
+    "10–20 g de tisana",
+    "1 taza de agua caliente"
+   ],
+   "pasos": [
+    "Prepara agua caliente en la taza (de la perilla).",
+    "Vierte la tisana al agua caliente (➕ en infusor).",
+    "➕ Deja reposar 5–7 min y retira el infusor."
+   ],
+   "capas": [
+    {
+     "nombre": "Tisana",
+     "pct": 100
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Reposo: 5–7 min (frutales aguantan más)."
+   ],
+   "evitar": [
+    "Servir sin reposo: queda solo agua pintada."
+   ],
+   "variaciones": [
+    "Tisanas del menú: Amore (blueberry, arándano, jamaica, fresa, cereza) y las demás de la carta.",
+    "Fría: ver Soda Tisana."
+   ],
+   "notas": []
+  },
+  {
+   "slug": "soda-tisana",
+   "titulo": "Soda Tisana",
+   "categoria": "Matcha, Chai y Té",
+   "estado": "activo",
+   "orden": 17,
+   "taza": "Vaso de soda italiana (~400 ml)",
+   "tamanos": "",
+   "ingredientes": [
+    "1 oz de pulpa",
+    "10 g de tisana",
+    "1 demitasse de agua caliente (70 ml)",
+    "Hielo",
+    "Agua mineral"
+   ],
+   "pasos": [
+    "Pon la tisana en una taza con la demitasse de agua caliente y déjala reposar (➕ 5 min) hasta que baje a temperatura media.",
+    "Vierte la tisana (colada) en el vaso de soda italiana.",
+    "Añade la pulpa.",
+    "Vierte el hielo hasta llenar el vaso.",
+    "Vierte el agua mineral.",
+    "➕ Revuelve una vez de abajo hacia arriba."
+   ],
+   "capas": [
+    {
+     "nombre": "Agua mineral + hielo",
+     "pct": 70
+    },
+    {
+     "nombre": "Tisana",
+     "pct": 18
+    },
+    {
+     "nombre": "Pulpa",
+     "pct": 12
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Reposo de la tisana: ~5 min."
+   ],
+   "evitar": [
+    "Echar la tisana hirviendo al hielo: se derrite todo y queda aguada.",
+    "Revolver mucho: se va el gas."
+   ],
+   "variaciones": [
+    "Con jarabe natural si la piden más dulce."
+   ],
+   "notas": [
+    "[2026-10-24] (libreta) Nota: preguntar al de mango si requieren que sean más dulces."
+   ]
+  },
+  {
+   "slug": "soda-italiana",
+   "titulo": "Soda Italiana",
+   "categoria": "Sodas y Frappés",
+   "estado": "activo",
+   "orden": 18,
+   "taza": "Vaso de soda italiana (~400 ml)",
+   "tamanos": "",
+   "ingredientes": [
+    "2 oz de jarabe",
+    "Hielo",
+    "Agua mineral"
+   ],
+   "pasos": [
+    "2 oz de jarabe en el vaso.",
+    "Agrega hielo al vaso.",
+    "Agrega agua mineral al vaso (➕ despacio, por la orilla, para que no se salga la espuma)."
+   ],
+   "capas": [
+    {
+     "nombre": "Agua mineral + hielo",
+     "pct": 85
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 15
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [],
+   "evitar": [
+    "Agua mineral tibia o destapada: queda sin gas."
+   ],
+   "variaciones": [
+    "Cremosa: 1 oz de crema o leche encima.",
+    "Mezcla de dos jarabes."
+   ],
+   "notas": []
+  },
+  {
+   "slug": "smoothie",
+   "titulo": "Smoothie",
+   "categoria": "Sodas y Frappés",
+   "estado": "activo",
+   "orden": 19,
+   "taza": "Vaso de ~400 ml",
+   "tamanos": "",
+   "ingredientes": [
+    "2 oz de pulpa",
+    "30 g de base cristal",
+    "1 vaso de escarchera de hielo (vaso lleno de hielo)",
+    "4 oz de agua",
+    "1 oz de jarabe natural (para mejor dulzor)"
+   ],
+   "pasos": [
+    "Incorpora 2 oz de pulpa, 4 oz de agua y el vaso de hielo en la licuadora (licuar hielo).",
+    "Agrega los 30 g de base cristal en la licuadora.",
+    "Licúa todo por 20 s o en el modo P2.",
+    "Agrega el jarabe si es necesario."
+   ],
+   "capas": [
+    {
+     "nombre": "Smoothie",
+     "pct": 100
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Licuado: 20 s o programa P2."
+   ],
+   "evitar": [
+    "Licuar de más: se calienta y queda aguado.",
+    "Poner la base sin líquido: se pega al fondo."
+   ],
+   "variaciones": [
+    "Con leche en lugar de agua (más cremoso).",
+    "Mezcla de dos pulpas."
+   ],
+   "notas": []
+  },
+  {
+   "slug": "frappe",
+   "titulo": "Frappé",
+   "categoria": "Sodas y Frappés",
+   "estado": "activo",
+   "orden": 20,
+   "taza": "Vaso de ~400 ml",
+   "tamanos": "",
+   "ingredientes": [
+    "1 vaso de hielo",
+    "2–3 oz de jarabe de sabor",
+    "4 oz de leche",
+    "30 g de base neutra",
+    "Chocolate",
+    "Crema batida"
+   ],
+   "pasos": [
+    "Incorpora el hielo, la leche y el jarabe en la licuadora (licuar hielo).",
+    "Incorpora la base neutra.",
+    "Licúa 20 s o en el modelo P2.",
+    "Decora con crema batida o chocolate."
+   ],
+   "capas": [
+    {
+     "nombre": "Crema batida + chocolate",
+     "pct": 15
+    },
+    {
+     "nombre": "Frappé",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Licuado: 20 s o programa P2."
+   ],
+   "evitar": [
+    "Poco hielo: queda líquido.",
+    "Licuar de más: se derrite."
+   ],
+   "variaciones": [
+    "Frappé de café: 1 espresso frío en lugar de 1 oz de jarabe.",
+    "Moka frappé: jarabe de chocolate + espresso."
+   ],
+   "notas": []
+  },
+  {
+   "slug": "limonada-naranjada",
+   "titulo": "Limonada / Naranjada",
+   "categoria": "Sodas y Frappés",
+   "estado": "activo",
+   "orden": 21,
+   "taza": "Vaso de ~400 ml",
+   "tamanos": "",
+   "ingredientes": [
+    "Agua mineral",
+    "2 oz de pulpa de naranja o limón",
+    "Hielo"
+   ],
+   "pasos": [
+    "Agrega hielo al vaso.",
+    "Incorpora las 2 oz de pulpa.",
+    "➕ Completa con agua mineral, despacio por la orilla.",
+    "Mezcla con la cuchara agitadora (una o dos vueltas, de abajo hacia arriba)."
+   ],
+   "capas": [
+    {
+     "nombre": "Agua mineral + hielo",
+     "pct": 85
+    },
+    {
+     "nombre": "Pulpa",
+     "pct": 15
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [],
+   "evitar": [
+    "Revolver mucho: se pierde el gas.",
+    "Agua mineral tibia."
+   ],
+   "variaciones": [
+    "Natural (agua sin gas).",
+    "Con un poco de jarabe natural si la piden más dulce.",
+    "Escarchada con azúcar o chile."
+   ],
+   "notas": [
+    "[2026-10-24] (revisar) En la libreta el primer paso dice \"agregar pulpa y hielo al vaso\" y luego \"incorporar 2 oz de pulpa\"; quedó como: hielo, pulpa, agua mineral."
+   ]
+  },
+  {
+   "slug": "affogato",
+   "titulo": "Affogato",
+   "categoria": "Sodas y Frappés",
+   "estado": "activo",
+   "orden": 22,
+   "taza": "Taza o copa chica",
+   "tamanos": "",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "1 bola de helado (vainilla)"
+   ],
+   "pasos": [
+    "➕ Enfría la taza (o úsala a temperatura ambiente, nunca caliente).",
+    "Pon la bola de helado en la taza.",
+    "Incorpora el espresso encima de la bola (➕ recién sacado, de preferencia frente al cliente)."
+   ],
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 40
+    },
+    {
+     "nombre": "Helado",
+     "pct": 60
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Extracción del espresso: 20–30 s (si sale en menos de 20 s, molienda más fina; si pasa de 35 s, más gruesa)",
+    "Servir de inmediato."
+   ],
+   "evitar": [
+    "Helado muy suave o taza caliente: se derrite antes de llegar a la mesa.",
+    "Dejar esperando el espresso: llega tibio y sin crema."
+   ],
+   "variaciones": [
+    "Maridaje del menú: galleta de almendra o teja de chocolate oscuro.",
+    "Con helado de chocolate o caramelo."
+   ],
+   "notas": []
+  },
+  {
+   "slug": "cream-soda",
+   "titulo": "Cream Soda",
+   "categoria": "Sodas y Frappés",
+   "estado": "activo",
+   "orden": 23,
+   "taza": "Vaso de soda italiana (~400 ml)",
+   "tamanos": "",
+   "ingredientes": [
+    "1 soda italiana de kiwi o de frutos rojos",
+    "1 bola de helado"
+   ],
+   "pasos": [
+    "Haz una soda italiana (ver receta) de kiwi o frutos rojos, dejando ~3 cm libres arriba.",
+    "Pon hasta arriba del vaso una bola de helado.",
+    "➕ Sírvela con popote y cuchara larga."
+   ],
+   "capas": [
+    {
+     "nombre": "Helado",
+     "pct": 20
+    },
+    {
+     "nombre": "Agua mineral + hielo",
+     "pct": 68
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 12
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Servir de inmediato: el helado hace espuma con el gas."
+   ],
+   "evitar": [
+    "Llenar el vaso hasta el tope: al poner el helado se derrama la espuma."
+   ],
+   "variaciones": [
+    "Con crema batida en lugar de helado.",
+    "Otros jarabes."
+   ],
+   "notas": []
+  },
+  {
+   "slug": "malteada",
+   "titulo": "Malteada",
+   "categoria": "Sodas y Frappés",
+   "estado": "activo",
+   "orden": 24,
+   "taza": "Vaso de ~400 ml",
+   "tamanos": "",
+   "ingredientes": [
+    "3 bolas de helado",
+    "2 oz de jarabe",
+    "1 cucharada de base neutra",
+    "Hielo",
+    "Leche (para controlar la consistencia del helado)"
+   ],
+   "pasos": [
+    "Incorpora el helado, el jarabe y el hielo en la licuadora (licuar hielo).",
+    "➕ Agrega leche poco a poco según qué tan espesa quede (empieza con ~2 oz).",
+    "Incorpora la base neutra.",
+    "Licúa 20 s o en el modo P2.",
+    "➕ Decora (crema batida, chocolate o el topping del sabor)."
+   ],
+   "capas": [
+    {
+     "nombre": "Crema batida / topping",
+     "pct": 15
+    },
+    {
+     "nombre": "Malteada",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tiempos": [
+    "Licuado: 20 s o programa P2."
+   ],
+   "evitar": [
+    "Mucha leche de golpe: queda como licuado aguado.",
+    "Licuar de más: el helado se derrite."
+   ],
+   "variaciones": [
+    "Vainilla, chocolate, fresa, galleta (según helado y jarabe).",
+    "Con un espresso (malteada de café)."
+   ],
+   "notas": []
+  }
+ ],
+ "inventario": [
+  {
+   "grupo": "Café",
+   "items": [
+    "Café en grano (espresso)",
+    "Café premolido (café del día)",
+    "Café para cold brew (molienda semi gruesa)"
+   ]
+  },
+  {
+   "grupo": "Lácteos y cremas",
+   "items": [
+    "Leche entera",
+    "Crema para batir dulce",
+    "Crema batida",
+    "Helado (vainilla)"
+   ]
+  },
+  {
+   "grupo": "Jarabes y pulpas",
+   "items": [
+    "Jarabe de chocolate",
+    "Jarabes de sabor (para frappé, soda italiana y latte dulce)",
+    "Jarabe natural",
+    "Jarabe de kiwi",
+    "Jarabe de frutos rojos",
+    "Pulpa de mango",
+    "Pulpa de naranja",
+    "Pulpa de limón",
+    "Pulpas de fruta (smoothie)"
+   ]
+  },
+  {
+   "grupo": "Tés y polvos",
+   "items": [
+    "Polvo para matcha",
+    "Té",
+    "Tisanas (Amore y las del menú)",
+    "Base cristal (smoothies)",
+    "Base neutra (frappés y malteadas)",
+    "Canela en polvo",
+    "Chocolate en barra"
+   ]
+  },
+  {
+   "grupo": "Otros",
+   "items": [
+    "Agua mineral",
+    "Hielo"
+   ]
+  }
+ ],
+ "tecnica": [
+  {
+   "titulo": "Nombres",
+   "items": [
+    "Demitasse: taza de espresso (70 ml). Se usa también como medida: \"1 demitasse de leche\" = 70 ml.",
+    "Lanceta: la espumera / vaporizador de la cafetera (el tubo que saca vapor).",
+    "Perilla de agua caliente: la llave de la cafetera que saca agua caliente (para americanos, tés y tisanas).",
+    "Jarra de leche: la jarra metálica para vaporizar. \"Hasta el pico\" = hasta donde empieza la boquilla.",
+    "Maneral: el portafiltro con mango donde va el café.",
+    "Distribuidor de agujas, nivelador y tamper: se usan en ese orden para acomodar y compactar el café en el maneral.",
+    "Cuadrantes de la jarra: vista desde arriba, la jarra se divide en 4 (I, II, III, IV, como en la libreta). La lanceta entra por el IV cuadrante para que la leche gire en remolino.",
+    "Modo P2: programa de la licuadora para frappés y smoothies (≈20 s)."
+   ]
+  },
+  {
+   "titulo": "Medidas rápidas",
+   "items": [
+    "1 oz = 30 ml · 1 demitasse = 70 ml · 1 espresso de la casa = 15 g de café → 70 ml.",
+    "Leche: cortado 70 ml · flat white 140 ml · latte 130/240 ml · capuchino y moka 150/240 ml · dirty 210 ml."
+   ]
+  },
+  {
+   "titulo": "Vaporizar la leche (paso a paso)",
+   "items": [
+    "Leche fría y jarra fría. Llena hasta el pico.",
+    "Purga la lanceta 1–2 s.",
+    "Mete la punta por el IV cuadrante, apenas debajo de la superficie, y abre el vapor completo.",
+    "Fase de aire: la punta cerca de la superficie, suena \"chss\" suave. Capuchino 5–8 s · latte 2–4 s · flat white 1–2 s · cortado 0 s.",
+    "Fase de remolino: sube un poco la jarra para hundir la punta; la leche gira y se calienta sin meter más aire.",
+    "Mano en la jarra: cuando ya casi no la aguantas (2–3 s), apaga. Eso es ~60–65 °C.",
+    "Apaga ANTES de sacar la lanceta. Limpia y purga.",
+    "Golpea la jarra en la barra y gírala para quitar burbujas."
+   ]
+  },
+  {
+   "titulo": "Tiempos de referencia (ajústenlos con su máquina)",
+   "items": [
+    "Espresso: 20–30 s para 70 ml.",
+    "Leche 70 ml: 8–12 s · 140 ml: 15–20 s · 150 ml: 15–20 s · 240 ml: 25–35 s.",
+    "Licuadora: 20 s o modo P2.",
+    "Cold brew: 12–24 h de reposo."
+   ]
+  },
+  {
+   "titulo": "Cuándo se quema la leche",
+   "items": [
+    "Arriba de 70 °C la leche se quema: huele a hervida, sabe menos dulce, la espuma hace burbujas grandes y se baja.",
+    "Señales: chillido agudo de la lanceta, la jarra ya no se puede tocar, sale vapor de la superficie.",
+    "No se puede arreglar: se tira y se hace de nuevo. No se recalienta leche ya vaporizada."
+   ]
+  },
+  {
+   "titulo": "Espresso: si sale mal",
+   "items": [
+    "Muy rápido (menos de 20 s), ácido, aguado → molienda más fina o más presión en el tamper.",
+    "Muy lento (más de 35 s), amargo, oscuro → molienda más gruesa.",
+    "Sale por un lado → tamper chueco o café mal distribuido (usar distribuidor y nivelador)."
+   ]
+  }
+ ]
+}

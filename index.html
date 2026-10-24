@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Recetario de barra de Café Pretexto">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="logo-pretexto.png">
+<title>Recetario Café Pretexto</title>
+<link rel="icon" href="logo-pretexto.png">
+<style>
+[hidden]{display:none!important}
+:root{
+  --papel:#f6f2e6; --papel2:#efe9d8; --linea:#cfd8c3; --margen:#d9b98a;
+  --oliva:#3b5236; --oliva2:#56684a; --romero:#8f9a76; --salvia:#b8c2a2; --salvia2:#dde3cf;
+  --oro:#c2a05a; --oro2:#a8873f; --lapiz:#3d3d36; --lapiz2:#6b6a60; --rojo:#a9453a;
+  --mesa:#2f2a22; --sombra:0 18px 40px rgba(0,0,0,.35);
+  --mano:'Times New Roman',Times,serif;
+  --titulo:'Times New Roman',Times,serif;
+  --serif:'Times New Roman',Times,serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{padding-left:env(safe-area-inset-left, 0px);padding-right:env(safe-area-inset-right, 0px);background:var(--mesa);background-image:radial-gradient(ellipse at 30% 0%,#3f382d 0%,#2a251e 60%,#211d17 100%);color:var(--lapiz);font-family:var(--mano);font-size:19px;line-height:1.45;min-height:100vh}
+button{font-family:inherit;font-size:inherit;cursor:pointer}
+a{color:var(--oliva)}
+/* ---------- barra superior */
+.top{display:flex;align-items:center;gap:16px;padding:14px 24px;color:#e9e3d2;flex-wrap:wrap}
+.top img{height:34px;filter:drop-shadow(0 1px 0 rgba(0,0,0,.3))}
+.top .lema{font-family:var(--serif);font-style:italic;font-size:15px;opacity:.75}
+.top .buscar{margin-left:auto;display:flex;align-items:center;background:#f6f2e6;border-radius:999px;padding:4px 14px;min-width:240px}
+.top .buscar input{border:0;background:transparent;font-family:var(--mano);font-size:18px;width:100%;outline:none;color:var(--lapiz);padding:4px 0}
+.estado-ia{font-size:15px;display:flex;align-items:center;gap:6px;opacity:.85}
+.estado-ia i{width:9px;height:9px;border-radius:50%;background:#888;display:inline-block}
+.estado-ia.ok i{background:#9bc27a}.estado-ia.mal i{background:#d0705e}
+/* ---------- libreta */
+.libreta{position:relative;max-width:1320px;margin:6px auto 40px;padding:0 70px 0 24px}
+.pliego{display:grid;grid-template-columns:1fr 1fr;background:var(--papel);border-radius:6px 14px 14px 6px;box-shadow:var(--sombra);position:relative;min-height:calc(100vh - 120px)}
+.pliego::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:46px;transform:translateX(-50%);background:linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.10) 42%,rgba(0,0,0,.18) 50%,rgba(0,0,0,.10) 58%,rgba(0,0,0,0) 100%);pointer-events:none;z-index:2}
+.hoja{position:relative;padding:44px 46px 60px 76px;
+  background-image:linear-gradient(90deg,transparent 58px,var(--margen) 58px,var(--margen) 60px,transparent 60px),repeating-linear-gradient(180deg,transparent 0,transparent 33px,var(--linea) 33px,var(--linea) 34px);
+  background-position:0 0,0 18px;min-width:0}
+.hoja.der{padding-left:60px;background-image:repeating-linear-gradient(180deg,transparent 0,transparent 33px,var(--linea) 33px,var(--linea) 34px);background-position:0 18px}
+/* pestañas */
+.pestanas{position:absolute;top:40px;right:12px;display:flex;flex-direction:column;gap:8px;z-index:3}
+.pestana{writing-mode:vertical-rl;padding:14px 8px;border:0;border-radius:0 10px 10px 0;font-family:var(--titulo);font-size:17px;font-weight:700;color:#fbf8ef;box-shadow:3px 3px 8px rgba(0,0,0,.25);text-align:left;transition:transform .15s}
+.pestana:hover,.pestana.activa{transform:translateX(6px)}
+.pestana.activa{outline:2px solid rgba(255,255,255,.6);outline-offset:-4px}
+/* tipografía de la hoja */
+h1.t{font-family:var(--titulo);font-size:40px;line-height:1.05;margin:0 0 4px;color:var(--oliva);font-weight:700;letter-spacing:.01em}
+.sub{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--lapiz2);margin:0 0 18px}
+h2{font-family:var(--titulo);font-weight:700;font-size:23px;color:var(--oliva2);margin:20px 0 4px;line-height:1.15}
+h2 small{font-family:var(--mano);font-size:15px;color:var(--lapiz2);font-weight:400}
+ul,ol{margin:0;padding-left:24px}
+li{margin:2px 0}
+ol.pasos{list-style:none;padding:0;counter-reset:p}
+ol.pasos li{counter-increment:p;position:relative;padding-left:40px;margin:6px 0}
+ol.pasos li::before{content:counter(p);position:absolute;left:0;top:1px;width:28px;height:28px;border:2px solid var(--oliva2);border-radius:50%;text-align:center;line-height:24px;font-size:16px;color:var(--oliva2)}
+ol.pasos li.extra{color:#4d5c6e}
+ol.pasos li.extra::before{border-style:dashed;border-color:#7d8ea3;color:#7d8ea3}
+.tip{display:inline-block;font-size:13px;background:#e3ebf3;color:#4d5c6e;border-radius:5px;padding:0 6px;margin-right:6px;transform:rotate(-2deg)}
+ul.ing{list-style:none;padding:0}
+ul.ing li{display:flex;gap:10px;align-items:flex-start}
+ul.ing input{appearance:none;width:20px;height:20px;border:2px solid var(--lapiz2);border-radius:4px;margin-top:5px;flex:none;cursor:pointer;background:transparent}
+ul.ing input:checked{background:var(--salvia);border-color:var(--oliva2)}
+ul.ing input:checked+span{text-decoration:line-through;text-decoration-color:var(--oliva2);opacity:.6}
+.sello{position:absolute;top:34px;right:46px;border:3px solid var(--rojo);color:var(--rojo);font-family:var(--serif);font-weight:500;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;transform:rotate(8deg);border-radius:6px;opacity:.85}
+.sello.nueva{border-color:var(--oro2);color:var(--oro2)}
+/* tarjetas dentro de la hoja derecha */
+.taza-box{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.taza-box svg{max-width:100%;height:auto}
+.tamanos{display:flex;gap:8px;margin:6px 0 2px}
+.tamanos button{border:2px solid var(--oliva2);background:transparent;color:var(--oliva2);border-radius:999px;padding:2px 14px}
+.tamanos button.on{background:var(--oliva2);color:#fbf8ef}
+.chips{display:flex;flex-direction:column;gap:6px}
+.tiempo{display:flex;gap:10px;align-items:flex-start}
+.crono{flex:none;border:2px solid var(--oro2);background:#fbf3df;color:var(--oro2);border-radius:999px;padding:0 12px;font-size:16px;min-width:94px;text-align:center}
+.crono.corre{background:var(--oro);color:#fff}
+.crono.listo{background:#7fa36a;border-color:#5f8a4d;color:#fff}
+.crono.pasado{background:var(--rojo);border-color:var(--rojo);color:#fff}
+.ojo{border:2px solid var(--rojo);border-radius:10px 14px 12px 16px;padding:8px 14px 10px;margin-top:8px;position:relative;background:rgba(169,69,58,.04)}
+.ojo h2{color:var(--rojo);margin-top:0}
+.ojo li::marker{color:var(--rojo)}
+.postits{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.postit{background:#f3e7a9;padding:10px 12px 12px;width:230px;box-shadow:2px 4px 8px rgba(0,0,0,.18);font-size:16px;line-height:1.3;transform:rotate(-1.5deg)}
+.postit:nth-child(2n){transform:rotate(1.4deg);background:#e6eccf}
+.postit b{display:block;font-size:13px;color:var(--lapiz2);font-weight:400;margin-bottom:3px}
+.nota-nueva{display:flex;gap:8px;margin-top:10px}
+.nota-nueva input{flex:1;border:0;border-bottom:2px dashed var(--lapiz2);background:transparent;font-family:var(--mano);font-size:18px;padding:4px 2px;outline:none}
+.btn{border:2px solid var(--oliva);background:var(--oliva);color:#fbf8ef;border-radius:10px;padding:4px 14px}
+.btn.claro{background:transparent;color:var(--oliva)}
+.btn.oro{background:var(--oro);border-color:var(--oro2)}
+/* índice */
+.indice h2{border-bottom:2px solid var(--salvia);padding-bottom:2px}
+.indice .fila{display:flex;align-items:baseline;gap:8px;padding:3px 0;cursor:pointer;color:var(--lapiz)}
+.indice .fila:hover{color:var(--oliva)}
+.indice .fila .pts{flex:1;border-bottom:2px dotted var(--salvia);transform:translateY(-5px)}
+.indice .fila .est{font-size:14px;color:var(--rojo)}
+.dibujo{margin:14px 0}
+.leyenda{font-size:15px;color:var(--lapiz2)}
+/* chat */
+.abrir-chat{position:fixed;right:22px;bottom:22px;z-index:20;background:var(--oliva);color:#fbf8ef;border:0;border-radius:999px;padding:12px 20px;font-family:var(--titulo);font-size:19px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.chat{position:fixed;right:22px;bottom:22px;width:min(460px,calc(100vw - 32px));height:min(680px,calc(100vh - 44px));z-index:21;background:var(--papel);border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.45);display:none;flex-direction:column;overflow:hidden;
+  background-image:repeating-linear-gradient(180deg,transparent 0,transparent 31px,var(--salvia2) 31px,var(--salvia2) 32px)}
+.chat.abierto{display:flex}
+.chat header{background:var(--oliva);color:#fbf8ef;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.chat header b{font-family:var(--titulo);font-size:21px}
+.chat header small{opacity:.8;font-size:14px}
+.chat header #cerrarChat{margin-left:8px;background:transparent;border:0;color:#fbf8ef;font-size:26px;line-height:1}
+.msgs{flex:1;overflow:auto;padding:14px}
+.msg{max-width:88%;margin:8px 0;padding:8px 12px;border-radius:12px;white-space:pre-wrap;font-size:17px;line-height:1.35}
+.msg.yo{margin-left:auto;background:var(--salvia2);border:1px solid var(--salvia)}
+.msg.ia{background:#fffdf6;border:1px solid #e4dcc4}
+.msg.err{background:#f6dcd7;border:1px solid #e0a89e}
+.cambio{border:2px dashed var(--oro2);border-radius:10px;padding:8px 10px;margin:8px 0;background:#fbf3df;font-size:16px}
+.cambio .tipo{font-family:var(--titulo);font-size:17px;font-weight:700;color:var(--oro2)}
+.cambio ul{padding-left:20px}
+.cambio .acc{display:flex;gap:8px;margin-top:6px}
+.cambio.hecho{border-style:solid;border-color:#7fa36a;background:#eef3e6}
+.sugs{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 8px}
+.sugs button{border:1px solid var(--romero);background:#fbf8ef;color:var(--oliva2);border-radius:999px;padding:2px 10px;font-size:15px}
+.entrada{display:flex;gap:8px;padding:10px 12px;border-top:2px solid var(--salvia);background:var(--papel2)}
+.entrada textarea{flex:1;resize:none;border:0;background:transparent;font-family:var(--mano);font-size:18px;outline:none;height:52px}
+.pensando{opacity:.7;font-style:italic}
+/* inventario */
+.inv-grupo{margin-bottom:10px}
+.inv-item{display:flex;align-items:center;gap:8px}
+.inv-item.no{text-decoration:line-through;color:var(--rojo)}
+.inv-item button{border:0;background:transparent;color:var(--lapiz2);font-size:14px;text-decoration:underline}
+/* responsivo */
+/* tablet / laptop horizontal: mantener las dos hojas, más compacto */
+@media (max-width: 1200px){
+  body{font-size:17px}
+  .libreta{padding:0 58px 0 12px}
+  .hoja{padding:30px 26px 44px 66px}
+  .hoja.der{padding-left:40px}
+  h1.t{font-size:34px}
+  .sello{right:24px}
+}
+/* celular o tablet acostada (poca altura): todo más compacto para ver la receta sin hacer scroll de más */
+@media (orientation: landscape) and (max-height: 620px){
+  body{font-size:15px;line-height:1.35}
+  .top{padding:6px 14px;gap:10px}
+  .top img{height:24px}
+  .top .lema{display:none}
+  .top .buscar{min-width:180px;padding:2px 10px}
+  .top .buscar input{font-size:15px}
+  .libreta{margin:2px auto 12px;padding:0 46px 0 8px}
+  .pliego{min-height:calc(100vh - 52px)}
+  .hoja{padding:18px 16px 28px 50px;background-position:0 0,0 12px;background-image:linear-gradient(90deg,transparent 40px,var(--margen) 40px,var(--margen) 42px,transparent 42px),repeating-linear-gradient(180deg,transparent 0,transparent 25px,var(--linea) 25px,var(--linea) 26px)}
+  .hoja.der{padding-left:24px;background-image:repeating-linear-gradient(180deg,transparent 0,transparent 25px,var(--linea) 25px,var(--linea) 26px);background-position:0 12px}
+  h1.t{font-size:26px}
+  h2{font-size:18px;margin:12px 0 2px}
+  .sub{font-size:13px;margin-bottom:8px}
+  ol.pasos li{padding-left:30px;margin:3px 0}
+  ol.pasos li::before{width:22px;height:22px;line-height:18px;font-size:13px}
+  ul.ing input{width:16px;height:16px;margin-top:3px}
+  .pestanas{top:14px;right:4px;gap:4px}
+  .pestana{font-size:13px;padding:9px 5px}
+  .taza-box svg{width:330px}
+  .postit{width:180px;font-size:14px}
+  .sello{top:10px;right:14px;font-size:11px}
+  .abrir-chat{font-size:15px;padding:7px 12px;right:10px;bottom:10px}
+  .chat{height:calc(100vh - 20px);bottom:10px;right:10px;width:min(420px,48vw)}
+  .msg{font-size:15px}
+  .crono{font-size:13px;min-width:74px;padding:0 8px}
+  .tamanos button{padding:0 10px;font-size:14px}
+  .btn{padding:2px 10px}
+}
+/* solo en vertical y angosto: una sola columna */
+@media (orientation: portrait) and (max-width: 820px){
+  .libreta{padding:0 12px}
+  .pliego{grid-template-columns:1fr}
+  .pliego::before{display:none}
+  .hoja{padding:34px 20px 40px 70px}
+  .hoja.der{padding:20px 20px 60px 70px;background-image:linear-gradient(90deg,transparent 58px,var(--margen) 58px,var(--margen) 60px,transparent 60px),repeating-linear-gradient(180deg,transparent 0,transparent 33px,var(--linea) 33px,var(--linea) 34px)}
+  .pestanas{position:static;flex-direction:row;overflow-x:auto;padding:0 0 8px}
+  .pestana{writing-mode:horizontal-tb;border-radius:10px 10px 0 0;padding:8px 14px;white-space:nowrap}
+  .pestana:hover,.pestana.activa{transform:translateY(-3px)}
+  .sello{top:12px;right:16px}
+  .top .buscar{min-width:0;flex:1 1 100%}
+  .abrir-chat{font-size:16px;padding:9px 14px;right:12px;bottom:12px}
+}
+@media print{.abrir-chat,.chat,.top .buscar,.nota-nueva{display:none!important}body{background:#fff}.pliego{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="top">
+  <img src="logo-pretexto.png" alt="Café Pretexto">
+  <span class="lema">Recetario de barra</span>
+  <span class="estado-ia" id="estadoIA"><i></i><span>revisando IA…</span></span>
+  <button class="btn oro" id="pendBtn" hidden></button>
+  <label class="buscar">🔍&nbsp;<input id="buscar" placeholder="Buscar bebida o ingrediente…" autocomplete="off"></label>
+</div>
+
+<div class="libreta">
+  <nav class="pestanas" id="pestanas"></nav>
+  <div class="pliego">
+    <section class="hoja izq" id="izq"></section>
+    <section class="hoja der" id="der"></section>
+  </div>
+</div>
+
+<button class="abrir-chat" id="abrirChat">✎ Pregúntale a la libreta</button>
+<div class="chat" id="chat" role="dialog" aria-label="Asistente del recetario">
+  <header><div><b>Asistente de barra</b><br><small id="chatModelo">IA en este aparato</small></div><button class="btn oro" id="activarBtn" style="margin-left:auto;font-size:14px">Activar IA</button><button id="cerrarChat" aria-label="Cerrar">×</button></header>
+  <div class="msgs" id="msgs"></div>
+  <div class="sugs" id="sugs"></div>
+  <div class="entrada"><textarea id="txt" placeholder="Ej. el latte grande quedó mejor con 5 s menos de vapor…"></textarea><button class="btn" id="enviar">Enviar</button></div>
+</div>
+
+<script>
+const CATS = [
+  { id:'inicio', nombre:'Índice', color:'#56684a' },
+  { id:'tecnica', nombre:'Antes de empezar', color:'#8f9a76' },
+  { id:'Café', nombre:'Café', color:'#6b4a2f' },
+  { id:'Café Frío', nombre:'Café frío', color:'#4f6a78' },
+  { id:'Matcha, Chai y Té', nombre:'Matcha, chai y té', color:'#6f8a4c' },
+  { id:'Sodas y Frappés', nombre:'Sodas y frappés', color:'#b1764a' },
+  { id:'Nuevas', nombre:'Nuevas', color:'#c2a05a' },
+  { id:'inventario', nombre:'Inventario', color:'#3b5236' },
+];
+let D = { recetas:[], inventario:[], tecnica:[] };
+let vista = { cat:'inicio', slug:null, grande:false };
+let chatHist = [];
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+
+// ---------- datos (GitHub Pages): recetas del repositorio + cambios guardados en este aparato
+let BASE = null;
+const LS = 'pretexto-recetario-v1';
+const hoy = () => { const d = new Date(), p = n => String(n).padStart(2,'0'); return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`; };
+const slugify = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,60) || 'receta';
+const ordenar = a => a.slice().sort((x,y) => (x.orden??999)-(y.orden??999) || x.titulo.localeCompare(y.titulo));
+const clonar = o => JSON.parse(JSON.stringify(o));
+const SECC = { 'ingredientes':'ingredientes','preparacion':'pasos','taza':'capas','taza-grande':'capasGrande','tiempos':'tiempos','evitar':'evitar','variaciones':'variaciones','notas':'notas' };
+const aCapas = items => (items||[]).map(t => { if (typeof t === 'object' && t) return { nombre: t.nombre, pct: Number(t.porcentaje ?? t.pct) }; const m = String(t).match(/^(.*?):\s*(\d+(?:[.,]\d+)?)\s*%/); return m ? { nombre:m[1].trim(), pct:parseFloat(m[2].replace(',','.')) } : null; }).filter(Boolean);
+const sinNumero = a => (a||[]).map(x => String(x).replace(/^\s*\d+[).\-]\s*/, ''));
+
+function leerLocal(){ try { return JSON.parse(localStorage.getItem(LS)) || { recetas:{}, inventario:null, pendientes:[] }; } catch { return { recetas:{}, inventario:null, pendientes:[] }; } }
+function guardarLocal(L){ try { localStorage.setItem(LS, JSON.stringify(L)); return true; } catch { return false; } }
+
+function armar(){
+  const L = leerLocal();
+  const porSlug = Object.fromEntries(BASE.recetas.map(r => [r.slug, r]));
+  for (const [slug, r] of Object.entries(L.recetas)) porSlug[slug] = r;
+  D = { recetas: ordenar(Object.values(porSlug)), inventario: L.inventario || clonar(BASE.inventario), tecnica: BASE.tecnica };
+  const n = L.pendientes.length;
+  const b = $('#pendBtn'); if (b){ b.hidden = !n; b.textContent = `${n} cambio${n===1?'':'s'} sin subir`; }
+}
+
+async function iniciar(){
+  try { BASE = await (await fetch('datos.json', { cache: 'no-cache' })).json(); }
+  catch { $('#izq').innerHTML = '<h1 class="t">No cargó el recetario</h1><p>Revisa la conexión a internet y recarga la página.</p>'; return; }
+  armar(); pintarPestanas(); pintar();
+  estadoIA();
+}
+
+async function aplicar(c){
+  const L = leerLocal();
+  const buscar = ref => { const s = slugify(ref||''); return D.recetas.find(r => r.slug===s) || D.recetas.find(r => slugify(r.titulo)===s) || D.recetas.find(r => s && (s.includes(r.slug) || r.slug.includes(s))); };
+  let mensaje;
+  try {
+    if (c.tipo === 'agregar_nota'){
+      const r = buscar(c.receta); if (!r) throw new Error(`No encontré la receta "${c.receta}"`);
+      const n = clonar(r); n.notas = (n.notas||[]).concat([`[${hoy()}] ${String(c.texto||'').trim()}`]);
+      L.recetas[n.slug] = n; mensaje = `Nota agregada a ${r.titulo}`;
+    } else if (c.tipo === 'editar_seccion'){
+      const r = buscar(c.receta); if (!r) throw new Error(`No encontré la receta "${c.receta}"`);
+      const campo = SECC[slugify(c.seccion||'')]; if (!campo) throw new Error(`Sección no válida: ${c.seccion}`);
+      if (!Array.isArray(c.items) || !c.items.length) throw new Error('La sección nueva viene vacía');
+      const n = clonar(r); n[campo] = campo.startsWith('capas') ? aCapas(c.items) : (campo==='pasos' ? sinNumero(c.items) : c.items.map(String));
+      L.recetas[n.slug] = n; mensaje = `"${c.seccion}" de ${r.titulo} actualizado`;
+    } else if (c.tipo === 'nueva_receta'){
+      if (!c.titulo) throw new Error('La receta nueva no tiene título');
+      let slug = slugify(c.titulo); if (D.recetas.some(r => r.slug===slug)) slug += '-' + Date.now().toString().slice(-4);
+      L.recetas[slug] = { slug, titulo:c.titulo, categoria:c.categoria||'Nuevas', estado:'nueva (probar)', orden:900, taza:c.taza||'', tamanos:'',
+        ingredientes:(c.ingredientes||[]).map(String), pasos:sinNumero(c.pasos), capas:aCapas(c.capas), capasGrande:[], tiempos:(c.tiempos||[]).map(String),
+        evitar:(c.evitar||[]).map(String), variaciones:(c.variaciones||[]).map(String), notas:[`[${hoy()}] (asistente) Receta nueva, falta probarla.`] };
+      mensaje = `Receta nueva guardada: ${c.titulo}`;
+    } else if (c.tipo === 'inventario'){
+      const g = clonar(D.inventario); const tiene = (i, x) => i.toLowerCase().includes(String(x).toLowerCase());
+      for (const grp of g) grp.items = grp.items.map(i => { const base = i.replace(/\s*\(no hay\)\s*$/i,''); if ((c.marcar_agotado||[]).some(x => tiene(base,x))) return base + ' (no hay)'; if ((c.ya_hay||[]).some(x => tiene(base,x))) return base; return i; });
+      const nuevos = (c.agregar||[]).filter(x => !g.some(grp => grp.items.some(i => tiene(i,x))));
+      if (nuevos.length){ let o = g.find(x => x.grupo==='Agregado desde el recetario'); if (!o){ o = { grupo:'Agregado desde el recetario', items:[] }; g.push(o); } o.items.push(...nuevos.map(String)); }
+      L.inventario = g; mensaje = 'Inventario actualizado';
+    } else throw new Error(`Tipo de cambio desconocido: ${c.tipo}`);
+    L.pendientes.push({ fecha: new Date().toISOString(), cambio: c });
+    if (!guardarLocal(L)) throw new Error('Este navegador no deja guardar (¿modo privado?). El cambio no se guardó.');
+    armar(); pintarPestanas(); pintar();
+    return { mensaje: mensaje + ' (en este aparato)' };
+  } catch(e){ return { error: String(e.message || e) }; }
+}
+
+// panel de cambios sin subir
+function textoPendientes(){ const L = leerLocal(); return 'CAMBIOS RECETARIO PRETEXTO\n' + JSON.stringify(L.pendientes, null, 1); }
+function abrirPendientes(){
+  const L = leerLocal();
+  const lista = L.pendientes.map(p => `<li>${esc(new Date(p.fecha).toLocaleString('es-MX'))} — ${esc(p.cambio.tipo.replace('_',' '))}${p.cambio.receta?': '+esc(p.cambio.receta):''}${p.cambio.titulo?': '+esc(p.cambio.titulo):''}</li>`).join('');
+  $('#der').innerHTML = `<h2 style="margin-top:0">Cambios sin subir</h2>
+    <p>Estos cambios solo están en este aparato. Para que se vean en todos: copia el texto y mándaselo a Alberto (o pégalo en el chat de Claude) para subirlo al recetario.</p>
+    <ul>${lista}</ul>
+    <p class="acc-p"><button class="btn" id="copiarPend">Copiar cambios</button> <button class="btn claro" id="borrarPend">Ya se subieron: limpiar</button></p>
+    <textarea id="pendTxt" readonly style="width:100%;height:160px;font:13px monospace">${esc(textoPendientes())}</textarea>`;
+  $('#copiarPend').onclick = async () => { const t = $('#pendTxt'); try { await navigator.clipboard.writeText(t.value); $('#copiarPend').textContent = 'Copiado ✓'; } catch { t.focus(); t.select(); $('#copiarPend').textContent = 'Selecciona y copia'; } };
+  $('#borrarPend').onclick = () => { if ($('#borrarPend').dataset.ok !== '1'){ $('#borrarPend').dataset.ok = '1'; $('#borrarPend').textContent = 'Toca otra vez para confirmar'; return; } guardarLocal({ recetas:{}, inventario:null, pendientes:[] }); armar(); pintarPestanas(); pintar(); };
+}
+
+// ---------- IA local en el navegador (WebLLM)
+let LOCAL = null, webllm = null, cargandoIA = false;
+const MOBILE = /Android|iPhone|iPod/i.test(navigator.userAgent);
+async function elegirModelo(){
+  const ad = await navigator.gpu.requestAdapter(); if (!ad) return null;
+  const f16 = ad.features.has('shader-f16');
+  if (MOBILE) return f16 ? 'Qwen2.5-0.5B-Instruct-q4f16_1-MLC' : 'Qwen2.5-0.5B-Instruct-q4f32_1-MLC';
+  return f16 ? 'Qwen2.5-1.5B-Instruct-q4f16_1-MLC' : 'Qwen2.5-1.5B-Instruct-q4f32_1-MLC';
+}
+function estadoIA(txt, ok){
+  const el = $('#estadoIA');
+  if (txt){ el.className = 'estado-ia ' + (ok ? 'ok' : 'mal'); el.lastChild.textContent = txt; return; }
+  if (LOCAL){ el.className='estado-ia ok'; el.lastChild.textContent='IA lista'; $('#chatModelo').textContent='IA en este aparato (Qwen)'; }
+  else { el.className='estado-ia'; el.lastChild.textContent='IA sin activar'; $('#chatModelo').textContent='Toca "Activar IA" (la primera vez descarga ~1 GB)'; }
+}
+async function activarIA(auto){
+  if (LOCAL || cargandoIA) return true;
+  if (!navigator.gpu){ if (!auto) agregarMsg('err', 'Este navegador no puede correr la IA (le falta WebGPU). En iPad usa Safari con iPadOS 26 o más nuevo, o Chrome en una computadora. Las recetas sí funcionan.'); return false; }
+  cargandoIA = true;
+  try {
+    webllm = webllm || await import('https://esm.run/@mlc-ai/web-llm@0.2.85');
+    const modelo = await elegirModelo(); if (!modelo) throw new Error('gpu');
+    if (auto && !(await webllm.hasModelInCache(modelo))) { cargandoIA = false; estadoIA(); return false; }
+    estadoIA('Cargando IA… 0 %', false);
+    LOCAL = await webllm.CreateMLCEngine(modelo, { initProgressCallback: p => estadoIA(`Cargando IA… ${Math.round((p.progress||0)*100)} %`, false) });
+    estadoIA(); return true;
+  } catch(e){ console.error(e); if (!auto) agregarMsg('err', 'No se pudo activar la IA en este aparato (memoria o WebGPU insuficiente). Las recetas sí funcionan.'); estadoIA(); return false; }
+  finally { cargandoIA = false; }
+}
+
+function instrucciones(textoUsuario, recetaActual){
+  const t = slugify(textoUsuario||''); const rel = new Set(recetaActual ? [recetaActual] : []);
+  for (const r of D.recetas){ const w = slugify(r.titulo).split('-').filter(x => x.length>3); if (t.includes(r.slug) || w.some(x => t.includes(x))) rel.add(r.slug); }
+  const det = D.recetas.filter(r => rel.has(r.slug)).slice(0,2).map(r => `### ${r.titulo} [${r.slug}]\nIngredientes: ${r.ingredientes.join('; ')}\nPreparación: ${r.pasos.map((p,i)=>`${i+1}) ${p.replace(/^➕\s*/,'')}`).join(' ')}\nTiempos: ${r.tiempos.join(' | ')}\nEvitar: ${r.evitar.join(' | ')}\nNotas: ${(r.notas||[]).join(' | ')||'—'}`).join('\n\n');
+  return `Eres el asistente de barra de Café Pretexto (México). Respondes en español, breve y práctico.
+- Dudas: usa SOLO el recetario. Si no está, dilo.
+- Si el equipo cuenta cómo le fue al probar algo, propón el cambio.
+- Si piden una bebida que no está, da la receta con el INVENTARIO (1 demitasse = 70 ml de espresso) y pon en "faltan" lo que no haya.
+- Si algo se acabó o llegó, propón el cambio de inventario.
+Responde SOLO con JSON: {"respuesta":"texto","faltan":[],"cambios":[]}
+Tipos de cambio: {"tipo":"agregar_nota","receta":"slug","texto":"..."} | {"tipo":"editar_seccion","receta":"slug","seccion":"Ingredientes|Preparación|Tiempos|Evitar|Variaciones","items":["lista completa nueva"]} | {"tipo":"nueva_receta","titulo":"...","categoria":"Nuevas","ingredientes":["..."],"pasos":["..."],"tiempos":[],"evitar":[],"variaciones":[]} | {"tipo":"inventario","agregar":[],"marcar_agotado":[],"ya_hay":[]}
+
+RECETAS: ${D.recetas.map(r => `${r.titulo} [${r.slug}]`).join(', ')}
+${det ? '\nDETALLE:\n' + det : ''}
+INVENTARIO: ${D.inventario.map(g => g.items.join(', ')).join(', ')}`;
+}
+
+async function chatIA(hist, recetaActual){
+  if (!LOCAL){ const ok = await activarIA(false); if (!ok) return { error: 'La IA no está activa en este aparato.' }; }
+  const ultimo = [...hist].reverse().find(m => m.role==='user');
+  const previos = hist.slice(-5, -1).map(m => ({ role: m.role==='user' ? 'user' : 'assistant', content: String(m.content).slice(0, 800) }));
+  try {
+    const r = await LOCAL.chat.completions.create({
+      messages: [{ role:'system', content: instrucciones(ultimo ? ultimo.content : '', recetaActual) }, ...previos, { role:'user', content: ultimo ? ultimo.content : '' }],
+      temperature: 0.3, max_tokens: 600, response_format: { type: 'json_object' } });
+    const txt = r.choices?.[0]?.message?.content || '';
+    let out; try { out = JSON.parse(txt); } catch { const m = txt.match(/\{[\s\S]*\}/); try { out = m ? JSON.parse(m[0]) : { respuesta: txt }; } catch { out = { respuesta: txt }; } }
+    return { respuesta: String(out.respuesta||'').trim() || '(sin respuesta)', faltan: Array.isArray(out.faltan) ? out.faltan : [], cambios: Array.isArray(out.cambios) ? out.cambios : [] };
+  } catch(e){ return { error: e.message || String(e) }; }
+}
+
+function pintarPestanas(){
+  const cats = CATS.filter(c => !['Nuevas'].includes(c.id) || D.recetas.some(r => r.categoria === 'Nuevas'));
+  $('#pestanas').innerHTML = cats.map(c => `<button class="pestana ${vista.cat===c.id?'activa':''}" style="background:${c.color}" data-cat="${esc(c.id)}">${esc(c.nombre)}</button>`).join('');
+  document.querySelectorAll('.pestana').forEach(b => b.onclick = () => { vista = { cat:b.dataset.cat, slug:null, grande:false }; pintarPestanas(); pintar(); window.scrollTo({top:0,behavior:'smooth'}); });
+}
+
+function recetasDe(cat){ return D.recetas.filter(r => cat==='inicio' ? true : (cat==='Nuevas' ? r.categoria==='Nuevas' || !CATS.some(c=>c.id===r.categoria) : r.categoria===cat)); }
+
+function pintar(){
+  const q = norm($('#buscar').value.trim());
+  if (q){ return pintarBusqueda(q); }
+  if (vista.slug){ const r = D.recetas.find(x => x.slug===vista.slug); if (r) return pintarReceta(r); }
+  if (vista.cat==='tecnica') return pintarTecnica();
+  if (vista.cat==='inventario') return pintarInventario();
+  pintarIndice(vista.cat);
+}
+
+function filaIndice(r){ return `<div class="fila" data-slug="${r.slug}"><span>${esc(r.titulo)}</span><span class="pts"></span>${r.estado!=='activo'?`<span class="est">${esc(r.estado)}</span>`:''}</div>`; }
+function enlazarFilas(){ document.querySelectorAll('.fila[data-slug]').forEach(f => f.onclick = () => abrir(f.dataset.slug)); }
+function abrir(slug){ const r = D.recetas.find(x=>x.slug===slug); if(!r) return; vista = { cat: CATS.some(c=>c.id===r.categoria)? r.categoria : 'Nuevas', slug, grande:false }; $('#buscar').value=''; pintarPestanas(); pintar(); window.scrollTo({top:0,behavior:'smooth'}); }
+
+function pintarIndice(cat){
+  const grupos = {};
+  for (const r of recetasDe(cat)) (grupos[r.categoria] ||= []).push(r);
+  const ks = Object.keys(grupos);
+  const mitad = Math.ceil(ks.length/2);
+  const col = arr => arr.map(k => `<h2>${esc(k)}</h2>${grupos[k].map(filaIndice).join('')}`).join('');
+  const titulo = cat==='inicio' ? 'Preparaciones – Bebidas' : CATS.find(c=>c.id===cat)?.nombre;
+  $('#izq').innerHTML = `<div class="indice"><h1 class="t">${esc(titulo)}</h1><p class="sub">Toca una bebida para abrir su hoja. Los pasos punteados en azul son consejos que se agregaron a la receta original.</p>${col(cat==='inicio'?ks.slice(0,mitad):ks)}</div>`;
+  $('#der').innerHTML = cat==='inicio'
+    ? `<div class="indice">${col(ks.slice(mitad))}<h2>Cómo usar esta libreta</h2><ul><li>Cada hoja: ingredientes, pasos, dibujo de la taza con porcentajes, tiempos con cronómetro, qué evitar y variaciones.</li><li>Las notas amarillas son lo que el equipo ha ido aprendiendo. Agreguen una desde la hoja o pídanselo al asistente.</li><li>¿Piden algo que no está? Pregúntale a la libreta: arma la receta con lo que hay y dice qué falta.</li></ul></div>`
+    : `<div class="dibujo">${grupos[ks[0]] ? tazaSVG(grupos[ks[0]][0], false, 300) : ''}</div><p class="leyenda">${ks.length? 'Ejemplo: ' + esc(grupos[ks[0]][0].titulo) : 'Aún no hay recetas aquí. Pídele al asistente que agregue una.'}</p>`;
+  enlazarFilas();
+}
+
+function pintarBusqueda(q){
+  const res = D.recetas.filter(r => norm([r.titulo, r.categoria, ...r.ingredientes].join(' ')).includes(q));
+  $('#izq').innerHTML = `<div class="indice"><h1 class="t">Buscando…</h1><p class="sub">"${esc($('#buscar').value)}" — ${res.length} resultado(s)</p>${res.map(filaIndice).join('') || '<p>No está en el recetario. Pregúntale a la libreta: ella arma la receta con lo que hay.</p>'}</div>`;
+  $('#der').innerHTML = '';
+  enlazarFilas();
+}
+
+function pasoHTML(p){
+  const extra = p.startsWith('➕');
+  const t = extra ? p.replace(/^➕\s*/, '') : p;
+  return `<li class="${extra?'extra':''}">${extra?'<span class="tip">tip</span>':''}${esc(t)}</li>`;
+}
+
+function rangoSeg(t){
+  const m = t.match(/(\d+)\s*(?:[–-]\s*(\d+))?\s*s\b/);
+  if (!m || /\d+\s*h\b/.test(t) || /°C|mano/.test(t)) return null;
+  const a = +m[1], b = +(m[2]||m[1]);
+  return b > 600 ? null : [a,b];
+}
+
+function pintarReceta(r){
+  const capas = vista.grande && r.capasGrande.length ? r.capasGrande : r.capas;
+  const sello = r.estado && r.estado!=='activo' ? `<div class="sello ${/nueva/.test(r.estado)?'nueva':''}">${esc(r.estado)}</div>` : '';
+  $('#izq').innerHTML = `${sello}
+    <h1 class="t">${esc(r.titulo)}</h1>
+    <p class="sub">${esc(r.categoria)}${r.taza?' · '+esc(r.taza):''}</p>
+    <h2>Ingredientes</h2>
+    <ul class="ing">${r.ingredientes.map(i=>`<li><input type="checkbox" aria-label="listo"><span>${esc(i)}</span></li>`).join('')}</ul>
+    <h2>Preparación</h2>
+    <ol class="pasos">${r.pasos.map(pasoHTML).join('')}</ol>
+    <h2>Variaciones <small>para servirla distinto</small></h2>
+    <ul>${r.variaciones.map(v=>`<li>${esc(v)}</li>`).join('') || '<li>—</li>'}</ul>`;
+  $('#der').innerHTML = `
+    <h2 style="margin-top:0">La taza <small>proporciones aproximadas</small></h2>
+    ${r.capasGrande.length?`<div class="tamanos"><button data-g="0" class="${!vista.grande?'on':''}">Chico</button><button data-g="1" class="${vista.grande?'on':''}">Grande</button></div>`:''}
+    ${r.tamanos?`<p class="leyenda" style="margin:2px 0">${esc(r.tamanos)}</p>`:''}
+    <div class="taza-box">${tazaSVG(r, vista.grande, 500)}</div>
+    <h2>Tiempos <small>toca el reloj para cronometrar</small></h2>
+    <div class="chips">${r.tiempos.map((t,i)=>{ const rg = rangoSeg(t); return `<div class="tiempo">${rg?`<button class="crono" data-a="${rg[0]}" data-b="${rg[1]}">⏱ ${rg[0]===rg[1]?rg[0]:rg[0]+'–'+rg[1]} s</button>`:''}<span>${esc(t)}</span></div>`; }).join('') || '<span>—</span>'}</div>
+    <div class="ojo"><h2>¡Ojo! Evitar</h2><ul>${r.evitar.map(e=>`<li>${esc(e)}</li>`).join('') || '<li>—</li>'}</ul></div>
+    <h2>Notas del equipo</h2>
+    <div class="postits">${r.notas.map(n=>{ const m=n.match(/^\[(.*?)\]\s*(.*)$/); return `<div class="postit">${m?`<b>${esc(m[1])}</b>${esc(m[2])}`:esc(n)}</div>`; }).join('') || '<span class="leyenda">Todavía no hay notas.</span>'}</div>
+    <div class="nota-nueva"><input id="notaTxt" placeholder="Agregar nota rápida…"><button class="btn" id="notaBtn">Pegar nota</button></div>
+    <p style="margin-top:18px"><button class="btn claro" id="preguntar">✎ Preguntar sobre ${esc(r.titulo)}</button></p>`;
+  document.querySelectorAll('.tamanos button').forEach(b => b.onclick = () => { vista.grande = b.dataset.g==='1'; pintar(); });
+  document.querySelectorAll('.crono').forEach(b => b.onclick = () => cronometro(b));
+  $('#notaBtn').onclick = async () => {
+    const t = $('#notaTxt').value.trim(); if (!t) return;
+    const res = await aplicar({ tipo:'agregar_nota', receta:r.slug, texto:'(barra) '+t });
+    if (res.error) alerta(res.error);
+  };
+  $('#preguntar').onclick = () => { abrirChat(); $('#txt').value = `Sobre el ${r.titulo}: `; $('#txt').focus(); };
+}
+
+// cronómetro: cuenta hacia arriba y cambia de color al entrar al rango y al pasarse
+let crono = null;
+function beep(f){ try{ const c = new (window.AudioContext||window.webkitAudioContext)(); const o=c.createOscillator(), g=c.createGain(); o.frequency.value=f; o.connect(g); g.connect(c.destination); g.gain.setValueAtTime(.2,c.currentTime); o.start(); o.stop(c.currentTime+.25);}catch{} }
+function cronometro(btn){
+  if (crono){ clearInterval(crono.id); crono.btn.className='crono'; crono.btn.textContent=crono.txt; if (crono.btn===btn){ crono=null; return; } }
+  const a=+btn.dataset.a, b=+btn.dataset.b, t0=Date.now(), txt=btn.textContent;
+  let avisoA=false, avisoB=false;
+  crono = { btn, txt, id:setInterval(()=>{
+    const s=(Date.now()-t0)/1000;
+    btn.textContent = `${s.toFixed(0)} s / ${a===b?a:a+'–'+b}`;
+    btn.className = 'crono ' + (s<a?'corre':(s<=b?'listo':'pasado'));
+    if (s>=a && !avisoA){ avisoA=true; beep(880); }
+    if (s>b && !avisoB){ avisoB=true; beep(330); }
+  },200)};
+}
+
+// ---------- dibujo de la taza (SVG estilo lápiz)
+const COLORES = [
+  [/crema batida|crema dulce|topping/i,'#fffdf7'], [/^crema$/i,'#d7a86a'], [/microespuma|espuma/i,'#fbf5e6'],
+  [/leche/i,'#efe2cc'], [/espresso|^caf[eé]$/i,'#4a2b18'], [/cold brew/i,'#3a2516'], [/chocolate/i,'#5a301c'],
+  [/agua mineral/i,'#e2f0f4'], [/agua/i,'#d8e8ef'], [/hielo/i,'#e8f3f8'], [/matcha/i,'#93b35f'], [/tisana/i,'#b4405a'],
+  [/t[eé]/i,'#b06a2c'], [/pulpa/i,'#f0a33c'], [/jarabe/i,'#b34a3c'], [/helado/i,'#fff1cf'], [/smoothie/i,'#e9798d'],
+  [/frapp/i,'#cfa77e'], [/malteada/i,'#e9c7a0'], [/.*/,'#d9d2bc'] ];
+const color = n => COLORES.find(([re]) => re.test(n))[1];
+function tipoVaso(r){ const t=norm(r.taza+' '+r.titulo); if (/demitasse|espresso$/.test(t) || r.slug==='espresso') return 'demi'; if (/vaso/.test(t)) return 'vaso'; return 'taza'; }
+function tazaSVG(r, grande, ancho){
+  const capas = (grande && r.capasGrande.length ? r.capasGrande : r.capas).slice().reverse(); // de abajo hacia arriba
+  const tipo = tipoVaso(r);
+  const W=420,H=330; let interior, contorno, extras='', y0, y1, xL, xR;
+  if (tipo==='vaso'){ y0=40; y1=300; xL=118; xR=262;
+    interior=`M120 40 L260 40 L245 300 L135 300 Z`; contorno=`<path d="M114 36 L266 36 L250 304 L130 304 Z" fill="none"/>`; }
+  else if (tipo==='demi'){ y0=150; y1=290; xL=135; xR=245;
+    interior=`M138 150 L242 150 Q240 285 190 290 Q140 285 138 150 Z`; contorno=`<path d="M132 146 L248 146 Q246 292 190 296 Q134 292 132 146 Z" fill="none"/><path d="M247 175 q38 4 30 42 q-6 24 -36 26" fill="none"/><ellipse cx="190" cy="304" rx="92" ry="10" fill="none"/>`; }
+  else { y0=96; y1=292; xL=104; xR=276;
+    interior=`M106 96 L274 96 Q270 280 190 292 Q110 280 106 96 Z`; contorno=`<path d="M100 92 L280 92 Q276 286 190 298 Q104 286 100 92 Z" fill="none"/><path d="M279 130 q56 6 44 66 q-9 36 -56 40" fill="none"/><ellipse cx="190" cy="308" rx="120" ry="12" fill="none"/>`; }
+  const total = capas.reduce((s,c)=>s+c.pct,0) || 100;
+  const alto = (y1-y0)*0.94; let y=y1, rects='', etiquetas='';
+  const lab = [];
+  capas.forEach((c,i)=>{
+    const h = alto * c.pct/total; y -= h;
+    rects += `<rect x="60" y="${y.toFixed(1)}" width="260" height="${(h+0.6).toFixed(1)}" fill="${color(c.nombre)}"/>`;
+    if (/hielo/i.test(c.nombre)) for (let k=0;k<Math.max(2,Math.round(h/34));k++){ const cx = xL+20+((k*53)%((xR-xL)-50)), cy = y+10+((k*29)%Math.max(12,h-30)); rects+=`<rect x="${cx}" y="${cy}" width="28" height="24" rx="5" fill="rgba(255,255,255,.75)" stroke="#9fb8c4" stroke-width="1.5" transform="rotate(${(k%3-1)*12} ${cx+14} ${cy+12})"/>`; }
+    lab.push({ y: y + h/2, txt: `${c.nombre} ${c.pct}%` });
+  });
+  // separar etiquetas para que no se encimen
+  lab.sort((a,b)=>a.y-b.y); for (let i=1;i<lab.length;i++) if (lab[i].y - lab[i-1].y < 28) lab[i].y = lab[i-1].y + 28;
+  const ladoX = tipo==='vaso'? 278 : (tipo==='demi'? 290 : 330);
+  lab.forEach(l => { etiquetas += `<path d="M${xR-14} ${l.y.toFixed(1)} L${ladoX} ${l.y.toFixed(1)}" stroke="#6b6a60" stroke-width="1.4" stroke-dasharray="3 3" fill="none"/><text x="${ladoX+4}" y="${(l.y+5).toFixed(1)}" font-family="Times New Roman, serif" font-size="21" fill="#3d3d36">${esc(l.txt)}</text>`; });
+  const id = 'c'+Math.random().toString(36).slice(2,8);
+  const vy = tipo==='vaso'?20:(tipo==='demi'?110:66);
+  return `<svg viewBox="40 ${vy} ${W+195} ${H+10-vy}" width="${ancho}" role="img" aria-label="Proporciones de ${esc(r.titulo)}">
+    <defs><clipPath id="${id}"><path d="${interior}"/></clipPath>
+    <filter id="${id}f"><feTurbulence baseFrequency=".04" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.2"/></filter></defs>
+    <g clip-path="url(#${id})">${rects}</g>
+    <g stroke="#3d3d36" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#${id}f)">${contorno}</g>
+    ${tipo!=='vaso' && /capuchino|latte|flat|moka|cortado/i.test(r.slug) ? `<path d="M175 ${y0+14} q15 -12 30 0 q-15 10 -30 0" fill="none" stroke="#c9ab7c" stroke-width="2"/>` : ''}
+    ${etiquetas}
+  </svg>`;
+}
+
+function jarraSVG(){
+  return `<svg viewBox="0 0 360 250" width="340" role="img" aria-label="Cuadrantes de la jarra de leche">
+   <g stroke="#3d3d36" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M180 30 Q250 70 250 140 Q250 210 180 220 Q110 210 110 140 Q110 70 180 30 Z" fill="#f4efe2"/>
+    <path d="M180 30 l0 -12" /><line x1="60" y1="140" x2="300" y2="140" stroke-dasharray="6 5"/><line x1="180" y1="10" x2="180" y2="240" stroke-dasharray="6 5"/></g>
+   <circle cx="214" cy="170" r="9" fill="#a9453a"/><path d="M214 170 l50 40" stroke="#a9453a" stroke-width="3"/>
+   <g font-family="Times New Roman, serif" font-size="20" fill="#3d3d36"><text x="236" y="70">I</text><text x="112" y="70">II</text><text x="108" y="200">III</text><text x="252" y="200">IV</text></g>
+   <text x="268" y="230" font-family="Times New Roman, serif" font-size="16" fill="#a9453a">lanceta</text>
+   <text x="186" y="22" font-family="Times New Roman, serif" font-size="15" fill="#6b6a60">pico</text>
+  </svg>`;
+}
+function termometroSVG(){
+  const marca = (y,t,c) => `<line x1="96" y1="${y}" x2="112" y2="${y}" stroke="#3d3d36" stroke-width="2"/><text x="120" y="${y+6}" font-family="Times New Roman, serif" font-size="17" fill="${c||'#3d3d36'}">${t}</text>`;
+  return `<svg viewBox="0 0 330 260" width="300" role="img" aria-label="Temperatura de la leche">
+   <rect x="70" y="20" width="26" height="190" rx="13" fill="#fff" stroke="#3d3d36" stroke-width="3"/>
+   <rect x="74" y="78" width="18" height="44" fill="#9bc27a"/><rect x="74" y="44" width="18" height="34" fill="#d0705e"/><rect x="74" y="122" width="18" height="84" fill="#e8d9b6"/>
+   <circle cx="83" cy="222" r="22" fill="#e8d9b6" stroke="#3d3d36" stroke-width="3"/>
+   ${marca(48,'70 °C+ se quema','#a9453a')}${marca(80,'65 °C')}${marca(118,'55 °C')}${marca(190,'leche fría')}
+   <text x="120" y="102" font-family="Times New Roman, serif" font-size="17" fill="#5f8a4d">← punto ideal</text>
+  </svg>`;
+}
+
+function pintarTecnica(){
+  const sec = D.tecnica;
+  const mitad = Math.ceil(sec.length/2);
+  const bloque = s => `<h2>${esc(s.titulo)}</h2><ul>${s.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>`;
+  $('#izq').innerHTML = `<h1 class="t">Antes de empezar</h1><p class="sub">Nombres de la barra y técnica de leche y espresso</p>${sec.slice(0,mitad).map(bloque).join('')}`;
+  $('#der').innerHTML = `<h2 style="margin-top:0">La jarra y sus cuadrantes</h2><div class="dibujo">${jarraSVG()}</div><p class="leyenda">Vista desde arriba. La lanceta entra por el IV cuadrante para que la leche gire.</p>
+    <h2>Temperatura de la leche</h2><div class="dibujo">${termometroSVG()}</div>${sec.slice(mitad).map(bloque).join('')}`;
+}
+
+function pintarInventario(){
+  const g = D.inventario;
+  const mitad = Math.ceil(g.length/2);
+  const col = arr => arr.map(x => `<div class="inv-grupo"><h2>${esc(x.grupo)}</h2>${x.items.map(i=>{ const no=/\(no hay\)/i.test(i); const n=i.replace(/\s*\(no hay\)/i,''); return `<div class="inv-item ${no?'no':''}"><span>${esc(n)}</span><button data-n="${esc(n)}" data-no="${no?1:0}">${no?'ya llegó':'se acabó'}</button></div>`; }).join('')}</div>`).join('');
+  $('#izq').innerHTML = `<h1 class="t">Inventario</h1><p class="sub">Lo que hay en la barra. El asistente lo usa para armar bebidas que no están en el recetario.</p>${col(g.slice(0,mitad))}`;
+  $('#der').innerHTML = `${col(g.slice(mitad))}<p class="leyenda">Para agregar algo nuevo díganle al asistente: "llegó jarabe de lavanda".</p>`;
+  document.querySelectorAll('.inv-item button').forEach(b => b.onclick = async () => {
+    const cambio = b.dataset.no==='1' ? { tipo:'inventario', ya_hay:[b.dataset.n] } : { tipo:'inventario', marcar_agotado:[b.dataset.n] };
+    const r = await aplicar(cambio);
+    if (r.error) alerta(r.error);
+  });
+}
+
+function alerta(t){ abrirChat(); agregarMsg('err', t); }
+
+// ---------- chat
+function abrirChat(){ $('#chat').classList.add('abierto'); $('#abrirChat').style.display='none'; if (!$('#msgs').children.length) bienvenida(); }
+$('#abrirChat').onclick = abrirChat;
+$('#cerrarChat').onclick = () => { $('#chat').classList.remove('abierto'); $('#abrirChat').style.display=''; };
+function bienvenida(){
+  agregarMsg('ia', 'Hola, soy la libreta. Pregúntenme cómo se hace algo, cuéntenme cómo les fue al probar una receta para anotarlo, o pídanme una bebida que no esté y la armo con lo que hay.');
+  const s = ['¿Cuánto tiempo vaporizo la leche del capuchino grande?', 'Anota que el latte grande quedó mejor con 5 s menos de vapor', 'Nos pidieron un chai latte, ¿cómo lo hago?', 'Se acabó el jarabe de chocolate'];
+  $('#sugs').innerHTML = s.map(x=>`<button>${esc(x)}</button>`).join('');
+  document.querySelectorAll('#sugs button').forEach(b => b.onclick = () => { $('#txt').value = b.textContent; $('#txt').focus(); });
+}
+function agregarMsg(tipo, texto){
+  const d = document.createElement('div'); d.className = 'msg ' + tipo; d.innerHTML = esc(texto).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>'); $('#msgs').appendChild(d); $('#msgs').scrollTop = 1e9; return d;
+}
+function describirCambio(c){
+  const L = a => `<ul>${(a||[]).map(x=>`<li>${esc(typeof x==='string'?x:(x.nombre+': '+(x.porcentaje??x.pct)+'%'))}</li>`).join('')}</ul>`;
+  const rec = c.receta ? (D.recetas.find(r=>r.slug===c.receta)?.titulo || c.receta) : '';
+  if (c.tipo==='agregar_nota') return `<div class="tipo">Nota para ${esc(rec)}</div>${esc(c.texto)}`;
+  if (c.tipo==='editar_seccion') return `<div class="tipo">Cambiar "${esc(c.seccion)}" de ${esc(rec)}</div>${c.motivo?`<i>${esc(c.motivo)}</i>`:''}${L(c.items)}`;
+  if (c.tipo==='nueva_receta') return `<div class="tipo">Receta nueva: ${esc(c.titulo)}</div><b>Ingredientes</b>${L(c.ingredientes)}<b>Pasos</b>${L(c.pasos)}`;
+  if (c.tipo==='inventario') return `<div class="tipo">Inventario</div>${c.agregar?.length?'Agregar: '+esc(c.agregar.join(', '))+'<br>':''}${c.marcar_agotado?.length?'Se acabó: '+esc(c.marcar_agotado.join(', '))+'<br>':''}${c.ya_hay?.length?'Ya hay: '+esc(c.ya_hay.join(', ')):''}`;
+  return `<div class="tipo">${esc(c.tipo)}</div><pre>${esc(JSON.stringify(c,null,1))}</pre>`;
+}
+async function enviar(){
+  const t = $('#txt').value.trim(); if (!t) return;
+  $('#txt').value=''; $('#sugs').innerHTML='';
+  agregarMsg('yo', t); chatHist.push({ role:'user', content:t });
+  const p = agregarMsg('ia pensando', 'Pensando…');
+  try{
+    const r = await chatIA(chatHist, vista.slug);
+    p.remove();
+    if (r.error){ agregarMsg('err', 'No pude hablar con la IA: ' + r.error + '\n'); return; }
+    let texto = r.respuesta; if (r.faltan?.length) texto += `\n\nFalta: ${r.faltan.join(', ')}`;
+    agregarMsg('ia', texto);
+    chatHist.push({ role:'assistant', content: JSON.stringify({respuesta:r.respuesta, cambios:r.cambios}) });
+    for (const c of r.cambios||[]){
+      const d = document.createElement('div'); d.className='cambio';
+      d.innerHTML = describirCambio(c) + `<div class="acc"><button class="btn oro">Aplicar</button><button class="btn claro">No</button></div>`;
+      const [si,no] = d.querySelectorAll('button');
+      si.onclick = async () => {
+        const res = await aplicar(c);
+        if (res.error){ agregarMsg('err', res.error); return; }
+        d.classList.add('hecho'); d.querySelector('.acc').innerHTML = '✓ ' + esc(res.mensaje);
+      };
+      no.onclick = () => { d.querySelector('.acc').innerHTML = 'Descartado'; d.style.opacity=.6; };
+      $('#msgs').appendChild(d); $('#msgs').scrollTop = 1e9;
+    }
+  }catch(e){ p.remove(); agregarMsg('err', 'Error: '+e.message); }
+}
+$('#enviar').onclick = enviar;
+$('#txt').addEventListener('keydown', e => { if (e.key==='Enter' && !e.shiftKey){ e.preventDefault(); enviar(); } });
+$('#buscar').addEventListener('input', pintar);
+
+iniciar(); activarIA(true);
+$('#pendBtn').onclick = () => { vista.slug = null; abrirPendientes(); };
+$('#activarBtn').onclick = async () => { $('#activarBtn').disabled = true; const ok = await activarIA(false); $('#activarBtn').hidden = ok; $('#activarBtn').disabled = false; };
+</script>
+</body>
+</html>
