@@ -396,9 +396,13 @@ async function chatIA(hist, recetaActual){
   if (existente){ return { respuesta: `Sí está en el recetario: te abro la hoja del ${existente.titulo}.`, faltan: [], cambios: [], abrir: existente.slug }; }
   if (pedido && !existente){
     const inv = itemsInventario().filter(i => !/\(no hay\)/i.test(i)).join(', ');
+    const pal = pedido.split(/\s+/).filter(w => w.length > 2);
+    const parecidas = D.recetas.filter(x => pal.some(w => N(x.titulo).includes(w) || N(x.ingredientes.join(' ')).includes(w))).slice(0, 2);
+    const refs = parecidas.length ? '\nRECETAS PARECIDAS DE LA CASA (úsalas como base):\n' + parecidas.map(contexto).join('\n\n') : '';
     const txt = await generar(
       `Eres barista en Café Pretexto (México). Escribe en español una receta corta para la bebida que pidan, usando las medidas de la casa: 1 espresso = 70 ml, leche chico 150 ml, grande 240 ml, 1 oz = 30 ml.
-INVENTARIO DE LA BARRA: ${inv}.
+INVENTARIO DE LA BARRA: ${inv}.${refs}
+Ojo: chai = té negro especiado (concentrado de chai), NO es chía. Taro, matcha, horchata, etc. son sabores, no café.
 Responde EXACTAMENTE con este formato y nada más:
 NOMBRE: <nombre de la bebida>
 INGREDIENTES:
