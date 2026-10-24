@@ -206,6 +206,17 @@ ul.ing input:checked+span{text-decoration:line-through;text-decoration-color:var
   .hoja.der{padding-top:10px}
   .abrir-chat{right:12px}
 }
+/* banco de bebidas, dictado */
+.indice .fila.banco span:first-child::after{content:' · banco';font-size:14px;color:var(--lapiz2);font-style:italic}
+.sub-banco{display:inline-block;background:#eef0e4;border:1px dashed var(--romero);border-radius:8px;padding:4px 10px;font-size:15px;color:var(--oliva2);margin-bottom:10px}
+ul.req{list-style:none;padding:0}
+ul.req li{padding:6px 0;border-bottom:1px dotted var(--salvia)}
+ul.req .si{color:#5f8a4d} ul.req .no{color:var(--rojo)} ul.req .rev{color:var(--oro2)}
+.mic{flex:none;border:0;border-radius:999px;background:#e9e2cc;color:var(--oliva2);min-width:46px;height:46px;font-size:21px;padding:0 10px;-webkit-tap-highlight-color:transparent}
+.mic.grabando{background:var(--rojo);color:#fff;animation:pulso 1s infinite}
+.mic.ocupado{opacity:.6}
+@keyframes pulso{50%{transform:scale(1.08)}}
+.estado-voz{font-size:14px;color:var(--lapiz2);margin-top:4px;min-height:1em}
 @media print{.abrir-chat,.chat,.top .buscar,.nota-nueva{display:none!important}body{background:#fff}.pliego{box-shadow:none}}
 </style>
 </head>
@@ -231,7 +242,8 @@ ul.ing input:checked+span{text-decoration:line-through;text-decoration-color:var
   <header><div><b>Asistente de barra</b><br><small id="chatModelo">IA en este aparato</small></div><button class="btn oro" id="activarBtn" style="margin-left:auto;font-size:14px">Activar IA</button><button id="cerrarChat" aria-label="Cerrar">×</button></header>
   <div class="msgs" id="msgs"></div>
   <div class="sugs" id="sugs"></div>
-  <div class="entrada"><textarea id="txt" placeholder="Ej. el latte grande quedó mejor con 5 s menos de vapor…"></textarea><button class="btn" id="enviar">Enviar</button></div>
+  <div class="estado-voz" id="chatVoz" style="padding:0 12px"></div>
+  <div class="entrada"><button type="button" class="mic" id="chatMic" aria-label="Dictar">🎤</button><textarea id="txt" placeholder="Ej. el latte grande quedó mejor con 5 s menos de vapor…"></textarea><button class="btn" id="enviar">Enviar</button></div>
 </div>
 
 <script>
@@ -270,7 +282,7 @@ function armar(){
   const L = leerLocal();
   const porSlug = Object.fromEntries(BASE.recetas.map(r => [r.slug, r]));
   for (const [slug, r] of Object.entries(L.recetas)) porSlug[slug] = r;
-  D = { recetas: ordenar(Object.values(porSlug)), inventario: L.inventario || clonar(BASE.inventario), tecnica: BASE.tecnica };
+  D = { recetas: ordenar(Object.values(porSlug)), inventario: L.inventario || clonar(BASE.inventario), tecnica: BASE.tecnica, banco: BASE.banco || [] };
   const n = L.pendientes.length;
   const b = $('#pendBtn'); if (b){ b.hidden = !n; b.textContent = `${n} cambio${n===1?'':'s'} sin subir`; }
 }
@@ -421,14 +433,20 @@ async function chatIA0(hist, recetaActual){
     return { respuesta: `Lo anoto en ${r.titulo}. Si después lo confirman, Alberto puede pasarlo a la receta.`, faltan: [], cambios: [{ tipo:'agregar_nota', receta:r.slug, texto }] };
   }
 
-  if (IA_FALLA) return sinIA(q, r);
-  if (!LOCAL){ const ok = await activarIA(false); if (!ok) return sinIA(q, r); }
-
   // 3) bebida que no está en el recetario
-  const pide = t.match(/(?:nos pidieron|pidieron|piden|pidio|quieren|receta de|como (?:lo )?(?:hago|preparo)|como se (?:hace|prepara))\s+(?:un |una |el |la |los |las )?([a-z0-9 ]+?)\s*(?:[,?.!¿]|$|\scon\s|\sque\s|\spara\s)/);
+  const pide = canon(q).match(/(?:nos pidieron|pidieron|piden|pidio|quieren|receta de|como (?:lo )?(?:hago|preparo)|como se (?:hace|prepara))\s+(?:un |una |el |la |los |las )?([a-z0-9 ]+?)\s*(?:[,?.!¿]|$|\scon\s|\sque\s|\spara\s)/);
   let pedido = pide ? pide[1].trim() : ''; if (/^(para|que|si|cuando|se|lo|le|mas|mejor|bien|eso|esto)\b/.test(pedido)) pedido = '';
   const existente = pedido && D.recetas.find(x => { const a = N(x.titulo).replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim(); return a === pedido || x.slug.replace(/-/g,' ') === pedido || a.split(' / ').includes(pedido); });
   if (existente){ return { respuesta: `Sí está en el recetario: te abro la hoja del ${existente.titulo}.`, faltan: [], cambios: [], abrir: existente.slug }; }
+  if (pedido && !existente){
+    const bb = buscarBanco(pedido);
+    if (bb){ const faltan = faltantesDe(bb);
+      return { respuesta: `"${bb.nombre}" no está en el recetario de la casa, pero sí en el banco de bebidas (sugerencia sin probar):\n\nIngredientes:\n${bb.ingredientes.map(x=>'- '+x).join('\n')}\n\nPasos:\n${bb.pasos.map((x,i)=>`${i+1}. ${x}`).join('\n')}${bb.tip ? '\n\nTip: ' + bb.tip : ''}`,
+        faltan, cambios: [{ tipo:'nueva_receta', titulo: bb.nombre, categoria:'Nuevas', ingredientes: bb.ingredientes, pasos: bb.pasos, tiempos: [], evitar: [], variaciones: [] }] }; }
+  }
+  if (IA_FALLA) return sinIA(q, r);
+  if (!LOCAL){ const ok = await activarIA(false); if (!ok) return sinIA(q, r); }
+
   if (pedido && !existente){
     const inv = itemsInventario().filter(i => !/\(no hay\)/i.test(i)).join(', ');
     const pal = pedido.split(/\s+/).filter(w => w.length > 2);
@@ -483,6 +501,8 @@ function sinIA(q, r){
   const aviso = 'La IA no está corriendo en este aparato, así que te contesto con lo que dice el recetario:';
   if (r && top.length) return { respuesta: `${aviso}\n\n${r.titulo}\n${top.join('\n')}`, faltan: [], cambios: [], abrir: r.slug };
   if (r) return { respuesta: `${aviso} te abro la hoja del ${r.titulo}.`, faltan: [], cambios: [], abrir: r.slug };
+  const bb = buscarBanco(q.replace(/^.*?(pidieron|piden|receta de|hago|hace|prepara)\s+(un|una|el|la)?\s*/i,'').replace(/[?¿!.,]/g,''));
+  if (bb) return { respuesta: `En el banco de bebidas está "${bb.nombre}" (sugerencia sin probar):\n\nIngredientes:\n${bb.ingredientes.map(x=>'- '+x).join('\n')}\n\nPasos:\n${bb.pasos.map((x,i)=>`${i+1}. ${x}`).join('\n')}`, faltan: faltantesDe(bb), cambios: [] };
   if (top.length) return { respuesta: `${aviso}\n\n${top.join('\n')}`, faltan: [], cambios: [] };
   return { respuesta: 'No encontré eso en el recetario. Dime el nombre de la bebida (ej. "¿cuánto vapor lleva el latte?") o búscala arriba.', faltan: [], cambios: [] };
 }
@@ -505,6 +525,12 @@ async function chatIA(hist, recetaActual){
   }
 }
 
+function buscarBanco(pedido){
+  const p = canon(pedido); if (!p || !D.banco) return null;
+  const todos = D.banco.map(b => [b, [b.nombre, ...b.alias].map(canon)]);
+  return (todos.find(([b, ns]) => ns.includes(p)) || todos.find(([b, ns]) => ns.some(n => n.includes(p) || (p.includes(n) && n.length > 4))) || [null])[0];
+}
+
 function pintarPestanas(){
   const cats = CATS.filter(c => !['Nuevas'].includes(c.id) || D.recetas.some(r => r.categoria === 'Nuevas'));
   if (!matchMedia('(orientation: portrait) and (max-width: 820px)').matches) cats.sort((a,b) => (b.id===vista.cat) - (a.id===vista.cat)); // en horizontal la pestaña elegida sube hasta arriba
@@ -517,6 +543,7 @@ function recetasDe(cat){ return D.recetas.filter(r => cat==='inicio' ? true : (c
 
 function pintar(){
   const q = norm($('#buscar').value.trim());
+  if (vista.banco){ const b = (D.banco||[]).find(x => x.nombre === vista.banco); if (b) return pintarBanco(b); }
   if (q){ return pintarBusqueda(q); }
   if (vista.slug){ const r = D.recetas.find(x => x.slug===vista.slug); if (r) return pintarReceta(r); }
   if (vista.cat==='tecnica') return pintarTecnica();
@@ -524,8 +551,8 @@ function pintar(){
   pintarIndice(vista.cat);
 }
 
-function filaIndice(r){ return `<div class="fila" data-slug="${r.slug}"><span>${esc(r.titulo)}</span><span class="pts"></span>${r.estado!=='activo'?`<span class="est">${esc(r.estado)}</span>`:''}</div>`; }
-function enlazarFilas(){ document.querySelectorAll('.fila[data-slug]').forEach(f => f.onclick = () => abrir(f.dataset.slug)); }
+function filaIndice(r){ return `<div class="fila" data-slug="${r.slug}"><span>${esc(r.titulo)}</span><span class="pts"></span></div>`; }
+function enlazarFilas(){ document.querySelectorAll('.fila[data-slug]').forEach(f => f.onclick = () => abrir(f.dataset.slug)); document.querySelectorAll('.fila[data-banco]').forEach(f => f.onclick = () => abrirBanco(f.dataset.banco)); }
 function abrir(slug){ const r = D.recetas.find(x=>x.slug===slug); if(!r) return; vista = { cat: CATS.some(c=>c.id===r.categoria)? r.categoria : 'Nuevas', slug, grande:false }; $('#buscar').value=''; $('#limpiarBusqueda').hidden=true; pintarPestanas(); pintar(); window.scrollTo({top:0,behavior:'smooth'}); }
 
 function pintarIndice(cat){
@@ -542,11 +569,55 @@ function pintarIndice(cat){
   enlazarFilas();
 }
 
+// escrituras comunes en la barra: expreso → espresso, capuccino → capuchino, etc.
+const SINON = [[/\b(expres+o|espreso|expresso|espresso)s?\b/g,'espresso'], [/\b(cap+u+c+h?ino|cappuc+ino|capuchino)s?\b/g,'capuchino'], [/\b(moca|mocha|moka)s?\b/g,'moka'], [/\b(frape|frapé|frappe|frappes)\b/g,'frappe'], [/\b(machiato|makiato|macchiato|maquiato)\b/g,'macchiato'], [/\b(late|lattes?)\b/g,'latte'], [/\b(cold ?bru|coldbrew)\b/g,'cold brew'], [/\b(chay)\b/g,'chai'], [/\b(macha)\b/g,'matcha']];
+function canon(s){ let t = norm(s).replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim(); for (const [re, v] of SINON) t = t.replace(re, v); return t; }
+function bancoDe(q){
+  if (!D.banco) return [];
+  const titulos = new Set(D.recetas.map(r => canon(r.titulo)));
+  return D.banco.filter(b => !titulos.has(canon(b.nombre)))
+    .map(b => { const n = canon([b.nombre, ...b.alias].join(' ')), ing = canon(b.ingredientes.join(' ')); return [n.includes(q) ? 2 : (ing.includes(q) ? 1 : 0), b]; })
+    .filter(a => a[0]).sort((a,b) => b[0]-a[0]).map(a => a[1]);
+}
+function filaBanco(b){ return `<div class="fila banco" data-banco="${esc(b.nombre)}"><span>${esc(b.nombre)}</span><span class="pts"></span></div>`; }
 function pintarBusqueda(q){
-  const res = D.recetas.filter(r => norm([r.titulo, r.categoria, ...r.ingredientes].join(' ')).includes(q));
-  $('#izq').innerHTML = `<div class="indice"><h1 class="t">Buscando…</h1><p class="sub">"${esc($('#buscar').value)}" — ${res.length} resultado(s)</p>${res.map(filaIndice).join('') || '<p>No está en el recetario. Pregúntale a la libreta: ella arma la receta con lo que hay.</p>'}</div>`;
-  $('#der').innerHTML = '';
+  q = canon(q);
+  const res = D.recetas.map(r => [canon(r.titulo).includes(q) ? 3 : (canon([r.categoria, ...r.ingredientes].join(' ')).includes(q) ? 1 : 0), r]).filter(a => a[0]).sort((a,b) => b[0]-a[0]).map(a => a[1]);
+  const ban = bancoDe(q);
+  $('#izq').innerHTML = `<div class="indice"><h1 class="t">Buscando…</h1><p class="sub">"${esc($('#buscar').value)}" — ${res.length} en el recetario${D.banco ? ` · ${ban.length} en el banco` : ''}</p>${res.length ? '<h2>En el recetario</h2>' + res.map(filaIndice).join('') : '<p>No está en el recetario de la casa.</p>'}</div>`;
+  $('#der').innerHTML = D.banco ? `<div class="indice"><h2>Banco de bebidas</h2>${ban.length ? ban.slice(0,25).map(filaBanco).join('') : '<p>Tampoco está en el banco. Pregúntale a la libreta.</p>'}<p class="leyenda">El banco son preparaciones comunes de cafetería con las medidas de la casa. Funciona sin internet. No son recetas probadas en Pretexto.</p></div>` : '';
   enlazarFilas();
+}
+function revisarReq(req){
+  const STOP = new Set(['de','del','la','el','en','para','y','con','los','las']);
+  const items = D.inventario.flatMap(g => g.items);
+  const pal = x => norm(x).replace(/\(.*?\)/g,' ').replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w => w && !STOP.has(w));
+  const casa = (w, iw) => iw === w || (w.length > 3 && iw.startsWith(w.replace(/s$/,''))) || (iw.length > 3 && w.startsWith(iw.replace(/s$/,'')));
+  const it = items.find(i => { const iw = pal(i); return pal(req).every(w => iw.some(x => casa(w, x))); });
+  if (it) return /\(no hay\)/i.test(it) ? 'agotado' : 'si';
+  if (/^jarabe de/i.test(req) && items.some(i => /jarabes de sabor/i.test(i) && !/\(no hay\)/i.test(i))) return 'revisar';
+  return 'no';
+}
+function faltantesDe(b){ return b.req.map(x => [x, revisarReq(x)]).filter(a => a[1] !== 'si').map(([x, e]) => e === 'agotado' ? `${x} (se acabó)` : e === 'revisar' ? `${x} (revisa si está entre los jarabes de sabor)` : x); }
+function abrirBanco(nombre){ vista = { ...vista, slug:null, banco:nombre }; pintar(); window.scrollTo({top:0,behavior:'smooth'}); }
+function pintarBanco(b){
+  const marca = { si:['si','✓ hay'], no:['no','✗ no tenemos'], agotado:['no','✗ se acabó'], revisar:['rev','? revisa jarabes de sabor'] };
+  $('#izq').innerHTML = `<h1 class="t">${esc(b.nombre)}</h1><p class="sub">${esc(b.categoria)} · del banco de bebidas</p>
+    <div class="sub-banco">Sugerencia del banco, todavía no se ha probado en Pretexto. Ajústenla al prepararla.</div>
+    <h2>Ingredientes</h2><ul class="ing">${b.ingredientes.map(i => `<li>${esc(i)}</li>`).join('')}</ul>
+    <h2>Preparación</h2><ol class="pasos">${b.pasos.map(x => `<li>${esc(x)}</li>`).join('')}</ol>${b.tip ? `<p><span class="tip">tip</span>${esc(b.tip)}</p>` : ''}
+    <p class="acc-p"><button class="btn claro" id="volverBusq">← Volver</button></p>`;
+  $('#der').innerHTML = `<h2 style="margin-top:0">¿Tenemos todo?</h2><ul class="req">${b.req.map(x => { const [c, t] = marca[revisarReq(x)]; return `<li><span class="${c}">${t}</span> — ${esc(x)}</li>`; }).join('')}</ul>
+    <p class="acc-p"><button class="btn" id="agregarBanco">Agregar al recetario</button></p><p class="leyenda">Se agrega en la pestaña "Nuevas" de este aparato para probarla y anotarle.</p>`;
+  $('#volverBusq').onclick = () => { vista.banco = null; pintar(); };
+  $('#agregarBanco').onclick = async () => {
+    const res = await aplicarCambio({ tipo:'nueva_receta', titulo:b.nombre, categoria:'Nuevas', ingredientes:b.ingredientes, pasos:b.pasos, tiempos:[], evitar:[], variaciones:[] });
+    if (res && res.error) alerta(res.error); else { vista.banco = null; const n = D.recetas.find(r => canon(r.titulo) === canon(b.nombre)); if (n) abrir(n.slug); else pintar(); }
+  };
+}
+async function aplicarCambio(c){
+  if (typeof aplicar === 'function') return aplicar(c);
+  const r = await (await fetch('/api/aplicar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cambio:c})})).json(); await cargar(); return r;
 }
 
 function pasoHTML(p){
@@ -564,7 +635,7 @@ function rangoSeg(t){
 
 function pintarReceta(r){
   const capas = vista.grande && r.capasGrande.length ? r.capasGrande : r.capas;
-  const sello = r.estado && r.estado!=='activo' ? `<div class="sello ${/nueva/.test(r.estado)?'nueva':''}">${esc(r.estado)}</div>` : '';
+  const sello = '';
   $('#izq').innerHTML = `${sello}
     <h1 class="t">${esc(r.titulo)}</h1>
     <p class="sub">${esc(r.categoria)}${r.taza?' · '+esc(r.taza):''}</p>
@@ -584,10 +655,11 @@ function pintarReceta(r){
     <div class="ojo"><h2>¡Ojo! Evitar</h2><ul>${r.evitar.map(e=>`<li>${esc(e)}</li>`).join('') || '<li>—</li>'}</ul></div>
     <h2>Notas del equipo</h2>
     <div class="postits">${r.notas.map(n=>{ const m=n.match(/^\[(.*?)\]\s*(.*)$/); return `<div class="postit">${m?`<b>${esc(m[1])}</b>${esc(m[2])}`:esc(n)}</div>`; }).join('') || '<span class="leyenda">Todavía no hay notas.</span>'}</div>
-    <div class="nota-nueva"><input id="notaTxt" placeholder="Agregar nota rápida…"><button class="btn" id="notaBtn">Pegar nota</button></div>
+    <div class="nota-nueva"><input id="notaTxt" placeholder="Agregar nota rápida… o toca 🎤 y díctala"><button type="button" class="mic" id="notaMic" aria-label="Dictar nota">🎤</button><button class="btn" id="notaBtn">Pegar nota</button></div><div class="estado-voz" id="notaVoz"></div>
     <p style="margin-top:18px"><button class="btn claro" id="preguntar">✎ Preguntar sobre ${esc(r.titulo)}</button></p>`;
   document.querySelectorAll('.tamanos button').forEach(b => b.onclick = () => { vista.grande = b.dataset.g==='1'; pintar(); });
   document.querySelectorAll('.crono').forEach(b => b.onclick = () => cronometro(b));
+  enlazarMic($('#notaMic'), $('#notaTxt'), $('#notaVoz'));
   $('#notaBtn').onclick = async () => {
     const t = $('#notaTxt').value.trim(); if (!t) return;
     const res = await aplicar({ tipo:'agregar_nota', receta:r.slug, texto:'(barra) '+t });
@@ -752,12 +824,70 @@ async function enviar(){
   }catch(e){ p.remove(); agregarMsg('err', 'Error: '+e.message); }
 }
 $('#enviar').onclick = enviar;
+// ---------- dictado
+let WHISPER = null, cargandoWhisper = null, grabadora = null;
+async function cargarWhisper(estado){
+  if (WHISPER) return WHISPER;
+  if (!cargandoWhisper) cargandoWhisper = (async () => {
+    const { pipeline, env } = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.5.1');
+    env.allowLocalModels = false;
+    WHISPER = await pipeline('automatic-speech-recognition', 'Xenova/whisper-base', { device:'wasm', progress_callback: p => { if (p.status === 'progress' && p.file && /onnx/.test(p.file)) estado(`Preparando el dictado (solo la primera vez)… ${Math.round(p.progress||0)} %`); } });
+    return WHISPER;
+  })().catch(e => { cargandoWhisper = null; throw e; });
+  return cargandoWhisper;
+}
+async function audioA16k(blob){
+  const buf = await blob.arrayBuffer();
+  const ctx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate:16000 });
+  const audio = await ctx.decodeAudioData(buf); ctx.close();
+  return audio.getChannelData(0);
+}
+function dictadoNavegador(btn, destino, estado){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition; if (!SR) return false;
+  const rec = new SR(); rec.lang = 'es-MX'; rec.interimResults = false; rec.maxAlternatives = 1;
+  btn.classList.add('grabando'); estado('Escuchando… habla ahora');
+  rec.onresult = e => { const t = e.results[0][0].transcript; destino.value = (destino.value ? destino.value + ' ' : '') + t; destino.dispatchEvent(new Event('input')); };
+  rec.onerror = e => estado('No se entendió (' + e.error + '). Intenta de nuevo.');
+  rec.onend = () => { btn.classList.remove('grabando'); if (/Escuchando/.test(btn.dataset.e||'')) estado(''); };
+  rec.start(); return true;
+}
+function enlazarMic(btn, destino, salida){
+  if (!btn) return;
+  const estado = t => { salida.textContent = t; btn.dataset.e = t; };
+  if (!navigator.mediaDevices?.getUserMedia && !(window.SpeechRecognition || window.webkitSpeechRecognition)) { btn.hidden = true; return; }
+  btn.onclick = async () => {
+    if (grabadora && grabadora.state === 'recording'){ grabadora.stop(); return; }
+    if (btn.classList.contains('ocupado')) return;
+    let stream;
+    try { stream = await navigator.mediaDevices.getUserMedia({ audio:true }); }
+    catch(e){ if (!dictadoNavegador(btn, destino, estado)) estado('No tengo permiso para el micrófono. Actívalo en el candado de la barra del navegador.'); return; }
+    cargarWhisper(estado).catch(() => {});            // se descarga mientras hablas
+    const trozos = []; grabadora = new MediaRecorder(stream);
+    grabadora.ondataavailable = e => e.data.size && trozos.push(e.data);
+    grabadora.onstop = async () => {
+      stream.getTracks().forEach(t => t.stop()); btn.classList.remove('grabando'); btn.classList.add('ocupado');
+      try {
+        estado('Transcribiendo…');
+        const [w, audio] = await Promise.all([cargarWhisper(estado), audioA16k(new Blob(trozos, { type: grabadora.mimeType }))]);
+        estado('Transcribiendo…');
+        const r = await w(audio, { language:'spanish', task:'transcribe', chunk_length_s:30 });
+        const t = String(r.text || '').trim();
+        if (t){ destino.value = (destino.value ? destino.value + ' ' : '') + t; destino.dispatchEvent(new Event('input')); destino.focus(); estado('Listo. Revísala y guárdala.'); }
+        else estado('No se escuchó nada. Intenta de nuevo, más cerca del aparato.');
+      } catch(e){ console.error(e); estado(''); if (!dictadoNavegador(btn, destino, estado)) estado('No se pudo transcribir en este aparato. Escríbela, porfa.'); }
+      finally { btn.classList.remove('ocupado'); }
+    };
+    grabadora.start(); btn.classList.add('grabando'); estado('Grabando… toca 🎤 otra vez para terminar');
+  };
+}
+enlazarMic($('#chatMic'), $('#txt'), $('#chatVoz'));
 $('#txt').addEventListener('keydown', e => { if (e.key==='Enter' && !e.shiftKey){ e.preventDefault(); enviar(); } });
 const verX = () => { $('#limpiarBusqueda').hidden = !$('#buscar').value; };
-$('#buscar').addEventListener('input', () => { verX(); pintar(); });
-$('#limpiarBusqueda').addEventListener('click', e => { e.preventDefault(); $('#buscar').value = ''; verX(); $('#buscar').blur(); pintar(); });
+$('#buscar').addEventListener('input', () => { verX(); vista.banco = null; pintar(); });
+$('#limpiarBusqueda').addEventListener('click', e => { e.preventDefault(); $('#buscar').value = ''; verX(); $('#buscar').blur(); vista.banco = null; pintar(); });
 
 iniciar(); activarIA(true);
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
 $('#pendBtn').onclick = () => { vista.slug = null; abrirPendientes(); };
 $('#activarBtn').onclick = async () => { $('#activarBtn').disabled = true; const ok = await activarIA(false); $('#activarBtn').hidden = ok; $('#activarBtn').disabled = false; };
 </script>

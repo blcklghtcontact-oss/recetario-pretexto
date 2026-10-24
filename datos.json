@@ -591,7 +591,7 @@
    "slug": "dirty-matcha",
    "titulo": "Dirty Matcha",
    "categoria": "Matcha, Chai y Té",
-   "estado": "en espera",
+   "estado": "activo",
    "orden": 13,
    "taza": "Vaso de ~350 ml",
    "tamanos": "",
@@ -639,15 +639,13 @@
    "variaciones": [
     "Versión fría: vaso con hielo, leche fría, matcha y espresso encima."
    ],
-   "notas": [
-    "[2026-10-24] (libreta) Marcado \"En espera\"."
-   ]
+   "notas": []
   },
   {
    "slug": "matcha-latte",
    "titulo": "Matcha Latte",
    "categoria": "Matcha, Chai y Té",
-   "estado": "en espera",
+   "estado": "activo",
    "orden": 14,
    "taza": "Vaso o taza de ~300 ml",
    "tamanos": "",
@@ -702,7 +700,7 @@
    "slug": "te",
    "titulo": "Té",
    "categoria": "Matcha, Chai y Té",
-   "estado": "en espera",
+   "estado": "activo",
    "orden": 15,
    "taza": "Taza de ~240 ml",
    "tamanos": "",
@@ -735,8 +733,7 @@
     "Frío: doble de té, reposar y verter sobre hielo."
    ],
    "notas": [
-    "[2026-10-24] (revisar) 15 g de té por taza es mucho; normalmente son 2–3 g. Confirmar si es 1.5 g.",
-    "[2026-10-24] (libreta) Marcado \"En espera\"."
+    "[2026-10-24] (revisar) 15 g de té por taza es mucho; normalmente son 2–3 g. Confirmar si es 1.5 g."
    ]
   },
   {
@@ -1240,6 +1237,2023 @@
     "Muy lento (más de 35 s), amargo, oscuro → molienda más gruesa.",
     "Sale por un lado → tamper chueco o café mal distribuido (usar distribuidor y nivelador)."
    ]
+  }
+ ],
+ "banco": [
+  {
+   "nombre": "Ristretto",
+   "alias": [
+    "restreto"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "15 g de café (1 dosis de la casa)"
+   ],
+   "pasos": [
+    "Muele y compacta como un espresso normal.",
+    "Corta la extracción a ~35 ml (15–20 s): sale más corto, dulce y concentrado."
+   ],
+   "req": [
+    "Café en grano"
+   ],
+   "tip": "Si sabe agrio, muele un poco más fino."
+  },
+  {
+   "nombre": "Lungo",
+   "alias": [
+    "largo"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "15 g de café",
+    "Agua de la extracción ~110 ml"
+   ],
+   "pasos": [
+    "Prepara el maneral como espresso.",
+    "Deja correr la extracción hasta ~110 ml (35–40 s)."
+   ],
+   "req": [
+    "Café en grano"
+   ],
+   "tip": "Más de 45 s amarga: mejor haz un americano."
+  },
+  {
+   "nombre": "Doppio",
+   "alias": [
+    "doble",
+    "espresso doble"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "2 espressos de la casa (30 g de café)"
+   ],
+   "pasos": [
+    "Tira 2 espressos seguidos o en maneral doble.",
+    "Sirve en taza precalentada."
+   ],
+   "req": [
+    "Café en grano"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Macchiato",
+   "alias": [
+    "espresso macchiato",
+    "manchado"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "1–2 cucharadas de espuma de leche"
+   ],
+   "pasos": [
+    "Tira 1 espresso de la casa (15 g → 70 ml, 25–30 s).",
+    "Vaporiza la leche con aire (6–8 s) para una textura espumosa, sin pasar de 65 °C.",
+    "Mancha el espresso con 1–2 cucharadas de espuma al centro."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Latte Macchiato",
+   "alias": [],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "200 ml de leche",
+    "1 espresso (70 ml)"
+   ],
+   "pasos": [
+    "Vaporiza la leche 25–35 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Sirve la leche en vaso alto y deja reposar 20 s para que se separe la espuma.",
+    "Vierte el espresso despacio por el centro: queda en capas (leche, café, espuma)."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Piccolo Latte",
+   "alias": [
+    "piccolo"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 ristretto (~35 ml)",
+    "70 ml de leche"
+   ],
+   "pasos": [
+    "Tira un ristretto en vaso chico.",
+    "Vaporiza la leche casi sin aire (3–4 s) para una textura sedosa, sin pasar de 65 °C.",
+    "Vierte la leche haciendo un corazón pequeño."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Café con leche",
+   "alias": [
+    "cafe con leche"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "70 ml de café del día o 1 espresso",
+    "150 ml de leche caliente"
+   ],
+   "pasos": [
+    "Prepara el café.",
+    "Calienta la leche con la lanceta casi sin espuma.",
+    "Mezcla mitad y mitad en taza grande."
+   ],
+   "req": [
+    "Leche entera"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Café de olla",
+   "alias": [
+    "olla"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "240 ml de agua",
+    "15 g de café molido medio",
+    "1 raja de canela",
+    "20 g de piloncillo",
+    "1 clavo (opcional)"
+   ],
+   "pasos": [
+    "Hierve el agua con la canela, el piloncillo y el clavo 3–4 min.",
+    "Apaga, agrega el café y deja reposar 4 min tapado.",
+    "Cuela y sirve en jarrito."
+   ],
+   "req": [
+    "Café premolido",
+    "Canela",
+    "Piloncillo"
+   ],
+   "tip": "No hiervas el café: se amarga."
+  },
+  {
+   "nombre": "Café de olla latte",
+   "alias": [
+    "latte de olla"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "30 ml de jarabe de piloncillo con canela",
+    "150 ml de leche"
+   ],
+   "pasos": [
+    "Pon el jarabe en la taza y tira el espresso encima.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte la leche y espolvorea canela."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Jarabe de piloncillo",
+    "Canela"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Café cubano",
+   "alias": [
+    "cafecito",
+    "cubano"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "2 cucharaditas de azúcar"
+   ],
+   "pasos": [
+    "Pon el azúcar en la jarrita y agrega las primeras gotas del espresso.",
+    "Bate fuerte hasta hacer una pasta clara (espumita).",
+    "Agrega el resto del espresso y mezcla."
+   ],
+   "req": [
+    "Café en grano"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Café bombón",
+   "alias": [
+    "bombon"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "30 ml de leche condensada",
+    "1 espresso (70 ml)"
+   ],
+   "pasos": [
+    "Pon la leche condensada en vaso de vidrio chico.",
+    "Tira el espresso encima despacio: quedan dos capas.",
+    "Se mezcla al tomarlo."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche condensada"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Café vienés",
+   "alias": [
+    "vienes",
+    "viennese"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "70 ml de agua caliente",
+    "Crema batida"
+   ],
+   "pasos": [
+    "Tira el espresso y agrega el agua caliente.",
+    "Corona con crema batida y un poco de cacao o canela."
+   ],
+   "req": [
+    "Café en grano",
+    "Crema batida"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Red Eye",
+   "alias": [
+    "ojo rojo",
+    "black eye"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "200 ml de café del día",
+    "1 espresso (70 ml)"
+   ],
+   "pasos": [
+    "Sirve el café del día en taza grande.",
+    "Agrega el espresso encima."
+   ],
+   "req": [
+    "Café premolido",
+    "Café en grano"
+   ],
+   "tip": "Con 2 espressos se llama Black Eye."
+  },
+  {
+   "nombre": "Breve",
+   "alias": [
+    "cafe breve"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "150 ml de mitad leche y mitad crema"
+   ],
+   "pasos": [
+    "Tira 1 espresso de la casa (15 g → 70 ml, 25–30 s).",
+    "Vaporiza la mezcla de leche y crema 15–20 s (sube más rápido que la leche sola).",
+    "Vierte sobre el espresso."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Crema para batir"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Mocha blanco",
+   "alias": [
+    "white mocha",
+    "moka blanco"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "30 ml de salsa de chocolate blanco",
+    "150 ml de leche",
+    "Crema batida (opcional)"
+   ],
+   "pasos": [
+    "Mezcla el chocolate blanco con el espresso caliente.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte y corona con crema batida."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Chocolate blanco"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Mocha mexicano",
+   "alias": [
+    "moka mexicano"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "30 ml de jarabe de chocolate",
+    "Pizca de canela y de chile en polvo",
+    "150 ml de leche"
+   ],
+   "pasos": [
+    "Mezcla chocolate, canela y chile con el espresso.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte y espolvorea canela."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Jarabe de chocolate",
+    "Canela",
+    "Chile en polvo"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Latte de vainilla",
+   "alias": [
+    "vanilla latte"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "20 ml (2/3 oz) de jarabe de vainilla",
+    "150 ml de leche"
+   ],
+   "pasos": [
+    "Pon el jarabe en la taza y tira el espresso encima.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte con arte latte."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Jarabe de vainilla"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Latte de caramelo",
+   "alias": [
+    "caramel latte"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "20 ml de jarabe de caramelo",
+    "150 ml de leche"
+   ],
+   "pasos": [
+    "Jarabe en la taza + espresso.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte la leche; decora con hilo de caramelo."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Jarabe de caramelo"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Caramel Macchiato",
+   "alias": [
+    "macchiato de caramelo"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "20 ml de jarabe de vainilla",
+    "150 ml de leche",
+    "1 espresso (70 ml)",
+    "Salsa de caramelo para decorar"
+   ],
+   "pasos": [
+    "Pon el jarabe de vainilla en la taza.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C. Vierte la leche.",
+    "Tira el espresso encima (queda la marca).",
+    "Decora con caramelo en rejilla."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Jarabe de vainilla",
+    "Salsa de caramelo"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Latte de avellana",
+   "alias": [
+    "hazelnut latte"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "20 ml de jarabe de avellana",
+    "150 ml de leche"
+   ],
+   "pasos": [
+    "Jarabe + espresso en la taza.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte la leche."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Jarabe de avellana"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Latte de canela",
+   "alias": [
+    "cinnamon latte"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "15 ml de jarabe natural",
+    "1/4 cdita de canela",
+    "150 ml de leche"
+   ],
+   "pasos": [
+    "Mezcla canela y jarabe con el espresso.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte y espolvorea canela."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Jarabe natural",
+    "Canela"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Latte de miel y canela",
+   "alias": [
+    "honey latte",
+    "latte de miel"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "15 ml de miel",
+    "Pizca de canela",
+    "150 ml de leche"
+   ],
+   "pasos": [
+    "Disuelve la miel en el espresso caliente.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte y espolvorea canela."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Miel",
+    "Canela"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Latte de lavanda",
+   "alias": [
+    "lavender latte"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "20 ml de jarabe de lavanda",
+    "150 ml de leche"
+   ],
+   "pasos": [
+    "Jarabe + espresso.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte la leche."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Jarabe de lavanda"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Latte de cajeta",
+   "alias": [
+    "cajeta latte"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "25 ml de cajeta",
+    "150 ml de leche"
+   ],
+   "pasos": [
+    "Disuelve la cajeta en el espresso caliente (mueve bien).",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte y decora con hilo de cajeta."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Cajeta"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Pumpkin Spice Latte",
+   "alias": [
+    "latte de calabaza",
+    "psl",
+    "pumpkin"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "25 ml de jarabe pumpkin spice (o 1 cda de puré de calabaza + especias + jarabe)",
+    "150 ml de leche",
+    "Crema batida"
+   ],
+   "pasos": [
+    "Mezcla jarabe/puré con el espresso.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte, corona con crema y canela."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Jarabe pumpkin spice"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Latte de coco",
+   "alias": [
+    "coconut latte"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "20 ml de jarabe de coco",
+    "150 ml de leche (o leche de coco)"
+   ],
+   "pasos": [
+    "Jarabe + espresso.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Jarabe de coco"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Latte de avena",
+   "alias": [
+    "oat latte",
+    "latte con avena",
+    "leche de avena"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "150 ml de leche de avena barista"
+   ],
+   "pasos": [
+    "Tira 1 espresso de la casa (15 g → 70 ml, 25–30 s).",
+    "Vaporiza la avena igual que la leche pero hasta 55–60 °C (se corta si se calienta de más).",
+    "Vierte."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche de avena"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Latte de almendra",
+   "alias": [
+    "almond latte"
+   ],
+   "categoria": "Café caliente",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "150 ml de leche de almendra"
+   ],
+   "pasos": [
+    "Tira 1 espresso de la casa (15 g → 70 ml, 25–30 s).",
+    "Vaporiza hasta 55–60 °C; hace menos espuma que la entera.",
+    "Vierte."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche de almendra"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Babyccino",
+   "alias": [
+    "babychino",
+    "leche para niños"
+   ],
+   "categoria": "Chocolate y sin café",
+   "ingredientes": [
+    "100 ml de leche",
+    "Espolvoreado de cacao"
+   ],
+   "pasos": [
+    "Vaporiza la leche hasta 40–45 °C (tibia, para niños) con bastante espuma.",
+    "Sirve en taza chica con cacao encima."
+   ],
+   "req": [
+    "Leche entera"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Iced Latte",
+   "alias": [
+    "latte frio",
+    "latte helado",
+    "latte en las rocas"
+   ],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "180 ml de leche fría",
+    "Hielo"
+   ],
+   "pasos": [
+    "Llena el vaso de hielo y sirve la leche fría.",
+    "Tira el espresso y viértelo encima."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Hielo"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Iced Americano",
+   "alias": [
+    "americano frio",
+    "americano helado"
+   ],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "150 ml de agua fría",
+    "Hielo"
+   ],
+   "pasos": [
+    "Vaso con hielo y agua fría.",
+    "Espresso encima."
+   ],
+   "req": [
+    "Café en grano",
+    "Hielo"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Iced Mocha",
+   "alias": [
+    "moka frio",
+    "mocha frio"
+   ],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "30 ml de jarabe de chocolate",
+    "160 ml de leche fría",
+    "Hielo",
+    "Crema batida (opcional)"
+   ],
+   "pasos": [
+    "Mezcla el chocolate con el espresso caliente.",
+    "Vaso con hielo y leche; vierte el espresso con chocolate.",
+    "Corona con crema batida."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Hielo",
+    "Jarabe de chocolate"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Iced Caramel Macchiato",
+   "alias": [
+    "caramel macchiato frio"
+   ],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "20 ml de jarabe de vainilla",
+    "180 ml de leche fría",
+    "Hielo",
+    "1 espresso (70 ml)",
+    "Salsa de caramelo"
+   ],
+   "pasos": [
+    "Jarabe de vainilla + leche + hielo en el vaso.",
+    "Espresso encima sin mezclar.",
+    "Caramelo en rejilla."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Hielo",
+    "Jarabe de vainilla",
+    "Salsa de caramelo"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Iced Vanilla Latte",
+   "alias": [
+    "latte de vainilla frio"
+   ],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "20 ml de jarabe de vainilla",
+    "180 ml de leche fría",
+    "Hielo"
+   ],
+   "pasos": [
+    "Jarabe + leche + hielo.",
+    "Espresso encima."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Hielo",
+    "Jarabe de vainilla"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Espresso Tonic",
+   "alias": [
+    "tonic",
+    "cafe tonic"
+   ],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "150 ml de agua tónica fría",
+    "Hielo",
+    "1 espresso (70 ml)",
+    "Rodaja de naranja o limón"
+   ],
+   "pasos": [
+    "Vaso con hielo y tónica.",
+    "Vierte el espresso muy despacio por encima (hace espuma, sírvelo lento).",
+    "Decora con cítrico."
+   ],
+   "req": [
+    "Café en grano",
+    "Hielo",
+    "Agua tónica"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Cold Brew Tonic",
+   "alias": [],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "120 ml de cold brew",
+    "120 ml de agua tónica",
+    "Hielo",
+    "Cáscara de naranja"
+   ],
+   "pasos": [
+    "Hielo y tónica en el vaso.",
+    "Cold brew encima despacio.",
+    "Decora con naranja."
+   ],
+   "req": [
+    "Café para cold brew",
+    "Hielo",
+    "Agua tónica"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Shakerato",
+   "alias": [
+    "espresso agitado",
+    "shaken espresso"
+   ],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "10 ml de jarabe natural",
+    "Hielo"
+   ],
+   "pasos": [
+    "En la coctelera: espresso caliente, jarabe y hielo hasta la mitad.",
+    "Agita fuerte 15 s.",
+    "Cuela a copa: queda con espuma."
+   ],
+   "req": [
+    "Café en grano",
+    "Hielo",
+    "Jarabe natural"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Shaken Espresso de avena y canela",
+   "alias": [
+    "brown sugar oat"
+   ],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "15 ml de jarabe natural",
+    "Canela",
+    "Hielo",
+    "120 ml de leche de avena"
+   ],
+   "pasos": [
+    "Agita espresso, jarabe, canela y hielo 15 s.",
+    "Sirve en vaso y completa con leche de avena."
+   ],
+   "req": [
+    "Café en grano",
+    "Hielo",
+    "Jarabe natural",
+    "Canela",
+    "Leche de avena"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Café con naranja",
+   "alias": [
+    "espresso naranja",
+    "orange espresso",
+    "bumble"
+   ],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "120 ml de jugo de naranja",
+    "Hielo"
+   ],
+   "pasos": [
+    "Vaso con hielo y jugo de naranja.",
+    "Espresso encima despacio (quedan capas)."
+   ],
+   "req": [
+    "Café en grano",
+    "Hielo",
+    "Pulpa de naranja"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Dirty Horchata",
+   "alias": [
+    "horchata latte",
+    "horchata con cafe"
+   ],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "200 ml de horchata",
+    "1 espresso (70 ml)",
+    "Hielo",
+    "Canela"
+   ],
+   "pasos": [
+    "Vaso con hielo y horchata.",
+    "Espresso encima, espolvorea canela."
+   ],
+   "req": [
+    "Café en grano",
+    "Hielo",
+    "Horchata"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Cold Brew de horchata",
+   "alias": [],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "120 ml de cold brew",
+    "120 ml de horchata",
+    "Hielo"
+   ],
+   "pasos": [
+    "Hielo + horchata, cold brew encima."
+   ],
+   "req": [
+    "Café para cold brew",
+    "Hielo",
+    "Horchata"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Sweet Cream Cold Brew",
+   "alias": [
+    "cold brew con crema dulce"
+   ],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "180 ml de cold brew",
+    "Hielo",
+    "40 ml de crema + 10 ml de jarabe de vainilla batidos"
+   ],
+   "pasos": [
+    "Bate la crema con el jarabe hasta que espese un poco (líquida, no montada).",
+    "Vaso con hielo y cold brew.",
+    "Vierte la crema encima."
+   ],
+   "req": [
+    "Café para cold brew",
+    "Hielo",
+    "Crema para batir",
+    "Jarabe de vainilla"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Iced Coconut Latte",
+   "alias": [
+    "latte de coco frio"
+   ],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "180 ml de leche de coco fría",
+    "Hielo",
+    "10 ml de jarabe natural"
+   ],
+   "pasos": [
+    "Hielo + leche de coco + jarabe.",
+    "Espresso encima."
+   ],
+   "req": [
+    "Café en grano",
+    "Hielo",
+    "Leche de coco"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Affogato de caramelo",
+   "alias": [],
+   "categoria": "Café frío",
+   "ingredientes": [
+    "1 bola de helado de vainilla",
+    "1 espresso (70 ml)",
+    "Salsa de caramelo"
+   ],
+   "pasos": [
+    "Bola de helado en vaso.",
+    "Espresso caliente encima al momento de servir.",
+    "Hilo de caramelo."
+   ],
+   "req": [
+    "Café en grano",
+    "Helado",
+    "Salsa de caramelo"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Chai Latte",
+   "alias": [
+    "chai",
+    "te chai"
+   ],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "60 ml de concentrado de chai",
+    "150 ml de leche",
+    "Canela"
+   ],
+   "pasos": [
+    "Pon el concentrado de chai en la taza (o 1 bolsita de té chai en 60 ml de agua caliente 4 min).",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte y espolvorea canela."
+   ],
+   "req": [
+    "Leche entera",
+    "Concentrado de chai",
+    "Canela"
+   ],
+   "tip": "Chai es té negro con especias, no chía."
+  },
+  {
+   "nombre": "Iced Chai Latte",
+   "alias": [
+    "chai frio",
+    "chai helado"
+   ],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "60 ml de concentrado de chai",
+    "150 ml de leche fría",
+    "Hielo"
+   ],
+   "pasos": [
+    "Vaso con hielo.",
+    "Concentrado de chai + leche fría, mezcla."
+   ],
+   "req": [
+    "Leche entera",
+    "Hielo",
+    "Concentrado de chai"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Dirty Chai",
+   "alias": [
+    "chai sucio",
+    "dirty chai latte"
+   ],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "60 ml de concentrado de chai",
+    "1 espresso (70 ml)",
+    "150 ml de leche"
+   ],
+   "pasos": [
+    "Chai en la taza y espresso encima.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Concentrado de chai"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Iced Matcha Latte",
+   "alias": [
+    "matcha frio",
+    "matcha helado"
+   ],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "2 g de matcha (1 cdita)",
+    "60 ml de agua a 80 °C",
+    "15 ml de jarabe natural",
+    "180 ml de leche fría",
+    "Hielo"
+   ],
+   "pasos": [
+    "Bate el matcha con el agua (sin grumos).",
+    "Vaso con hielo, leche y jarabe.",
+    "Vierte el matcha encima."
+   ],
+   "req": [
+    "Leche entera",
+    "Hielo",
+    "Polvo para matcha",
+    "Jarabe natural"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Matcha de fresa",
+   "alias": [
+    "strawberry matcha",
+    "matcha fresa"
+   ],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "30 ml de puré o jarabe de fresa",
+    "180 ml de leche fría",
+    "Hielo",
+    "2 g de matcha + 60 ml de agua a 80 °C"
+   ],
+   "pasos": [
+    "Fresa al fondo del vaso.",
+    "Hielo y leche.",
+    "Matcha batido encima (quedan 3 capas)."
+   ],
+   "req": [
+    "Leche entera",
+    "Hielo",
+    "Polvo para matcha",
+    "Jarabe de frutos rojos"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Matcha de coco",
+   "alias": [
+    "coconut matcha"
+   ],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "2 g de matcha + 60 ml de agua a 80 °C",
+    "180 ml de leche de coco",
+    "Hielo"
+   ],
+   "pasos": [
+    "Bate el matcha.",
+    "Hielo + leche de coco, matcha encima."
+   ],
+   "req": [
+    "Hielo",
+    "Polvo para matcha",
+    "Leche de coco"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Matcha limonada",
+   "alias": [
+    "matcha lemonade"
+   ],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "2 g de matcha + 60 ml de agua",
+    "150 ml de limonada",
+    "Hielo"
+   ],
+   "pasos": [
+    "Limonada con hielo.",
+    "Matcha batido encima."
+   ],
+   "req": [
+    "Hielo",
+    "Polvo para matcha",
+    "Pulpa de limón"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Matcha Tonic",
+   "alias": [],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "2 g de matcha + 60 ml de agua",
+    "150 ml de agua tónica",
+    "Hielo"
+   ],
+   "pasos": [
+    "Tónica con hielo.",
+    "Matcha batido encima despacio."
+   ],
+   "req": [
+    "Hielo",
+    "Polvo para matcha",
+    "Agua tónica"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "London Fog",
+   "alias": [
+    "earl grey latte",
+    "te latte"
+   ],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "1 bolsita de té Earl Grey",
+    "120 ml de agua caliente",
+    "15 ml de jarabe de vainilla",
+    "120 ml de leche"
+   ],
+   "pasos": [
+    "Infusiona el Earl Grey 4 min y saca la bolsa.",
+    "Agrega el jarabe.",
+    "Vaporiza la leche 15 s y vierte con espuma."
+   ],
+   "req": [
+    "Leche entera",
+    "Té Earl Grey",
+    "Jarabe de vainilla"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Golden Latte",
+   "alias": [
+    "leche dorada",
+    "curcuma latte",
+    "turmeric"
+   ],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "1/2 cdita de cúrcuma",
+    "Pizca de canela, jengibre y pimienta",
+    "15 ml de miel o jarabe natural",
+    "200 ml de leche"
+   ],
+   "pasos": [
+    "Disuelve las especias con la miel y un chorrito de agua caliente.",
+    "Vaporiza la leche 20 s.",
+    "Vierte y mezcla."
+   ],
+   "req": [
+    "Leche entera",
+    "Cúrcuma",
+    "Canela",
+    "Miel"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Taro Latte",
+   "alias": [
+    "taro"
+   ],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "25 g de polvo de taro",
+    "30 ml de agua caliente",
+    "180 ml de leche",
+    "Hielo (si es frío)"
+   ],
+   "pasos": [
+    "Disuelve el taro con el agua caliente.",
+    "Caliente: vaporiza la leche 20 s y vierte. Frío: leche fría con hielo."
+   ],
+   "req": [
+    "Leche entera",
+    "Polvo de taro"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Hojicha Latte",
+   "alias": [
+    "hojicha"
+   ],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "2 g de hojicha en polvo",
+    "60 ml de agua a 85 °C",
+    "150 ml de leche"
+   ],
+   "pasos": [
+    "Bate la hojicha con el agua.",
+    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte."
+   ],
+   "req": [
+    "Leche entera",
+    "Hojicha"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Té helado de durazno",
+   "alias": [
+    "iced tea",
+    "te frio durazno"
+   ],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "1 bolsita de té negro",
+    "150 ml de agua caliente",
+    "30 ml de jarabe de durazno",
+    "Hielo"
+   ],
+   "pasos": [
+    "Infusiona el té 4 min, saca la bolsa.",
+    "Agrega el jarabe y sirve sobre mucho hielo."
+   ],
+   "req": [
+    "Hielo",
+    "Té",
+    "Jarabe de durazno"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Té helado de frutos rojos",
+   "alias": [],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "1 bolsita de tisana de frutos rojos",
+    "150 ml de agua caliente",
+    "20 ml de jarabe de frutos rojos",
+    "Hielo"
+   ],
+   "pasos": [
+    "Infusiona 5 min.",
+    "Endulza y sirve con hielo."
+   ],
+   "req": [
+    "Hielo",
+    "Tisanas",
+    "Jarabe de frutos rojos"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Té verde con jazmín",
+   "alias": [
+    "jasmine",
+    "te verde"
+   ],
+   "categoria": "Matcha, chai y té",
+   "ingredientes": [
+    "1 bolsita de té verde jazmín",
+    "240 ml de agua a 80 °C"
+   ],
+   "pasos": [
+    "Infusiona 2–3 min (más tiempo amarga).",
+    "Sirve."
+   ],
+   "req": [
+    "Té verde"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Chocolate caliente",
+   "alias": [
+    "chocolate",
+    "hot chocolate"
+   ],
+   "categoria": "Chocolate y sin café",
+   "ingredientes": [
+    "30 ml de jarabe de chocolate (o 25 g de chocolate en barra)",
+    "240 ml de leche",
+    "Crema batida (opcional)"
+   ],
+   "pasos": [
+    "Pon el chocolate en la jarra con la leche.",
+    "Vaporiza junto 25–35 s, moviendo para que se disuelva.",
+    "Sirve y corona con crema."
+   ],
+   "req": [
+    "Leche entera",
+    "Jarabe de chocolate"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Chocolate mexicano",
+   "alias": [
+    "chocolate abuelita",
+    "chocolate de mesa"
+   ],
+   "categoria": "Chocolate y sin café",
+   "ingredientes": [
+    "1/2 tablilla de chocolate de mesa (45 g)",
+    "240 ml de leche",
+    "Canela"
+   ],
+   "pasos": [
+    "Pica el chocolate y vaporízalo con la leche 30 s.",
+    "Bate para hacer espuma y sirve con canela."
+   ],
+   "req": [
+    "Leche entera",
+    "Chocolate en barra",
+    "Canela"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Chocolate blanco caliente",
+   "alias": [
+    "white chocolate"
+   ],
+   "categoria": "Chocolate y sin café",
+   "ingredientes": [
+    "30 ml de salsa de chocolate blanco",
+    "240 ml de leche"
+   ],
+   "pasos": [
+    "Vaporiza todo junto 25–35 s.",
+    "Sirve con crema batida."
+   ],
+   "req": [
+    "Leche entera",
+    "Chocolate blanco"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Chocolate frío",
+   "alias": [
+    "iced chocolate",
+    "chocolate helado"
+   ],
+   "categoria": "Chocolate y sin café",
+   "ingredientes": [
+    "30 ml de jarabe de chocolate",
+    "200 ml de leche fría",
+    "Hielo"
+   ],
+   "pasos": [
+    "Mezcla el jarabe con un poco de leche.",
+    "Hielo y resto de la leche."
+   ],
+   "req": [
+    "Leche entera",
+    "Hielo",
+    "Jarabe de chocolate"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Steamer de vainilla",
+   "alias": [
+    "leche vaporizada",
+    "steamer"
+   ],
+   "categoria": "Chocolate y sin café",
+   "ingredientes": [
+    "20 ml de jarabe de vainilla",
+    "240 ml de leche"
+   ],
+   "pasos": [
+    "Jarabe en la taza.",
+    "Vaporiza la leche 25–35 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vierte con espuma."
+   ],
+   "req": [
+    "Leche entera",
+    "Jarabe de vainilla"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Limonada de fresa",
+   "alias": [
+    "limonada fresa"
+   ],
+   "categoria": "Sodas y limonadas",
+   "ingredientes": [
+    "30 ml de jarabe de frutos rojos o puré de fresa",
+    "30 ml de jugo/pulpa de limón",
+    "20 ml de jarabe natural",
+    "200 ml de agua mineral",
+    "Hielo"
+   ],
+   "pasos": [
+    "Fresa, limón y jarabe en el vaso.",
+    "Hielo y agua mineral; mezcla de abajo hacia arriba."
+   ],
+   "req": [
+    "Hielo",
+    "Pulpa de limón",
+    "Jarabe natural",
+    "Agua mineral"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Limonada de pepino",
+   "alias": [
+    "agua de pepino"
+   ],
+   "categoria": "Sodas y limonadas",
+   "ingredientes": [
+    "1/4 de pepino",
+    "30 ml de pulpa de limón",
+    "25 ml de jarabe natural",
+    "200 ml de agua",
+    "Hielo"
+   ],
+   "pasos": [
+    "Licúa pepino, limón, jarabe y agua 15 s.",
+    "Cuela y sirve con hielo."
+   ],
+   "req": [
+    "Hielo",
+    "Pulpa de limón",
+    "Jarabe natural",
+    "Pepino"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Limonada de coco",
+   "alias": [
+    "coconut lemonade"
+   ],
+   "categoria": "Sodas y limonadas",
+   "ingredientes": [
+    "30 ml de pulpa de limón",
+    "60 ml de leche de coco",
+    "25 ml de jarabe natural",
+    "120 ml de agua",
+    "Hielo"
+   ],
+   "pasos": [
+    "Licúa todo con el hielo 15 s (modo P2).",
+    "Sirve espumosa."
+   ],
+   "req": [
+    "Hielo",
+    "Pulpa de limón",
+    "Leche de coco"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Limonada de lavanda",
+   "alias": [],
+   "categoria": "Sodas y limonadas",
+   "ingredientes": [
+    "30 ml de pulpa de limón",
+    "20 ml de jarabe de lavanda",
+    "200 ml de agua mineral",
+    "Hielo"
+   ],
+   "pasos": [
+    "Limón y jarabe en el vaso.",
+    "Hielo y agua mineral."
+   ],
+   "req": [
+    "Hielo",
+    "Pulpa de limón",
+    "Jarabe de lavanda",
+    "Agua mineral"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Naranjada mineral",
+   "alias": [
+    "naranjada"
+   ],
+   "categoria": "Sodas y limonadas",
+   "ingredientes": [
+    "60 ml de pulpa de naranja",
+    "15 ml de jarabe natural",
+    "180 ml de agua mineral",
+    "Hielo"
+   ],
+   "pasos": [
+    "Naranja y jarabe en el vaso.",
+    "Hielo y agua mineral."
+   ],
+   "req": [
+    "Hielo",
+    "Pulpa de naranja",
+    "Agua mineral"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Mojito sin alcohol",
+   "alias": [
+    "virgin mojito",
+    "nojito",
+    "mojito"
+   ],
+   "categoria": "Sodas y limonadas",
+   "ingredientes": [
+    "8 hojas de hierbabuena",
+    "30 ml de pulpa de limón",
+    "25 ml de jarabe natural",
+    "180 ml de agua mineral",
+    "Hielo"
+   ],
+   "pasos": [
+    "Machaca suave la hierbabuena con limón y jarabe.",
+    "Hielo y agua mineral."
+   ],
+   "req": [
+    "Hielo",
+    "Pulpa de limón",
+    "Hierbabuena",
+    "Agua mineral"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Soda de kiwi",
+   "alias": [],
+   "categoria": "Sodas y limonadas",
+   "ingredientes": [
+    "30 ml de jarabe de kiwi",
+    "200 ml de agua mineral",
+    "Hielo"
+   ],
+   "pasos": [
+    "Jarabe y hielo en el vaso.",
+    "Agua mineral despacio."
+   ],
+   "req": [
+    "Hielo",
+    "Jarabe de kiwi",
+    "Agua mineral"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Soda de mango y chile",
+   "alias": [
+    "mango soda"
+   ],
+   "categoria": "Sodas y limonadas",
+   "ingredientes": [
+    "40 ml de pulpa de mango",
+    "Chamoy y chile en polvo para escarchar",
+    "180 ml de agua mineral",
+    "Hielo"
+   ],
+   "pasos": [
+    "Escarcha el vaso con chamoy y chile.",
+    "Mango, hielo y agua mineral."
+   ],
+   "req": [
+    "Hielo",
+    "Pulpa de mango",
+    "Agua mineral",
+    "Chamoy"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Tisana fría con fruta",
+   "alias": [
+    "tisana helada"
+   ],
+   "categoria": "Sodas y limonadas",
+   "ingredientes": [
+    "1 bolsita de tisana",
+    "150 ml de agua caliente",
+    "15 ml de jarabe natural",
+    "Fruta picada",
+    "Hielo"
+   ],
+   "pasos": [
+    "Infusiona la tisana 5 min.",
+    "Endulza, enfría con hielo y agrega la fruta."
+   ],
+   "req": [
+    "Hielo",
+    "Tisanas"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Frappé de caramelo",
+   "alias": [
+    "caramel frappe"
+   ],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "1 espresso (70 ml) o 60 ml de cold brew",
+    "120 ml de leche",
+    "30 ml de jarabe de caramelo",
+    "1 cda de base neutra",
+    "1 vaso de hielo"
+   ],
+   "pasos": [
+    "Todo en la licuadora.",
+    "Licúa en modo P2 (~20 s).",
+    "Corona con crema batida y caramelo."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Hielo",
+    "Base neutra",
+    "Jarabe de caramelo",
+    "Crema batida"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Frappé moka",
+   "alias": [
+    "mocha frappe",
+    "frappe de moka"
+   ],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "120 ml de leche",
+    "30 ml de jarabe de chocolate",
+    "1 cda de base neutra",
+    "1 vaso de hielo"
+   ],
+   "pasos": [
+    "Todo a la licuadora, modo P2 (~20 s).",
+    "Crema batida y chocolate encima."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Hielo",
+    "Base neutra",
+    "Jarabe de chocolate"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Frappé cookies & cream",
+   "alias": [
+    "frappe oreo",
+    "cookies and cream"
+   ],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "3 galletas Oreo",
+    "150 ml de leche",
+    "20 ml de jarabe de vainilla",
+    "1 cda de base neutra",
+    "1 vaso de hielo"
+   ],
+   "pasos": [
+    "Licúa todo modo P2 (~20 s).",
+    "Corona con crema y galleta molida."
+   ],
+   "req": [
+    "Leche entera",
+    "Hielo",
+    "Base neutra",
+    "Galletas Oreo"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Frappé de cajeta",
+   "alias": [],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "1 espresso (70 ml)",
+    "120 ml de leche",
+    "30 ml de cajeta",
+    "1 cda de base neutra",
+    "1 vaso de hielo"
+   ],
+   "pasos": [
+    "Licúa modo P2.",
+    "Decora con cajeta."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Hielo",
+    "Base neutra",
+    "Cajeta"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Frappé de matcha",
+   "alias": [
+    "matcha frappe"
+   ],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "2 g de matcha",
+    "150 ml de leche",
+    "20 ml de jarabe natural",
+    "1 cda de base neutra",
+    "1 vaso de hielo"
+   ],
+   "pasos": [
+    "Licúa todo modo P2.",
+    "Crema batida opcional."
+   ],
+   "req": [
+    "Leche entera",
+    "Hielo",
+    "Base neutra",
+    "Polvo para matcha"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Frappé de taro",
+   "alias": [
+    "taro frappe"
+   ],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "25 g de polvo de taro",
+    "150 ml de leche",
+    "1 cda de base neutra",
+    "1 vaso de hielo"
+   ],
+   "pasos": [
+    "Licúa modo P2."
+   ],
+   "req": [
+    "Leche entera",
+    "Hielo",
+    "Base neutra",
+    "Polvo de taro"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Frappé de chai",
+   "alias": [
+    "chai frappe"
+   ],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "60 ml de concentrado de chai",
+    "120 ml de leche",
+    "1 cda de base neutra",
+    "1 vaso de hielo"
+   ],
+   "pasos": [
+    "Licúa modo P2; canela encima."
+   ],
+   "req": [
+    "Leche entera",
+    "Hielo",
+    "Base neutra",
+    "Concentrado de chai"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Frappé de fresa con crema",
+   "alias": [
+    "fresas con crema"
+   ],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "40 ml de jarabe de frutos rojos",
+    "150 ml de leche",
+    "1 cda de base neutra",
+    "1 vaso de hielo"
+   ],
+   "pasos": [
+    "Licúa modo P2.",
+    "Crema batida encima."
+   ],
+   "req": [
+    "Leche entera",
+    "Hielo",
+    "Base neutra",
+    "Jarabe de frutos rojos"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Mangonada",
+   "alias": [
+    "chamoyada",
+    "mango con chamoy"
+   ],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "80 ml de pulpa de mango",
+    "1 cda de base cristal",
+    "1 vaso de hielo",
+    "Chamoy y chile en polvo"
+   ],
+   "pasos": [
+    "Licúa mango, base y hielo modo P2.",
+    "Vaso con chamoy en las paredes, sirve y pon chile encima."
+   ],
+   "req": [
+    "Hielo",
+    "Pulpa de mango",
+    "Base cristal",
+    "Chamoy"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Smoothie de mango",
+   "alias": [
+    "mango smoothie"
+   ],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "100 ml de pulpa de mango",
+    "80 ml de agua o leche",
+    "1 cda de base cristal",
+    "1 vaso de hielo"
+   ],
+   "pasos": [
+    "Licúa modo P2."
+   ],
+   "req": [
+    "Hielo",
+    "Pulpa de mango",
+    "Base cristal"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Smoothie de frutos rojos",
+   "alias": [
+    "berry smoothie"
+   ],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "40 ml de jarabe de frutos rojos",
+    "80 g de fruta o pulpa",
+    "80 ml de agua",
+    "1 cda de base cristal",
+    "1 vaso de hielo"
+   ],
+   "pasos": [
+    "Licúa modo P2."
+   ],
+   "req": [
+    "Hielo",
+    "Jarabe de frutos rojos",
+    "Base cristal"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Malteada de fresa",
+   "alias": [
+    "strawberry shake"
+   ],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "2 bolas de helado de vainilla",
+    "120 ml de leche",
+    "40 ml de jarabe de frutos rojos"
+   ],
+   "pasos": [
+    "Licúa 10–15 s (poco, para que quede espesa).",
+    "Crema batida encima."
+   ],
+   "req": [
+    "Leche entera",
+    "Helado",
+    "Jarabe de frutos rojos"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Malteada de chocolate",
+   "alias": [
+    "chocolate shake"
+   ],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "2 bolas de helado de vainilla",
+    "120 ml de leche",
+    "30 ml de jarabe de chocolate",
+    "1 cda de malta (opcional)"
+   ],
+   "pasos": [
+    "Licúa 10–15 s.",
+    "Crema batida y chocolate."
+   ],
+   "req": [
+    "Leche entera",
+    "Helado",
+    "Jarabe de chocolate"
+   ],
+   "tip": ""
+  },
+  {
+   "nombre": "Malteada de café",
+   "alias": [
+    "coffee shake"
+   ],
+   "categoria": "Frappés, smoothies y malteadas",
+   "ingredientes": [
+    "2 bolas de helado de vainilla",
+    "1 espresso frío (70 ml)",
+    "80 ml de leche"
+   ],
+   "pasos": [
+    "Licúa 10–15 s."
+   ],
+   "req": [
+    "Café en grano",
+    "Leche entera",
+    "Helado"
+   ],
+   "tip": ""
   }
  ]
 }
