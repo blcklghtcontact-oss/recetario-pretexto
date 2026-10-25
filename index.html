@@ -563,7 +563,8 @@ function pintar(){
   pintarIndice(vista.cat);
 }
 
-function filaIndice(r){ return `<div class="fila" data-slug="${r.slug}"><span>${esc(r.titulo)}</span><span class="pts"></span></div>`; }
+const colorCat = c => (CATS.find(x => x.id === c) || CATS.find(x => x.id === 'Nuevas')).color;
+function filaIndice(r){ return `<div class="fila" data-slug="${r.slug}" style="color:${colorCat(r.categoria)}"><span>${esc(r.titulo)}</span><span class="pts" style="border-bottom-color:${colorCat(r.categoria)}66"></span></div>`; }
 function enlazarFilas(){ document.querySelectorAll('.fila[data-slug]').forEach(f => f.onclick = () => abrir(f.dataset.slug)); document.querySelectorAll('.fila[data-banco]').forEach(f => f.onclick = () => abrirBanco(f.dataset.banco)); }
 function abrir(slug){ const r = D.recetas.find(x=>x.slug===slug); if(!r) return; vista = { cat: CATS.some(c=>c.id===r.categoria)? r.categoria : 'Nuevas', slug, grande:false }; $('#buscar').value=''; $('#limpiarBusqueda').hidden=true; pintarPestanas(); pintar(); window.scrollTo({top:0,behavior:'smooth'}); }
 
@@ -572,7 +573,7 @@ function pintarIndice(cat){
   for (const r of recetasDe(cat)) (grupos[r.categoria] ||= []).push(r);
   const ks = Object.keys(grupos);
   const mitad = Math.ceil(ks.length/2);
-  const col = arr => arr.map(k => `<h2>${esc(k)}</h2>${grupos[k].map(filaIndice).join('')}`).join('');
+  const col = arr => arr.map(k => `<h2 style="color:${colorCat(k)};border-bottom:3px solid ${colorCat(k)}">${esc(k)}</h2>${grupos[k].map(filaIndice).join('')}`).join('');
   const titulo = cat==='inicio' ? 'Preparaciones – Bebidas' : CATS.find(c=>c.id===cat)?.nombre;
   $('#izq').innerHTML = `<div class="indice"><h1 class="t">${esc(titulo)}</h1><p class="sub">Toca una bebida para abrir su hoja. Los pasos punteados en azul son consejos que se agregaron a la receta original.</p>${col(cat==='inicio'?ks.slice(0,mitad):ks)}</div>`;
   $('#der').innerHTML = cat==='inicio'
