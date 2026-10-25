@@ -222,8 +222,10 @@ ul.req .si{color:#5f8a4d} ul.req .no{color:var(--rojo)} ul.req .rev{color:var(--
   .pestanas{max-height:calc(100vh - 200px);overflow-y:auto;overflow-x:hidden;padding:0 8px 12px 0;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-width:none;touch-action:pan-y}
   .pestanas::-webkit-scrollbar{display:none}
   .pestana{flex:none}
+  .libreta{padding-right:62px}
+  .pestanas{right:auto;left:calc(100% - 62px);padding-right:6px}
 }
-@media (orientation: landscape) and (max-height: 620px){ .pestanas{max-height:calc(100vh - 110px)} }
+@media (orientation: landscape) and (max-height: 620px){ .pestanas{max-height:calc(100vh - 110px);top:14px} }
 @media print{.abrir-chat,.chat,.top .buscar,.nota-nueva{display:none!important}body{background:#fff}.pliego{box-shadow:none}}
 </style>
 </head>
