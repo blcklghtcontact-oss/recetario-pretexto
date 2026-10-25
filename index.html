@@ -264,6 +264,7 @@ const CATS = [
   { id:'Matcha, Chai y Té', nombre:'Matcha, chai y té', color:'#6f8a4c' },
   { id:'Sodas y Frappés', nombre:'Sodas y frappés', color:'#b1764a' },
   { id:'Nuevas', nombre:'Nuevas', color:'#c2a05a' },
+  { id:'banco', nombre:'Banco de bebidas', color:'#8a6d3b' },
   { id:'inventario', nombre:'Inventario', color:'#3b5236' },
 ];
 let D = { recetas:[], inventario:[], tecnica:[] };
@@ -543,7 +544,7 @@ function buscarBanco(pedido){
 function cambioDeBanco(b){ return { tipo:'nueva_receta', titulo:b.nombre, categoria:'Nuevas', taza:b.taza, capas:b.capas, ingredientes:b.ingredientes, pasos:b.pasos, tiempos:b.tiempos||[], evitar:b.evitar||[], variaciones:b.variaciones||[], notas:b.notas||[] }; }
 
 function pintarPestanas(){
-  const cats = CATS.filter(c => !['Nuevas'].includes(c.id) || D.recetas.some(r => r.categoria === 'Nuevas'));
+  const cats = CATS.filter(c => (c.id !== 'Nuevas' || D.recetas.some(r => r.categoria === 'Nuevas')) && (c.id !== 'banco' || (D.banco && D.banco.length)));
   $('#pestanas').innerHTML = cats.map(c => `<button class="pestana ${vista.cat===c.id?'activa':''}" style="background:${c.color}" data-cat="${esc(c.id)}">${esc(c.nombre)}</button>`).join('');
   document.querySelectorAll('.pestana').forEach(b => b.onclick = () => { vista = { cat:b.dataset.cat, slug:null, grande:false }; pintarPestanas(); pintar(); window.scrollTo({top:0,behavior:'smooth'}); });
 }
@@ -558,6 +559,7 @@ function pintar(){
   if (vista.slug){ const r = D.recetas.find(x => x.slug===vista.slug); if (r) return pintarReceta(r); }
   if (vista.cat==='tecnica') return pintarTecnica();
   if (vista.cat==='inventario') return pintarInventario();
+  if (vista.cat==='banco') return pintarIndiceBanco();
   pintarIndice(vista.cat);
 }
 
@@ -588,6 +590,19 @@ function bancoDe(q){
   return D.banco.filter(b => !titulos.has(canon(b.nombre)))
     .map(b => { const n = canon([b.nombre, ...b.alias].join(' ')), ing = canon(b.ingredientes.join(' ')); return [n.includes(q) ? 2 : (ing.includes(q) ? 1 : 0), b]; })
     .filter(a => a[0]).sort((a,b) => b[0]-a[0]).map(a => a[1]);
+}
+function pintarIndiceBanco(){
+  const titulos = new Set(D.recetas.map(r => canon(r.titulo)));
+  const grupos = {};
+  for (const b of D.banco) if (!titulos.has(canon(b.nombre))) (grupos[b.categoria] ||= []).push(b);
+  const ks = Object.keys(grupos); const total = ks.reduce((a,k) => a + grupos[k].length, 0);
+  const pesos = ks.map(k => grupos[k].length + 2); let acc = 0, corte = ks.length; const mitad = pesos.reduce((a,b)=>a+b,0)/2;
+  for (let i=0;i<ks.length;i++){ acc += pesos[i]; if (acc >= mitad){ corte = i+1; break; } }
+  const fila = b => `<div class="fila" data-banco="${esc(b.nombre)}"><span>${esc(b.nombre)}</span><span class="pts"></span></div>`;
+  const col = arr => arr.map(k => `<h2>${esc(k)}</h2>${grupos[k].map(fila).join('')}`).join('');
+  $('#izq').innerHTML = `<div class="indice"><h1 class="t">Banco de bebidas</h1><p class="sub">${total} preparaciones comunes de cafetería con las medidas de la casa. Son sugerencias para probar: tócala para ver su hoja y agrégala al recetario si les gusta.</p>${col(ks.slice(0, corte))}</div>`;
+  $('#der').innerHTML = `<div class="indice">${col(ks.slice(corte))}<p class="leyenda">Funciona sin internet. Cada hoja dice qué ingredientes tienen y cuáles faltan según el inventario.</p></div>`;
+  enlazarFilas();
 }
 function filaBanco(b){ return `<div class="fila banco" data-banco="${esc(b.nombre)}"><span>${esc(b.nombre)}</span><span class="pts"></span></div>`; }
 function pintarBusqueda(q){
