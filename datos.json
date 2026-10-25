@@ -1256,7 +1256,33 @@
    "req": [
     "Café en grano"
    ],
-   "tip": "Si sabe agrio, muele un poco más fino."
+   "tip": "Si sabe agrio, muele un poco más fino.",
+   "taza": "Demitasse",
+   "capas": [
+    {
+     "nombre": "Crema",
+     "pct": 15
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción corta: 15–20 s (~35 ml)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema."
+   ],
+   "variaciones": [
+    "Doble: con 2 espressos.",
+    "Con un poco de agua caliente a un lado para el cliente."
+   ],
+   "notas": [
+    "[sugerencia] Si sabe agrio, muele un poco más fino."
+   ]
   },
   {
    "nombre": "Lungo",
@@ -1275,7 +1301,33 @@
    "req": [
     "Café en grano"
    ],
-   "tip": "Más de 45 s amarga: mejor haz un americano."
+   "tip": "Más de 45 s amarga: mejor haz un americano.",
+   "taza": "Taza chica",
+   "capas": [
+    {
+     "nombre": "Crema",
+     "pct": 8
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 92
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción larga: 35–40 s (~110 ml)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema."
+   ],
+   "variaciones": [
+    "Doble: con 2 espressos.",
+    "Con un poco de agua caliente a un lado para el cliente."
+   ],
+   "notas": [
+    "[sugerencia] Más de 45 s amarga: mejor haz un americano."
+   ]
   },
   {
    "nombre": "Doppio",
@@ -1294,7 +1346,33 @@
    "req": [
     "Café en grano"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Demitasse doble",
+   "capas": [
+    {
+     "nombre": "Crema",
+     "pct": 12
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 88
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema."
+   ],
+   "variaciones": [
+    "Doble: con 2 espressos.",
+    "Con un poco de agua caliente a un lado para el cliente."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Macchiato",
@@ -1316,7 +1394,37 @@
     "Café en grano",
     "Leche entera"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Demitasse",
+   "capas": [
+    {
+     "nombre": "Espuma",
+     "pct": 20
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 80
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Latte Macchiato",
@@ -1327,7 +1435,7 @@
     "1 espresso (70 ml)"
    ],
    "pasos": [
-    "Vaporiza la leche 25–35 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 25–35 s (aire los primeros 3–5 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Sirve la leche en vaso alto y deja reposar 20 s para que se separe la espuma.",
     "Vierte el espresso despacio por el centro: queda en capas (leche, café, espuma)."
    ],
@@ -1335,7 +1443,41 @@
     "Café en grano",
     "Leche entera"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto de vidrio",
+   "capas": [
+    {
+     "nombre": "Espuma",
+     "pct": 15
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 20
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 65
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado grande (240 ml): 25–35 s (aire 3–5 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Piccolo Latte",
@@ -1356,7 +1498,40 @@
     "Café en grano",
     "Leche entera"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso chico de vidrio (~120 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 15
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 50
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 35
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Café con leche",
@@ -1376,7 +1551,34 @@
    "req": [
     "Leche entera"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza grande",
+   "capas": [
+    {
+     "nombre": "Leche",
+     "pct": 50
+    },
+    {
+     "nombre": "Café",
+     "pct": 50
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Café de olla",
@@ -1401,7 +1603,30 @@
     "Canela",
     "Piloncillo"
    ],
-   "tip": "No hiervas el café: se amarga."
+   "tip": "No hiervas el café: se amarga.",
+   "taza": "Jarrito de barro",
+   "capas": [
+    {
+     "nombre": "Café de olla",
+     "pct": 100
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Infusión: 3–4 min."
+   ],
+   "evitar": [
+    "Servir sin probar: pruébala antes de darla y ajusta lo dulce."
+   ],
+   "variaciones": [
+    "Doble: con 2 espressos.",
+    "Con un poco de agua caliente a un lado para el cliente."
+   ],
+   "notas": [
+    "[sugerencia] No hiervas el café: se amarga."
+   ]
   },
   {
    "nombre": "Café de olla latte",
@@ -1416,7 +1641,7 @@
    ],
    "pasos": [
     "Pon el jarabe en la taza y tira el espresso encima.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte la leche y espolvorea canela."
    ],
    "req": [
@@ -1425,7 +1650,45 @@
     "Jarabe de piloncillo",
     "Canela"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 49
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 8
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Café cubano",
@@ -1446,7 +1709,33 @@
    "req": [
     "Café en grano"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Demitasse",
+   "capas": [
+    {
+     "nombre": "Espumita de azúcar",
+     "pct": 15
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema."
+   ],
+   "variaciones": [
+    "Doble: con 2 espressos.",
+    "Con un poco de agua caliente a un lado para el cliente."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Café bombón",
@@ -1467,7 +1756,35 @@
     "Café en grano",
     "Leche condensada"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso chico de vidrio",
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 55
+    },
+    {
+     "nombre": "Leche condensada",
+     "pct": 45
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Cajeta, miel o condensada en frío: no se disuelven. Mézclalas primero con el espresso caliente."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Café vienés",
@@ -1489,7 +1806,37 @@
     "Café en grano",
     "Crema batida"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza mediana",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 35
+    },
+    {
+     "nombre": "Agua caliente",
+     "pct": 33
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema."
+   ],
+   "variaciones": [
+    "Doble: con 2 espressos.",
+    "Con un poco de agua caliente a un lado para el cliente."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Red Eye",
@@ -1510,7 +1857,33 @@
     "Café premolido",
     "Café en grano"
    ],
-   "tip": "Con 2 espressos se llama Black Eye."
+   "tip": "Con 2 espressos se llama Black Eye.",
+   "taza": "Taza grande",
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 25
+    },
+    {
+     "nombre": "Café del día",
+     "pct": 75
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema."
+   ],
+   "variaciones": [
+    "Doble: con 2 espressos.",
+    "Con un poco de agua caliente a un lado para el cliente."
+   ],
+   "notas": [
+    "[sugerencia] Con 2 espressos se llama Black Eye."
+   ]
   },
   {
    "nombre": "Breve",
@@ -1532,7 +1905,41 @@
     "Leche entera",
     "Crema para batir"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 57
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Mocha blanco",
@@ -1549,7 +1956,7 @@
    ],
    "pasos": [
     "Mezcla el chocolate blanco con el espresso caliente.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte y corona con crema batida."
    ],
    "req": [
@@ -1557,7 +1964,45 @@
     "Leche entera",
     "Chocolate blanco"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 13
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 47
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    },
+    {
+     "nombre": "Chocolate",
+     "pct": 8
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Mocha mexicano",
@@ -1573,7 +2018,7 @@
    ],
    "pasos": [
     "Mezcla chocolate, canela y chile con el espresso.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte y espolvorea canela."
    ],
    "req": [
@@ -1583,7 +2028,45 @@
     "Canela",
     "Chile en polvo"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 49
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    },
+    {
+     "nombre": "Chocolate",
+     "pct": 8
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Latte de vainilla",
@@ -1598,7 +2081,7 @@
    ],
    "pasos": [
     "Pon el jarabe en la taza y tira el espresso encima.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte con arte latte."
    ],
    "req": [
@@ -1606,7 +2089,45 @@
     "Leche entera",
     "Jarabe de vainilla"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 49
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 8
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Latte de caramelo",
@@ -1621,7 +2142,7 @@
    ],
    "pasos": [
     "Jarabe en la taza + espresso.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte la leche; decora con hilo de caramelo."
    ],
    "req": [
@@ -1629,7 +2150,45 @@
     "Leche entera",
     "Jarabe de caramelo"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 49
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 8
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Caramel Macchiato",
@@ -1645,7 +2204,7 @@
    ],
    "pasos": [
     "Pon el jarabe de vainilla en la taza.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C. Vierte la leche.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C. Vierte la leche.",
     "Tira el espresso encima (queda la marca).",
     "Decora con caramelo en rejilla."
    ],
@@ -1655,7 +2214,45 @@
     "Jarabe de vainilla",
     "Salsa de caramelo"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 49
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 8
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Latte de avellana",
@@ -1670,7 +2267,7 @@
    ],
    "pasos": [
     "Jarabe + espresso en la taza.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte la leche."
    ],
    "req": [
@@ -1678,7 +2275,45 @@
     "Leche entera",
     "Jarabe de avellana"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 49
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 8
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Latte de canela",
@@ -1694,7 +2329,7 @@
    ],
    "pasos": [
     "Mezcla canela y jarabe con el espresso.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte y espolvorea canela."
    ],
    "req": [
@@ -1703,7 +2338,45 @@
     "Jarabe natural",
     "Canela"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 49
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 8
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Latte de miel y canela",
@@ -1720,7 +2393,7 @@
    ],
    "pasos": [
     "Disuelve la miel en el espresso caliente.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte y espolvorea canela."
    ],
    "req": [
@@ -1729,7 +2402,46 @@
     "Miel",
     "Canela"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 49
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 8
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo.",
+    "Cajeta, miel o condensada en frío: no se disuelven. Mézclalas primero con el espresso caliente."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Latte de lavanda",
@@ -1744,7 +2456,7 @@
    ],
    "pasos": [
     "Jarabe + espresso.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte la leche."
    ],
    "req": [
@@ -1752,7 +2464,45 @@
     "Leche entera",
     "Jarabe de lavanda"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 49
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 8
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Latte de cajeta",
@@ -1767,7 +2517,7 @@
    ],
    "pasos": [
     "Disuelve la cajeta en el espresso caliente (mueve bien).",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte y decora con hilo de cajeta."
    ],
    "req": [
@@ -1775,7 +2525,46 @@
     "Leche entera",
     "Cajeta"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 49
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 8
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo.",
+    "Cajeta, miel o condensada en frío: no se disuelven. Mézclalas primero con el espresso caliente."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Pumpkin Spice Latte",
@@ -1793,7 +2582,7 @@
    ],
    "pasos": [
     "Mezcla jarabe/puré con el espresso.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte, corona con crema y canela."
    ],
    "req": [
@@ -1801,7 +2590,45 @@
     "Leche entera",
     "Jarabe pumpkin spice"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 13
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 47
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 8
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Latte de coco",
@@ -1816,7 +2643,7 @@
    ],
    "pasos": [
     "Jarabe + espresso.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte."
    ],
    "req": [
@@ -1824,7 +2651,45 @@
     "Leche entera",
     "Jarabe de coco"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 49
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 8
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Latte de avena",
@@ -1847,7 +2712,42 @@
     "Café en grano",
     "Leche de avena"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 57
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo.",
+    "Leche vegetal arriba de 60 °C: se corta y se separa."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Latte de almendra",
@@ -1868,7 +2768,42 @@
     "Café en grano",
     "Leche de almendra"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte (~240 ml)",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 11
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 57
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 32
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo.",
+    "Leche vegetal arriba de 60 °C: se corta y se separa."
+   ],
+   "variaciones": [
+    "Fría: vaso con hielo + leche fría + espresso encima.",
+    "Con leche vegetal (avena, almendra o coco).",
+    "Extra shot: 1 espresso más."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Babyccino",
@@ -1888,7 +2823,34 @@
    "req": [
     "Leche entera"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza chica",
+   "capas": [
+    {
+     "nombre": "Espuma",
+     "pct": 40
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 60
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Con un poco de jarabe de vainilla.",
+    "Con canela encima."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Iced Latte",
@@ -1912,7 +2874,39 @@
     "Leche entera",
     "Hielo"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 24
+    },
+    {
+     "nombre": "Leche fría",
+     "pct": 43
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 33
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Espresso caliente sobre poco hielo: se aguada. Llena bien el vaso de hielo primero."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Iced Americano",
@@ -1934,7 +2928,39 @@
     "Café en grano",
     "Hielo"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 24
+    },
+    {
+     "nombre": "Agua",
+     "pct": 43
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 33
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Espresso caliente sobre poco hielo: se aguada. Llena bien el vaso de hielo primero."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Iced Mocha",
@@ -1961,7 +2987,47 @@
     "Hielo",
     "Jarabe de chocolate"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 11
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 24
+    },
+    {
+     "nombre": "Leche fría",
+     "pct": 24
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 33
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 9
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Espresso caliente sobre poco hielo: se aguada. Llena bien el vaso de hielo primero."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Iced Caramel Macchiato",
@@ -1988,7 +3054,43 @@
     "Jarabe de vainilla",
     "Salsa de caramelo"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 24
+    },
+    {
+     "nombre": "Leche fría",
+     "pct": 35
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 33
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 9
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Espresso caliente sobre poco hielo: se aguada. Llena bien el vaso de hielo primero."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Iced Vanilla Latte",
@@ -2012,7 +3114,43 @@
     "Hielo",
     "Jarabe de vainilla"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 24
+    },
+    {
+     "nombre": "Leche fría",
+     "pct": 35
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 33
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 9
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Espresso caliente sobre poco hielo: se aguada. Llena bien el vaso de hielo primero."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Espresso Tonic",
@@ -2037,7 +3175,40 @@
     "Hielo",
     "Agua tónica"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 25
+    },
+    {
+     "nombre": "Agua tónica",
+     "pct": 45
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Verter rápido sobre la tónica: hace mucha espuma y se derrama. Despacio y por la orilla.",
+    "Espresso caliente sobre poco hielo: se aguada. Llena bien el vaso de hielo primero."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Lleva un ingrediente que normalmente no hay en la barra: revisen proveedor y costo antes de ponerla en menú."
+   ]
   },
   {
    "nombre": "Cold Brew Tonic",
@@ -2059,7 +3230,36 @@
     "Hielo",
     "Agua tónica"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Cold brew",
+     "pct": 40
+    },
+    {
+     "nombre": "Agua tónica",
+     "pct": 35
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 25
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Verter rápido sobre la tónica: hace mucha espuma y se derrama. Despacio y por la orilla."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Lleva un ingrediente que normalmente no hay en la barra: revisen proveedor y costo antes de ponerla en menú."
+   ]
   },
   {
    "nombre": "Shakerato",
@@ -2083,7 +3283,36 @@
     "Hielo",
     "Jarabe natural"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Copa",
+   "capas": [
+    {
+     "nombre": "Espuma",
+     "pct": 25
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 75
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Agitado en coctelera: 15 s fuerte."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Espresso caliente sobre poco hielo: se aguada. Llena bien el vaso de hielo primero."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Shaken Espresso de avena y canela",
@@ -2109,7 +3338,45 @@
     "Canela",
     "Leche de avena"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 24
+    },
+    {
+     "nombre": "Leche fría",
+     "pct": 35
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 33
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 9
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Agitado en coctelera: 15 s fuerte."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche vegetal arriba de 60 °C: se corta y se separa.",
+    "Espresso caliente sobre poco hielo: se aguada. Llena bien el vaso de hielo primero."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Café con naranja",
@@ -2133,7 +3400,39 @@
     "Hielo",
     "Pulpa de naranja"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 30
+    },
+    {
+     "nombre": "Pulpa de naranja",
+     "pct": 45
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 25
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Espresso caliente sobre poco hielo: se aguada. Llena bien el vaso de hielo primero."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Dirty Horchata",
@@ -2157,7 +3456,39 @@
     "Hielo",
     "Horchata"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 24
+    },
+    {
+     "nombre": "Horchata",
+     "pct": 43
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 33
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Espresso caliente sobre poco hielo: se aguada. Llena bien el vaso de hielo primero."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Lleva un ingrediente que normalmente no hay en la barra: revisen proveedor y costo antes de ponerla en menú."
+   ]
   },
   {
    "nombre": "Cold Brew de horchata",
@@ -2176,7 +3507,36 @@
     "Hielo",
     "Horchata"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Cold brew",
+     "pct": 45
+    },
+    {
+     "nombre": "Horchata",
+     "pct": 30
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 25
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Servir sin probar: pruébala antes de darla y ajusta lo dulce."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Lleva un ingrediente que normalmente no hay en la barra: revisen proveedor y costo antes de ponerla en menú."
+   ]
   },
   {
    "nombre": "Sweet Cream Cold Brew",
@@ -2200,7 +3560,36 @@
     "Crema para batir",
     "Jarabe de vainilla"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Crema dulce",
+     "pct": 15
+    },
+    {
+     "nombre": "Cold brew",
+     "pct": 60
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 25
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Servir sin probar: pruébala antes de darla y ajusta lo dulce."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Iced Coconut Latte",
@@ -2223,7 +3612,43 @@
     "Hielo",
     "Leche de coco"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Espresso",
+     "pct": 24
+    },
+    {
+     "nombre": "Leche fría",
+     "pct": 35
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 33
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 9
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Espresso caliente sobre poco hielo: se aguada. Llena bien el vaso de hielo primero."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Affogato de caramelo",
@@ -2244,7 +3669,38 @@
     "Helado",
     "Salsa de caramelo"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso chico",
+   "capas": [
+    {
+     "nombre": "Jarabe de caramelo",
+     "pct": 10
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 40
+    },
+    {
+     "nombre": "Helado",
+     "pct": 50
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema."
+   ],
+   "variaciones": [
+    "Caliente: misma receta con leche vaporizada.",
+    "Con leche vegetal.",
+    "Menos dulce: la mitad del jarabe."
+   ],
+   "notas": [
+    "[sugerencia] Prueben de ½ a 1 oz de jarabe y anoten cuánto les gustó más."
+   ]
   },
   {
    "nombre": "Chai Latte",
@@ -2260,7 +3716,7 @@
    ],
    "pasos": [
     "Pon el concentrado de chai en la taza (o 1 bolsita de té chai en 60 ml de agua caliente 4 min).",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte y espolvorea canela."
    ],
    "req": [
@@ -2268,7 +3724,42 @@
     "Concentrado de chai",
     "Canela"
    ],
-   "tip": "Chai es té negro con especias, no chía."
+   "tip": "Chai es té negro con especias, no chía.",
+   "taza": "Taza de latte",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 10
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 55
+    },
+    {
+     "nombre": "Chai",
+     "pct": 35
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema.",
+    "Infusión: 4 min (más tiempo amarga)."
+   ],
+   "evitar": [
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo.",
+    "Dejar la bolsita dentro al servir: el té sigue soltando y amarga."
+   ],
+   "variaciones": [
+    "Con leche vegetal (avena le queda muy bien).",
+    "Fría o caliente: misma base.",
+    "Dirty: agrégale 1 espresso."
+   ],
+   "notas": [
+    "[sugerencia] Chai es té negro con especias, no chía.",
+    "[sugerencia] Lleva un ingrediente que normalmente no hay en la barra: revisen proveedor y costo antes de ponerla en menú."
+   ]
   },
   {
    "nombre": "Iced Chai Latte",
@@ -2291,7 +3782,36 @@
     "Hielo",
     "Concentrado de chai"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Chai",
+     "pct": 25
+    },
+    {
+     "nombre": "Leche fría",
+     "pct": 45
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Servir sin probar: pruébala antes de darla y ajusta lo dulce."
+   ],
+   "variaciones": [
+    "Con leche vegetal (avena le queda muy bien).",
+    "Fría o caliente: misma base.",
+    "Dirty: agrégale 1 espresso."
+   ],
+   "notas": [
+    "[sugerencia] Lleva un ingrediente que normalmente no hay en la barra: revisen proveedor y costo antes de ponerla en menú."
+   ]
   },
   {
    "nombre": "Dirty Chai",
@@ -2307,7 +3827,7 @@
    ],
    "pasos": [
     "Chai en la taza y espresso encima.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte."
    ],
    "req": [
@@ -2315,7 +3835,45 @@
     "Leche entera",
     "Concentrado de chai"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 10
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 45
+    },
+    {
+     "nombre": "Espresso",
+     "pct": 25
+    },
+    {
+     "nombre": "Chai",
+     "pct": 20
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Con leche vegetal (avena le queda muy bien).",
+    "Fría o caliente: misma base.",
+    "Dirty: agrégale 1 espresso."
+   ],
+   "notas": [
+    "[sugerencia] Lleva un ingrediente que normalmente no hay en la barra: revisen proveedor y costo antes de ponerla en menú."
+   ]
   },
   {
    "nombre": "Iced Matcha Latte",
@@ -2342,7 +3900,36 @@
     "Polvo para matcha",
     "Jarabe natural"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Matcha",
+     "pct": 25
+    },
+    {
+     "nombre": "Leche fría",
+     "pct": 45
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Agua hirviendo con el matcha: amarga. Máximo 80 °C y bátelo hasta que no queden grumos."
+   ],
+   "variaciones": [
+    "Con leche vegetal (avena le queda muy bien).",
+    "Fría o caliente: misma base.",
+    "Dirty: agrégale 1 espresso."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Matcha de fresa",
@@ -2368,7 +3955,36 @@
     "Polvo para matcha",
     "Jarabe de frutos rojos"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Matcha",
+     "pct": 25
+    },
+    {
+     "nombre": "Leche fría",
+     "pct": 45
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Agua hirviendo con el matcha: amarga. Máximo 80 °C y bátelo hasta que no queden grumos."
+   ],
+   "variaciones": [
+    "Con leche vegetal (avena le queda muy bien).",
+    "Fría o caliente: misma base.",
+    "Dirty: agrégale 1 espresso."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Matcha de coco",
@@ -2390,7 +4006,36 @@
     "Polvo para matcha",
     "Leche de coco"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Matcha",
+     "pct": 25
+    },
+    {
+     "nombre": "Leche fría",
+     "pct": 45
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Agua hirviendo con el matcha: amarga. Máximo 80 °C y bátelo hasta que no queden grumos."
+   ],
+   "variaciones": [
+    "Con leche vegetal (avena le queda muy bien).",
+    "Fría o caliente: misma base.",
+    "Dirty: agrégale 1 espresso."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Matcha limonada",
@@ -2412,7 +4057,35 @@
     "Polvo para matcha",
     "Pulpa de limón"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Matcha",
+     "pct": 25
+    },
+    {
+     "nombre": "Limonada",
+     "pct": 45
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Agua hirviendo con el matcha: amarga. Máximo 80 °C y bátelo hasta que no queden grumos."
+   ],
+   "variaciones": [
+    "Con fruta o jarabe de sabor.",
+    "Caliente o fría."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Matcha Tonic",
@@ -2432,7 +4105,36 @@
     "Polvo para matcha",
     "Agua tónica"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Matcha",
+     "pct": 25
+    },
+    {
+     "nombre": "Agua tónica",
+     "pct": 45
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Agua hirviendo con el matcha: amarga. Máximo 80 °C y bátelo hasta que no queden grumos.",
+    "Verter rápido sobre la tónica: hace mucha espuma y se derrama. Despacio y por la orilla."
+   ],
+   "variaciones": [
+    "Con fruta o jarabe de sabor.",
+    "Caliente o fría."
+   ],
+   "notas": [
+    "[sugerencia] Lleva un ingrediente que normalmente no hay en la barra: revisen proveedor y costo antes de ponerla en menú."
+   ]
   },
   {
    "nombre": "London Fog",
@@ -2457,7 +4159,41 @@
     "Té Earl Grey",
     "Jarabe de vainilla"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 10
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 55
+    },
+    {
+     "nombre": "Té",
+     "pct": 35
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema.",
+    "Infusión: 4 min (más tiempo amarga)."
+   ],
+   "evitar": [
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo.",
+    "Dejar la bolsita dentro al servir: el té sigue soltando y amarga."
+   ],
+   "variaciones": [
+    "Con leche vegetal (avena le queda muy bien).",
+    "Fría o caliente: misma base.",
+    "Dirty: agrégale 1 espresso."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Golden Latte",
@@ -2484,7 +4220,40 @@
     "Canela",
     "Miel"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 10
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 55
+    },
+    {
+     "nombre": "Base de sabor",
+     "pct": 35
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo.",
+    "Cajeta, miel o condensada en frío: no se disuelven. Mézclalas primero con el espresso caliente."
+   ],
+   "variaciones": [
+    "Con leche vegetal (avena le queda muy bien).",
+    "Fría o caliente: misma base.",
+    "Dirty: agrégale 1 espresso."
+   ],
+   "notas": [
+    "[sugerencia] Lleva un ingrediente que normalmente no hay en la barra: revisen proveedor y costo antes de ponerla en menú."
+   ]
   },
   {
    "nombre": "Taro Latte",
@@ -2506,7 +4275,36 @@
     "Leche entera",
     "Polvo de taro"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Base de sabor",
+     "pct": 25
+    },
+    {
+     "nombre": "Leche fría",
+     "pct": 45
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Servir sin probar: pruébala antes de darla y ajusta lo dulce."
+   ],
+   "variaciones": [
+    "Con leche vegetal (avena le queda muy bien).",
+    "Fría o caliente: misma base.",
+    "Dirty: agrégale 1 espresso."
+   ],
+   "notas": [
+    "[sugerencia] Lleva un ingrediente que normalmente no hay en la barra: revisen proveedor y costo antes de ponerla en menú."
+   ]
   },
   {
    "nombre": "Hojicha Latte",
@@ -2521,14 +4319,46 @@
    ],
    "pasos": [
     "Bate la hojicha con el agua.",
-    "Vaporiza la leche 15–20 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 15–20 s (aire los primeros 2–4 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte."
    ],
    "req": [
     "Leche entera",
     "Hojicha"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte",
+   "capas": [
+    {
+     "nombre": "Microespuma",
+     "pct": 10
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 55
+    },
+    {
+     "nombre": "Té",
+     "pct": 35
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Vaporizado chico (150 ml): 15–20 s (aire 2–4 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Con leche vegetal (avena le queda muy bien).",
+    "Fría o caliente: misma base.",
+    "Dirty: agrégale 1 espresso."
+   ],
+   "notas": [
+    "[sugerencia] Lleva un ingrediente que normalmente no hay en la barra: revisen proveedor y costo antes de ponerla en menú."
+   ]
   },
   {
    "nombre": "Té helado de durazno",
@@ -2552,7 +4382,33 @@
     "Té",
     "Jarabe de durazno"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Té",
+     "pct": 65
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 35
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Infusión: 4 min (más tiempo amarga)."
+   ],
+   "evitar": [
+    "Dejar la bolsita dentro al servir: el té sigue soltando y amarga."
+   ],
+   "variaciones": [
+    "Con fruta o jarabe de sabor.",
+    "Caliente o fría."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Té helado de frutos rojos",
@@ -2573,7 +4429,33 @@
     "Tisanas",
     "Jarabe de frutos rojos"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Té",
+     "pct": 65
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 35
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Infusión: 5 min (más tiempo amarga)."
+   ],
+   "evitar": [
+    "Dejar la bolsita dentro al servir: el té sigue soltando y amarga."
+   ],
+   "variaciones": [
+    "Con fruta o jarabe de sabor.",
+    "Caliente o fría."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Té verde con jazmín",
@@ -2593,7 +4475,29 @@
    "req": [
     "Té verde"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza",
+   "capas": [
+    {
+     "nombre": "Té",
+     "pct": 100
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Infusión: 2–3 min (más tiempo amarga)."
+   ],
+   "evitar": [
+    "Dejar la bolsita dentro al servir: el té sigue soltando y amarga."
+   ],
+   "variaciones": [
+    "Con fruta o jarabe de sabor.",
+    "Caliente o fría."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Chocolate caliente",
@@ -2616,7 +4520,35 @@
     "Leche entera",
     "Jarabe de chocolate"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza grande",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Chocolate con leche",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Vaporizado grande (240 ml): 25–35 s (aire 3–5 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Con leche vegetal.",
+    "Con crema batida y canela.",
+    "Con 1 espresso: se vuelve moka."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Chocolate mexicano",
@@ -2639,7 +4571,32 @@
     "Chocolate en barra",
     "Canela"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza grande",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Chocolate con leche",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Servir sin probar: pruébala antes de darla y ajusta lo dulce."
+   ],
+   "variaciones": [
+    "Con leche vegetal.",
+    "Con crema batida y canela.",
+    "Con 1 espresso: se vuelve moka."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Chocolate blanco caliente",
@@ -2659,7 +4616,35 @@
     "Leche entera",
     "Chocolate blanco"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza grande",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Chocolate con leche",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Vaporizado grande (240 ml): 25–35 s (aire 3–5 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Con leche vegetal.",
+    "Con crema batida y canela.",
+    "Con 1 espresso: se vuelve moka."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Chocolate frío",
@@ -2682,7 +4667,36 @@
     "Hielo",
     "Jarabe de chocolate"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Chocolate",
+     "pct": 20
+    },
+    {
+     "nombre": "Leche fría",
+     "pct": 50
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Servir sin probar: pruébala antes de darla y ajusta lo dulce."
+   ],
+   "variaciones": [
+    "Con leche vegetal.",
+    "Con crema batida y canela.",
+    "Con 1 espresso: se vuelve moka."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Steamer de vainilla",
@@ -2697,14 +4711,46 @@
    ],
    "pasos": [
     "Jarabe en la taza.",
-    "Vaporiza la leche 25–35 s (aire los primeros 6–10 s) hasta 60–65 °C, sin pasar de 70 °C.",
+    "Vaporiza la leche 25–35 s (aire los primeros 3–5 s) hasta 55–65 °C, sin pasar de 70 °C.",
     "Vierte con espuma."
    ],
    "req": [
     "Leche entera",
     "Jarabe de vainilla"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Taza de latte",
+   "capas": [
+    {
+     "nombre": "Espuma",
+     "pct": 15
+    },
+    {
+     "nombre": "Leche vaporizada",
+     "pct": 75
+    },
+    {
+     "nombre": "Jarabe de vainilla",
+     "pct": 10
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Vaporizado grande (240 ml): 25–35 s (aire 3–5 s).",
+    "Temperatura de la leche: 55–65 °C. Arriba de 70 °C se quema."
+   ],
+   "evitar": [
+    "Leche quemada: más de 70 °C. Huele a hervida y pierde lo dulce; se tira y se empieza de nuevo."
+   ],
+   "variaciones": [
+    "Con leche vegetal.",
+    "Con crema batida y canela.",
+    "Con 1 espresso: se vuelve moka."
+   ],
+   "notas": [
+    "[sugerencia] Al probarla, anoten aquí lo que cambiaron (tiempos, cantidades, dulzor)."
+   ]
   },
   {
    "nombre": "Limonada de fresa",
@@ -2729,7 +4775,36 @@
     "Jarabe natural",
     "Agua mineral"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Agua mineral",
+     "pct": 50
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    },
+    {
+     "nombre": "Pulpa",
+     "pct": 20
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Mezclar fuerte con el agua mineral: pierde el gas. Mezcla de abajo hacia arriba, suave."
+   ],
+   "variaciones": [
+    "Con otro jarabe o pulpa de la barra.",
+    "Con agua natural en vez de mineral.",
+    "Escarchado de chile o azúcar."
+   ],
+   "notas": [
+    "[sugerencia] Anoten qué combinación de jarabes se vende más."
+   ]
   },
   {
    "nombre": "Limonada de pepino",
@@ -2754,7 +4829,38 @@
     "Jarabe natural",
     "Pepino"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Agua",
+     "pct": 50
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    },
+    {
+     "nombre": "Pulpa",
+     "pct": 20
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Licuadora modo P2: 15–20 s."
+   ],
+   "evitar": [
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Con otro jarabe o pulpa de la barra.",
+    "Con agua natural en vez de mineral.",
+    "Escarchado de chile o azúcar."
+   ],
+   "notas": [
+    "[sugerencia] Anoten qué combinación de jarabes se vende más."
+   ]
   },
   {
    "nombre": "Limonada de coco",
@@ -2778,7 +4884,38 @@
     "Pulpa de limón",
     "Leche de coco"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Agua",
+     "pct": 50
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    },
+    {
+     "nombre": "Pulpa",
+     "pct": 20
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Licuadora modo P2: 15–20 s."
+   ],
+   "evitar": [
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Con otro jarabe o pulpa de la barra.",
+    "Con agua natural en vez de mineral.",
+    "Escarchado de chile o azúcar."
+   ],
+   "notas": [
+    "[sugerencia] Anoten qué combinación de jarabes se vende más."
+   ]
   },
   {
    "nombre": "Limonada de lavanda",
@@ -2800,7 +4937,36 @@
     "Jarabe de lavanda",
     "Agua mineral"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Agua mineral",
+     "pct": 50
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    },
+    {
+     "nombre": "Pulpa",
+     "pct": 20
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Mezclar fuerte con el agua mineral: pierde el gas. Mezcla de abajo hacia arriba, suave."
+   ],
+   "variaciones": [
+    "Con otro jarabe o pulpa de la barra.",
+    "Con agua natural en vez de mineral.",
+    "Escarchado de chile o azúcar."
+   ],
+   "notas": [
+    "[sugerencia] Anoten qué combinación de jarabes se vende más."
+   ]
   },
   {
    "nombre": "Naranjada mineral",
@@ -2823,7 +4989,36 @@
     "Pulpa de naranja",
     "Agua mineral"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Agua mineral",
+     "pct": 50
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    },
+    {
+     "nombre": "Pulpa",
+     "pct": 20
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Mezclar fuerte con el agua mineral: pierde el gas. Mezcla de abajo hacia arriba, suave."
+   ],
+   "variaciones": [
+    "Con otro jarabe o pulpa de la barra.",
+    "Con agua natural en vez de mineral.",
+    "Escarchado de chile o azúcar."
+   ],
+   "notas": [
+    "[sugerencia] Anoten qué combinación de jarabes se vende más."
+   ]
   },
   {
    "nombre": "Mojito sin alcohol",
@@ -2850,7 +5045,40 @@
     "Hierbabuena",
     "Agua mineral"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Hierbabuena",
+     "pct": 10
+    },
+    {
+     "nombre": "Agua mineral",
+     "pct": 55
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 25
+    },
+    {
+     "nombre": "Jarabe natural",
+     "pct": 10
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Mezclar fuerte con el agua mineral: pierde el gas. Mezcla de abajo hacia arriba, suave."
+   ],
+   "variaciones": [
+    "Con otro jarabe o pulpa de la barra.",
+    "Con agua natural en vez de mineral.",
+    "Escarchado de chile o azúcar."
+   ],
+   "notas": [
+    "[sugerencia] Anoten qué combinación de jarabes se vende más."
+   ]
   },
   {
    "nombre": "Soda de kiwi",
@@ -2870,7 +5098,36 @@
     "Jarabe de kiwi",
     "Agua mineral"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Agua mineral",
+     "pct": 50
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    },
+    {
+     "nombre": "Jarabe",
+     "pct": 20
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Mezclar fuerte con el agua mineral: pierde el gas. Mezcla de abajo hacia arriba, suave."
+   ],
+   "variaciones": [
+    "Con otro jarabe o pulpa de la barra.",
+    "Con agua natural en vez de mineral.",
+    "Escarchado de chile o azúcar."
+   ],
+   "notas": [
+    "[sugerencia] Anoten qué combinación de jarabes se vende más."
+   ]
   },
   {
    "nombre": "Soda de mango y chile",
@@ -2894,7 +5151,36 @@
     "Agua mineral",
     "Chamoy"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Agua mineral",
+     "pct": 50
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 30
+    },
+    {
+     "nombre": "Pulpa",
+     "pct": 20
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [],
+   "evitar": [
+    "Mezclar fuerte con el agua mineral: pierde el gas. Mezcla de abajo hacia arriba, suave."
+   ],
+   "variaciones": [
+    "Con otro jarabe o pulpa de la barra.",
+    "Con agua natural en vez de mineral.",
+    "Escarchado de chile o azúcar."
+   ],
+   "notas": [
+    "[sugerencia] Anoten qué combinación de jarabes se vende más."
+   ]
   },
   {
    "nombre": "Tisana fría con fruta",
@@ -2917,7 +5203,34 @@
     "Hielo",
     "Tisanas"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto con hielo",
+   "capas": [
+    {
+     "nombre": "Tisana",
+     "pct": 65
+    },
+    {
+     "nombre": "Hielo",
+     "pct": 35
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Infusión: 5 min."
+   ],
+   "evitar": [
+    "Dejar la bolsita dentro al servir: el té sigue soltando y amarga."
+   ],
+   "variaciones": [
+    "Con otro jarabe o pulpa de la barra.",
+    "Con agua natural en vez de mineral.",
+    "Escarchado de chile o azúcar."
+   ],
+   "notas": [
+    "[sugerencia] Anoten qué combinación de jarabes se vende más."
+   ]
   },
   {
    "nombre": "Frappé de caramelo",
@@ -2945,7 +5258,36 @@
     "Jarabe de caramelo",
     "Crema batida"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Frappé",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Licuadora modo P2: 15–20 s."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora."
+   ]
   },
   {
    "nombre": "Frappé moka",
@@ -2972,7 +5314,36 @@
     "Base neutra",
     "Jarabe de chocolate"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Frappé",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Licuadora modo P2: 15–20 s."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora."
+   ]
   },
   {
    "nombre": "Frappé cookies & cream",
@@ -2998,7 +5369,34 @@
     "Base neutra",
     "Galletas Oreo"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Frappé",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Licuadora modo P2: 15–20 s."
+   ],
+   "evitar": [
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora."
+   ]
   },
   {
    "nombre": "Frappé de cajeta",
@@ -3022,7 +5420,37 @@
     "Base neutra",
     "Cajeta"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Frappé",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Licuadora modo P2: 15–20 s."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Licuar de más: el hielo se derrite y queda aguado.",
+    "Cajeta, miel o condensada en frío: no se disuelven. Mézclalas primero con el espresso caliente."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora."
+   ]
   },
   {
    "nombre": "Frappé de matcha",
@@ -3047,7 +5475,35 @@
     "Base neutra",
     "Polvo para matcha"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Frappé",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Licuadora modo P2: 15–20 s."
+   ],
+   "evitar": [
+    "Agua hirviendo con el matcha: amarga. Máximo 80 °C y bátelo hasta que no queden grumos.",
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora."
+   ]
   },
   {
    "nombre": "Frappé de taro",
@@ -3070,7 +5526,35 @@
     "Base neutra",
     "Polvo de taro"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Frappé",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Licuadora modo P2: 15–20 s."
+   ],
+   "evitar": [
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora.",
+    "[sugerencia] Lleva un ingrediente que normalmente no hay en la barra: revisen proveedor y costo antes de ponerla en menú."
+   ]
   },
   {
    "nombre": "Frappé de chai",
@@ -3093,7 +5577,35 @@
     "Base neutra",
     "Concentrado de chai"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Frappé",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Licuadora modo P2: 15–20 s."
+   ],
+   "evitar": [
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora.",
+    "[sugerencia] Lleva un ingrediente que normalmente no hay en la barra: revisen proveedor y costo antes de ponerla en menú."
+   ]
   },
   {
    "nombre": "Frappé de fresa con crema",
@@ -3117,7 +5629,34 @@
     "Base neutra",
     "Jarabe de frutos rojos"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Frappé",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Licuadora modo P2: 15–20 s."
+   ],
+   "evitar": [
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora."
+   ]
   },
   {
    "nombre": "Mangonada",
@@ -3142,7 +5681,34 @@
     "Base cristal",
     "Chamoy"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto",
+   "capas": [
+    {
+     "nombre": "Smoothie",
+     "pct": 90
+    },
+    {
+     "nombre": "Pulpa",
+     "pct": 10
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Licuadora modo P2: 15–20 s."
+   ],
+   "evitar": [
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora."
+   ]
   },
   {
    "nombre": "Smoothie de mango",
@@ -3164,7 +5730,30 @@
     "Pulpa de mango",
     "Base cristal"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto",
+   "capas": [
+    {
+     "nombre": "Smoothie",
+     "pct": 100
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Licuadora modo P2: 15–20 s."
+   ],
+   "evitar": [
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora."
+   ]
   },
   {
    "nombre": "Smoothie de frutos rojos",
@@ -3187,7 +5776,30 @@
     "Jarabe de frutos rojos",
     "Base cristal"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso alto",
+   "capas": [
+    {
+     "nombre": "Smoothie",
+     "pct": 100
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Licuadora modo P2: 15–20 s."
+   ],
+   "evitar": [
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora."
+   ]
   },
   {
    "nombre": "Malteada de fresa",
@@ -3209,7 +5821,34 @@
     "Helado",
     "Jarabe de frutos rojos"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso de malteada",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Malteada",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Licuadora modo P2: 15–20 s (malteadas 10–15 s para que queden espesas)."
+   ],
+   "evitar": [
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora."
+   ]
   },
   {
    "nombre": "Malteada de chocolate",
@@ -3232,7 +5871,34 @@
     "Helado",
     "Jarabe de chocolate"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso de malteada",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Malteada",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Licuadora modo P2: 15–20 s (malteadas 10–15 s para que queden espesas)."
+   ],
+   "evitar": [
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora."
+   ]
   },
   {
    "nombre": "Malteada de café",
@@ -3253,7 +5919,36 @@
     "Leche entera",
     "Helado"
    ],
-   "tip": ""
+   "tip": "",
+   "taza": "Vaso de malteada",
+   "capas": [
+    {
+     "nombre": "Crema batida",
+     "pct": 15
+    },
+    {
+     "nombre": "Malteada",
+     "pct": 85
+    }
+   ],
+   "capasGrande": [],
+   "tamanos": "",
+   "tiempos": [
+    "Extracción del espresso: 25–30 s (menos de 20 s: molienda más fina; más de 35 s: más gruesa).",
+    "Licuadora modo P2: 15–20 s (malteadas 10–15 s para que queden espesas)."
+   ],
+   "evitar": [
+    "Espresso que espera: tíralo al final, justo antes de juntar todo, o pierde la crema.",
+    "Licuar de más: el hielo se derrite y queda aguado."
+   ],
+   "variaciones": [
+    "Sin café o con extra shot.",
+    "Con leche vegetal.",
+    "Sin crema batida (más ligero)."
+   ],
+   "notas": [
+    "[sugerencia] Anoten cuántos hielos y qué consistencia quedó mejor en su licuadora."
+   ]
   }
  ]
 }

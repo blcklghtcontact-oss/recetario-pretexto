@@ -323,7 +323,7 @@ async function aplicar(c){
       let slug = slugify(c.titulo); if (D.recetas.some(r => r.slug===slug)) slug += '-' + Date.now().toString().slice(-4);
       L.recetas[slug] = { slug, titulo:c.titulo, categoria:c.categoria||'Nuevas', estado:'nueva (probar)', orden:900, taza:c.taza||'', tamanos:'',
         ingredientes:(c.ingredientes||[]).map(String), pasos:sinNumero(c.pasos), capas:aCapas(c.capas), capasGrande:[], tiempos:(c.tiempos||[]).map(String),
-        evitar:(c.evitar||[]).map(String), variaciones:(c.variaciones||[]).map(String), notas:[`[${hoy()}] (asistente) Receta nueva, falta probarla.`] };
+        evitar:(c.evitar||[]).map(String), variaciones:(c.variaciones||[]).map(String), notas:[...(c.notas||[]).map(n => String(n).replace(/^\[sugerencia\]\s*/, `[${hoy()}] (banco) `)), `[${hoy()}] (asistente) Receta nueva, falta probarla.`] };
       mensaje = `Receta nueva guardada: ${c.titulo}`;
     } else if (c.tipo === 'inventario'){
       const g = clonar(D.inventario); const tiene = (i, x) => i.toLowerCase().includes(String(x).toLowerCase());
@@ -451,7 +451,7 @@ async function chatIA0(hist, recetaActual){
     const bb = buscarBanco(pedido);
     if (bb){ const faltan = faltantesDe(bb);
       return { respuesta: `"${bb.nombre}" no está en el recetario de la casa, pero sí en el banco de bebidas (sugerencia sin probar):\n\nIngredientes:\n${bb.ingredientes.map(x=>'- '+x).join('\n')}\n\nPasos:\n${bb.pasos.map((x,i)=>`${i+1}. ${x}`).join('\n')}${bb.tip ? '\n\nTip: ' + bb.tip : ''}`,
-        faltan, cambios: [{ tipo:'nueva_receta', titulo: bb.nombre, categoria:'Nuevas', ingredientes: bb.ingredientes, pasos: bb.pasos, tiempos: [], evitar: [], variaciones: [] }] }; }
+        faltan, cambios: [cambioDeBanco(bb)], abrirBanco: bb.nombre }; }
   }
   if (IA_FALLA) return sinIA(q, r);
   if (!LOCAL){ const ok = await activarIA(false); if (!ok) return sinIA(q, r); }
@@ -540,6 +540,8 @@ function buscarBanco(pedido){
   return (todos.find(([b, ns]) => ns.includes(p)) || todos.find(([b, ns]) => ns.some(n => n.includes(p) || (p.includes(n) && n.length > 4))) || [null])[0];
 }
 
+function cambioDeBanco(b){ return { tipo:'nueva_receta', titulo:b.nombre, categoria:'Nuevas', taza:b.taza, capas:b.capas, ingredientes:b.ingredientes, pasos:b.pasos, tiempos:b.tiempos||[], evitar:b.evitar||[], variaciones:b.variaciones||[], notas:b.notas||[] }; }
+
 function pintarPestanas(){
   const cats = CATS.filter(c => !['Nuevas'].includes(c.id) || D.recetas.some(r => r.categoria === 'Nuevas'));
   $('#pestanas').innerHTML = cats.map(c => `<button class="pestana ${vista.cat===c.id?'activa':''}" style="background:${c.color}" data-cat="${esc(c.id)}">${esc(c.nombre)}</button>`).join('');
@@ -610,16 +612,15 @@ function faltantesDe(b){ return b.req.map(x => [x, revisarReq(x)]).filter(a => a
 function abrirBanco(nombre){ vista = { ...vista, slug:null, banco:nombre }; pintar(); window.scrollTo({top:0,behavior:'smooth'}); }
 function pintarBanco(b){
   const marca = { si:['si','✓ hay'], no:['no','✗ no tenemos'], agotado:['no','✗ se acabó'], revisar:['rev','? revisa jarabes de sabor'] };
-  $('#izq').innerHTML = `<h1 class="t">${esc(b.nombre)}</h1><p class="sub">${esc(b.categoria)} · del banco de bebidas</p>
-    <div class="sub-banco">Sugerencia del banco, todavía no se ha probado en Pretexto. Ajústenla al prepararla.</div>
-    <h2>Ingredientes</h2><ul class="ing">${b.ingredientes.map(i => `<li>${esc(i)}</li>`).join('')}</ul>
-    <h2>Preparación</h2><ol class="pasos">${b.pasos.map(x => `<li>${esc(x)}</li>`).join('')}</ol>${b.tip ? `<p><span class="tip">tip</span>${esc(b.tip)}</p>` : ''}
-    <p class="acc-p"><button class="btn claro" id="volverBusq">← Volver</button></p>`;
-  $('#der').innerHTML = `<h2 style="margin-top:0">¿Tenemos todo?</h2><ul class="req">${b.req.map(x => { const [c, t] = marca[revisarReq(x)]; return `<li><span class="${c}">${t}</span> — ${esc(x)}</li>`; }).join('')}</ul>
-    <p class="acc-p"><button class="btn" id="agregarBanco">Agregar al recetario</button></p><p class="leyenda">Se agrega en la pestaña "Nuevas" de este aparato para probarla y anotarle.</p>`;
+  pintarReceta({ ...b, slug:null, titulo:b.nombre, capasGrande:[], tamanos:'' }, true);
+  $('#izq .sub').insertAdjacentHTML('afterend', '<div class="sub-banco">Del banco de bebidas: sugerencia que todavía no se ha probado en Pretexto. Ajústenla al prepararla.</div>');
+  $('#izq').insertAdjacentHTML('beforeend', '<p class="acc-p"><button class="btn claro" id="volverBusq">← Volver</button></p>');
+  $('#der .nota-nueva').outerHTML = `<h2>¿Tenemos todo?</h2><ul class="req">${b.req.map(x => { const [c, t] = marca[revisarReq(x)]; return `<li><span class="${c}">${t}</span> — ${esc(x)}</li>`; }).join('')}</ul>
+    <p class="acc-p"><button class="btn" id="agregarBanco">Agregar al recetario</button></p><p class="leyenda">Se agrega en la pestaña "Nuevas" con su taza, tiempos y notas, para probarla y anotarle.</p>`;
+  $('#notaVoz')?.remove();
   $('#volverBusq').onclick = () => { vista.banco = null; pintar(); };
   $('#agregarBanco').onclick = async () => {
-    const res = await aplicarCambio({ tipo:'nueva_receta', titulo:b.nombre, categoria:'Nuevas', ingredientes:b.ingredientes, pasos:b.pasos, tiempos:[], evitar:[], variaciones:[] });
+    const res = await aplicarCambio(typeof cambioDeBanco === 'function' ? cambioDeBanco(b) : { tipo:'nueva_receta', titulo:b.nombre, categoria:'Nuevas', taza:b.taza, capas:b.capas, ingredientes:b.ingredientes, pasos:b.pasos, tiempos:b.tiempos, evitar:b.evitar, variaciones:b.variaciones });
     if (res && res.error) alerta(res.error); else { vista.banco = null; const n = D.recetas.find(r => canon(r.titulo) === canon(b.nombre)); if (n) abrir(n.slug); else pintar(); }
   };
 }
@@ -641,7 +642,7 @@ function rangoSeg(t){
   return b > 600 ? null : [a,b];
 }
 
-function pintarReceta(r){
+function pintarReceta(r, banco){
   const capas = vista.grande && r.capasGrande.length ? r.capasGrande : r.capas;
   const sello = '';
   $('#izq').innerHTML = `${sello}
@@ -667,6 +668,7 @@ function pintarReceta(r){
     <p style="margin-top:18px"><button class="btn claro" id="preguntar">✎ Preguntar sobre ${esc(r.titulo)}</button></p>`;
   document.querySelectorAll('.tamanos button').forEach(b => b.onclick = () => { vista.grande = b.dataset.g==='1'; pintar(); });
   document.querySelectorAll('.crono').forEach(b => b.onclick = () => cronometro(b));
+  if (banco){ $('#preguntar').onclick = () => { abrirChat(); $('#txt').value = `Sobre el ${r.titulo}: `; $('#txt').focus(); }; return; }
   enlazarMic($('#notaMic'), $('#notaTxt'), $('#notaVoz'));
   $('#notaBtn').onclick = async () => {
     const t = $('#notaTxt').value.trim(); if (!t) return;
@@ -694,6 +696,7 @@ function cronometro(btn){
 
 // ---------- dibujo de la taza (SVG estilo lápiz)
 const COLORES = [
+  [/chai/i,'#b98a5a'], [/caramelo|cajeta|leche condensada/i,'#c98a3c'], [/horchata/i,'#efe6d2'], [/t[oó]nica/i,'#eef6f2'], [/limonada/i,'#f3eaa0'], [/naranja/i,'#f39a3c'], [/hierbabuena/i,'#7fae6a'], [/crema$|espumita/i,'#d7a86a'], [/caf[eé] (del d[ií]a|de olla)/i,'#5a3520'], [/base de sabor/i,'#b9a3c9'],
   [/crema batida|crema dulce|topping/i,'#fffdf7'], [/^crema$/i,'#d7a86a'], [/microespuma|espuma/i,'#fbf5e6'],
   [/leche/i,'#efe2cc'], [/espresso|^caf[eé]$/i,'#4a2b18'], [/cold brew/i,'#3a2516'], [/chocolate/i,'#5a301c'],
   [/agua mineral/i,'#e2f0f4'], [/agua/i,'#d8e8ef'], [/hielo/i,'#e8f3f8'], [/matcha/i,'#93b35f'], [/tisana/i,'#b4405a'],
@@ -816,6 +819,7 @@ async function enviar(){
     let texto = r.respuesta; if (r.faltan?.length) texto += `\n\nFalta: ${r.faltan.join(', ')}`;
     agregarMsg('ia', texto);
     if (r.abrir) abrir(r.abrir);
+    if (r.abrirBanco) abrirBanco(r.abrirBanco);
     chatHist.push({ role:'assistant', content: JSON.stringify({respuesta:r.respuesta, cambios:r.cambios}) });
     for (const c of r.cambios||[]){
       const d = document.createElement('div'); d.className='cambio';
