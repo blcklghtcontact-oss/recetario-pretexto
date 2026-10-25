@@ -591,6 +591,9 @@ function bancoDe(q){
     .map(b => { const n = canon([b.nombre, ...b.alias].join(' ')), ing = canon(b.ingredientes.join(' ')); return [n.includes(q) ? 2 : (ing.includes(q) ? 1 : 0), b]; })
     .filter(a => a[0]).sort((a,b) => b[0]-a[0]).map(a => a[1]);
 }
+// color del separador al que pertenece cada grupo del banco
+const COLOR_BANCO = { 'Café caliente':'#6b4a2f', 'Café frío':'#4f6a78', 'Matcha, chai y té':'#6f8a4c', 'Chocolate y sin café':'#7a4b35', 'Sodas y limonadas':'#b1764a', 'Frappés, smoothies y malteadas':'#9a6338' };
+const colorBanco = c => COLOR_BANCO[c] || '#8a6d3b';
 function pintarIndiceBanco(){
   const titulos = new Set(D.recetas.map(r => canon(r.titulo)));
   const grupos = {};
@@ -598,13 +601,13 @@ function pintarIndiceBanco(){
   const ks = Object.keys(grupos); const total = ks.reduce((a,k) => a + grupos[k].length, 0);
   const pesos = ks.map(k => grupos[k].length + 2); let acc = 0, corte = ks.length; const mitad = pesos.reduce((a,b)=>a+b,0)/2;
   for (let i=0;i<ks.length;i++){ acc += pesos[i]; if (acc >= mitad){ corte = i+1; break; } }
-  const fila = b => `<div class="fila" data-banco="${esc(b.nombre)}"><span>${esc(b.nombre)}</span><span class="pts"></span></div>`;
-  const col = arr => arr.map(k => `<h2>${esc(k)}</h2>${grupos[k].map(fila).join('')}`).join('');
+  const fila = b => `<div class="fila" data-banco="${esc(b.nombre)}" style="color:${colorBanco(b.categoria)}"><span>${esc(b.nombre)}</span><span class="pts" style="border-bottom-color:${colorBanco(b.categoria)}66"></span></div>`;
+  const col = arr => arr.map(k => `<h2 style="color:${colorBanco(k)};border-bottom:3px solid ${colorBanco(k)}">${esc(k)}</h2>${grupos[k].map(fila).join('')}`).join('');
   $('#izq').innerHTML = `<div class="indice"><h1 class="t">Banco de bebidas</h1><p class="sub">${total} preparaciones comunes de cafetería con las medidas de la casa. Son sugerencias para probar: tócala para ver su hoja y agrégala al recetario si les gusta.</p>${col(ks.slice(0, corte))}</div>`;
   $('#der').innerHTML = `<div class="indice">${col(ks.slice(corte))}<p class="leyenda">Funciona sin internet. Cada hoja dice qué ingredientes tienen y cuáles faltan según el inventario.</p></div>`;
   enlazarFilas();
 }
-function filaBanco(b){ return `<div class="fila banco" data-banco="${esc(b.nombre)}"><span>${esc(b.nombre)}</span><span class="pts"></span></div>`; }
+function filaBanco(b){ return `<div class="fila banco" data-banco="${esc(b.nombre)}" style="color:${colorBanco(b.categoria)}"><span>${esc(b.nombre)}</span><span class="pts"></span></div>`; }
 function pintarBusqueda(q){
   q = canon(q);
   const res = D.recetas.map(r => [canon(r.titulo).includes(q) ? 3 : (canon([r.categoria, ...r.ingredientes].join(' ')).includes(q) ? 1 : 0), r]).filter(a => a[0]).sort((a,b) => b[0]-a[0]).map(a => a[1]);
@@ -628,6 +631,7 @@ function abrirBanco(nombre){ vista = { ...vista, slug:null, banco:nombre }; pint
 function pintarBanco(b){
   const marca = { si:['si','✓ hay'], no:['no','✗ no tenemos'], agotado:['no','✗ se acabó'], revisar:['rev','? revisa jarabes de sabor'] };
   pintarReceta({ ...b, slug:null, titulo:b.nombre, capasGrande:[], tamanos:'' }, true);
+  $('#izq h1.t').style.color = colorBanco(b.categoria); $('#izq h1.t').style.borderBottom = '3px solid ' + colorBanco(b.categoria);
   $('#izq .sub').insertAdjacentHTML('afterend', '<div class="sub-banco">Del banco de bebidas: sugerencia que todavía no se ha probado en Pretexto. Ajústenla al prepararla.</div>');
   $('#izq').insertAdjacentHTML('beforeend', '<p class="acc-p"><button class="btn claro" id="volverBusq">← Volver</button></p>');
   $('#der .nota-nueva').outerHTML = `<h2>¿Tenemos todo?</h2><ul class="req">${b.req.map(x => { const [c, t] = marca[revisarReq(x)]; return `<li><span class="${c}">${t}</span> — ${esc(x)}</li>`; }).join('')}</ul>
